@@ -506,6 +506,13 @@ def _rule_factories():
     Each rule encodes a single Spelke prior (cohesion / geometry / topology / numerosity).
     """
     from .arc2_rules_v2 import all_v2_factories
+    from .rules_v3 import (
+        KeepLargest, KeepSmallest, KeepByMaxColor, KeepByMinColor,
+        DeleteLargest, DeleteSmallest,
+        SymmetrizeH, SymmetrizeV, SymmetrizeDiag,
+        GravityUp, GravityDown, GravityLeft, GravityRight,
+        DrawBorder, FillInterior, ApplyUntilStable,
+    )
     base = [
         lambda: Identity(),
         lambda: Recolor(),
@@ -519,7 +526,25 @@ def _rule_factories():
         lambda: CropToBbox(),
         lambda: Tile(),
     ]
-    return base + all_v2_factories()
+    wave4 = [
+        lambda: KeepLargest(),
+        lambda: KeepSmallest(),
+        lambda: KeepByMaxColor(),
+        lambda: KeepByMinColor(),
+        lambda: DeleteLargest(),
+        lambda: DeleteSmallest(),
+        lambda: SymmetrizeH(),
+        lambda: SymmetrizeV(),
+        lambda: SymmetrizeDiag(),
+        lambda: GravityUp(),
+        lambda: GravityDown(),
+        lambda: GravityLeft(),
+        lambda: GravityRight(),
+        lambda: DrawBorder(),
+        lambda: FillInterior(),
+        lambda: ApplyUntilStable(),
+    ]
+    return base + all_v2_factories() + wave4
 
 
 @dataclass

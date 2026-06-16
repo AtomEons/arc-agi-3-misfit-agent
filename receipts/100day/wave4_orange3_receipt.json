@@ -1,0 +1,91 @@
+{
+  "order_id": "arc_wave4_climb_2026-06-16",
+  "manifest_path": "C:/AtomEons/orange3/app/control-plane/manifests/arc_wave4_climb.json",
+  "status": "COMPLETED",
+  "completed_at": "2026-06-16T15:25:00Z",
+  "sovereign": "atom-mccree",
+  "founding_charter_sha": "217d05d",
+  "tier_1_attestation_clean": true,
+
+  "steps": {
+    "step_1_write_wave4": {
+      "state": "COMPLETED",
+      "artifacts": [
+        "src/misfit_agent/rules_v3/__init__.py",
+        "src/misfit_agent/rules_v3/wave4.py"
+      ],
+      "lines_of_code_added": 460,
+      "new_rule_classes": [
+        "KeepLargest", "KeepSmallest", "KeepByMaxColor", "KeepByMinColor",
+        "DeleteLargest", "DeleteSmallest",
+        "SymmetrizeH", "SymmetrizeV", "SymmetrizeDiag",
+        "GravityUp", "GravityDown", "GravityLeft", "GravityRight",
+        "DrawBorder", "FillInterior",
+        "ApplyUntilStable"
+      ]
+    },
+    "step_2_wire_factories": {
+      "state": "COMPLETED",
+      "rule_factories_count_before": 27,
+      "rule_factories_count_after": 43,
+      "delta": 16
+    },
+    "step_3_smoke_test": {
+      "state": "COMPLETED",
+      "command": "python -m pytest tests/test_substrate_smoke.py tests/test_arc2_solver.py -q",
+      "result": "19 passed in 8.41s",
+      "exit_code": 0
+    },
+    "step_4_measurement": {
+      "state": "COMPLETED",
+      "command": "python scripts/measure_arc2.py --split training --depth 1 --limit 1000",
+      "wall_clock_seconds": 632.7,
+      "tasks_solved_all": "24/1000",
+      "tasks_solved_pct": 2.40,
+      "test_inputs_solved": "25/1076",
+      "test_inputs_solved_pct": 2.32,
+      "receipt": "receipts/arc/measurement_training_d1_1781644053.jsonl"
+    }
+  },
+
+  "delta_summary": {
+    "baseline_training_pct": 2.30,
+    "wave4_training_pct": 2.40,
+    "delta_training_pp": 0.10,
+    "additional_tasks_solved": 1,
+    "additional_test_inputs_solved": 1,
+    "rule_families_added": 6,
+    "rule_classes_added": 16,
+    "loc_added": 460
+  },
+
+  "honest_assessment": {
+    "verdict": "REAL_BUT_SMALL_CLIMB",
+    "explanation": "16 new Spelke-priors-only rule families across 6 categories (ObjectKeep, ObjectDelete, Symmetrize, Gravity, BorderAndFill, FixedPoint) lifted training from 2.30% to 2.40% — one new task solved beyond Wave 3 coverage. Lift is real but the bottleneck has shifted: the substrate now needs COMPOSITIONAL DEPTH and PARAMETER INFERENCE, not more rule templates. Adding more Tier-1 hand rules will continue to produce ~0.1-0.3pp lifts per ~10-20 rules; the curve is logarithmic. Reaching 5-10% requires Wave 5+ work on depth-2/3 composition over the new families and parameter-space search.",
+    "what_climbed": "+0.10pp training, +0.09pp test inputs, 1 new task admitted to coverage",
+    "what_did_not_climb": "Most new rule families fit on synthetic toys but train-pair tasks usually require composition or per-task parameter inference that the standalone rules don't capture",
+    "next_highest_leverage_moves": [
+      "Wave 5: extend depth-2 composition to include Wave 4 rules (currently composition only enumerates over the 11 base rules — extending to all 43 quadratically explodes the search but covers genuine composed tasks)",
+      "Wave 5: ForEachObject(inner_rule) per-object dispatch — apply rules per detected object instead of globally",
+      "Wave 6: parameter search for KeepBy<Predicate> with inferred color/size/position predicates",
+      "Wave 6: multi-grid composition for tasks where input is N×M of subgrids merged via OR/AND/MAX"
+    ]
+  },
+
+  "tier_1_attestation": {
+    "no_llm_in_inference_path": true,
+    "no_pretrained_weights": true,
+    "no_learned_parameters_at_eval": true,
+    "no_threshold_tuning_on_public_eval": true,
+    "ci_grep_test": "tests/test_tier1_attestation.py",
+    "all_constants_classified": true
+  },
+
+  "rollback_path": "git checkout HEAD -- src/misfit_agent/rules_v3/ src/misfit_agent/arc2_solver.py",
+
+  "audit_chain": {
+    "prev_receipt": "receipts/100day/wave3_measurement.json",
+    "this_receipt_sha256": "computed-on-write",
+    "next_expected_receipt": "receipts/100day/wave5_orange3_receipt.json"
+  }
+}
