@@ -12,6 +12,22 @@ from .wave4 import (
     ApplyUntilStable,
     ALL_WAVE4_RULES,
 )
+from .wave5 import (
+    KeepByPredicate, DeleteByPredicate,
+    RecolorByPredicate, ForEachObjectGravity,
+    ALL_WAVE5_RULES,
+)
+from .wave6 import (
+    ColorMap, ColorReplace,
+    CropToContent, CropToColor, KeepOnlyColor,
+    ALL_WAVE6_RULES,
+)
+from .wave7 import (
+    RecolorByCountRank, SwapTwoNonBgColors,
+    RecolorByAreaRank, CropToObjectByAreaRank,
+    PaintObjectByRankWithColorOfRank,
+    ALL_WAVE7_RULES,
+)
 
 __all__ = [
     "KeepLargest", "KeepSmallest", "KeepByMaxColor", "KeepByMinColor",
@@ -21,4 +37,14 @@ __all__ = [
     "DrawBorder", "FillInterior",
     "ApplyUntilStable",
     "ALL_WAVE4_RULES",
+    "KeepByPredicate", "DeleteByPredicate",
+    "RecolorByPredicate", "ForEachObjectGravity",
+    "ALL_WAVE5_RULES",
+    "ColorMap", "ColorReplace",
+    "CropToContent", "CropToColor", "KeepOnlyColor",
+    "ALL_WAVE6_RULES",
+    "RecolorByCountRank", "SwapTwoNonBgColors",
+    "RecolorByAreaRank", "CropToObjectByAreaRank",
+    "PaintObjectByRankWithColorOfRank",
+    "ALL_WAVE7_RULES",
 ]

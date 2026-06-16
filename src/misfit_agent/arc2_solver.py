@@ -512,6 +512,13 @@ def _rule_factories():
         SymmetrizeH, SymmetrizeV, SymmetrizeDiag,
         GravityUp, GravityDown, GravityLeft, GravityRight,
         DrawBorder, FillInterior, ApplyUntilStable,
+        KeepByPredicate, DeleteByPredicate,
+        RecolorByPredicate, ForEachObjectGravity,
+        ColorMap, ColorReplace,
+        CropToContent, CropToColor, KeepOnlyColor,
+        RecolorByCountRank, SwapTwoNonBgColors,
+        RecolorByAreaRank, CropToObjectByAreaRank,
+        PaintObjectByRankWithColorOfRank,
     )
     base = [
         lambda: Identity(),
@@ -544,7 +551,27 @@ def _rule_factories():
         lambda: FillInterior(),
         lambda: ApplyUntilStable(),
     ]
-    return base + all_v2_factories() + wave4
+    wave5 = [
+        lambda: KeepByPredicate(),
+        lambda: DeleteByPredicate(),
+        lambda: RecolorByPredicate(),
+        lambda: ForEachObjectGravity(),
+    ]
+    wave6 = [
+        lambda: ColorMap(),
+        lambda: ColorReplace(),
+        lambda: CropToContent(),
+        lambda: CropToColor(),
+        lambda: KeepOnlyColor(),
+    ]
+    wave7 = [
+        lambda: RecolorByCountRank(),
+        lambda: SwapTwoNonBgColors(),
+        lambda: RecolorByAreaRank(),
+        lambda: CropToObjectByAreaRank(),
+        lambda: PaintObjectByRankWithColorOfRank(),
+    ]
+    return base + all_v2_factories() + wave4 + wave5 + wave6 + wave7
 
 
 @dataclass

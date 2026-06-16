@@ -1,0 +1,112 @@
+{
+  "order_id": "arc_wave7_climb_2026-06-16",
+  "manifest_path": "C:/AtomEons/orange3/app/control-plane/manifests/arc_wave7_climb.json",
+  "status": "COMPLETED_WITH_REAL_LIFT",
+  "completed_at": "2026-06-16T16:48:00Z",
+  "sovereign": "atom-mccree",
+  "tier_1_attestation_clean": true,
+
+  "steps": {
+    "step_1_foundational_diagnostic": {
+      "state": "COMPLETED",
+      "finding": "980/1000 training tasks have NO rule fitting train under fit()-locks-global-params contract"
+    },
+    "step_2_write_wave7": {
+      "state": "COMPLETED",
+      "artifacts": ["src/misfit_agent/rules_v3/wave7.py"],
+      "lines_of_code_added": 282,
+      "new_rule_classes": [
+        "RecolorByCountRank", "SwapTwoNonBgColors", "RecolorByAreaRank",
+        "CropToObjectByAreaRank", "PaintObjectByRankWithColorOfRank"
+      ],
+      "design_pivot": "Rule type locked at fit; parameter values bound at predict from input properties"
+    },
+    "step_3_wire_factories": {
+      "state": "COMPLETED",
+      "rule_factories_count_before": 52,
+      "rule_factories_count_after": 57,
+      "delta": 5
+    },
+    "step_4_smoke_test": {
+      "state": "COMPLETED",
+      "result": "19 passed in 2.77s"
+    },
+    "step_5_preflight_check": {
+      "state": "COMPLETED",
+      "expected_new_solves": 3,
+      "task_ids_expected": ["1f85a75f", "be94b721", "c909285e"],
+      "responsible_rule": "CropToObjectByAreaRank"
+    },
+    "step_6_measurement": {
+      "state": "COMPLETED",
+      "command": "python scripts/measure_arc2.py --split training --depth 1 --limit 1000",
+      "wall_clock_seconds": 506.5,
+      "tasks_solved_all": "27/1000",
+      "tasks_solved_pct": 2.70,
+      "test_inputs_solved": "28/1076",
+      "test_inputs_solved_pct": 2.60,
+      "receipt": "receipts/arc/measurement_training_d1_1781649248.jsonl"
+    }
+  },
+
+  "delta_summary": {
+    "baseline_training_pct": 2.40,
+    "wave7_training_pct": 2.70,
+    "delta_training_pp": 0.30,
+    "additional_tasks_solved": 3,
+    "additional_test_inputs_solved": 3,
+    "rule_classes_added": 5,
+    "loc_added": 282,
+    "preflight_vs_measured": "exact match (predicted 3, measured 3)"
+  },
+
+  "depth_2_diagnostic": {
+    "note": "Concurrent depth-2 measurement over the 43-rule Wave-4 grammar also landed during this wave",
+    "depth_2_wall_clock_seconds": 2887.1,
+    "depth_2_tasks_solved": "24/1000",
+    "depth_2_tasks_solved_pct": 2.40,
+    "depth_2_delta_vs_depth_1": 0.0,
+    "receipt": "receipts/arc/measurement_training_d2_1781646781.jsonl",
+    "interpretation": "Depth-2 composition adds ZERO new solves over depth-1 on the 43-rule grammar, while taking 5.7x the wall clock. Confirms the bottleneck is rule expressiveness, NOT search depth. Wave 7's lift came from BETTER PRIMITIVES (property-bound), not from chains of existing ones."
+  },
+
+  "honest_assessment": {
+    "verdict": "REAL_LIFT_VIA_ARCHITECTURE_PIVOT",
+    "explanation": "Wave 7 ships the property-bound rule contract: fit() validates only the rule's RELATION across train pairs; predict() looks up the parameter VALUE from the test input's properties at runtime. Net: +3 tasks (24 → 27), +0.30pp training. The 3 lifted tasks (1f85a75f, be94b721, c909285e) all required cropping to the bbox of the largest-area object — a rule type ANY prior wave could express in concept but none could ACTUALLY FIT because the largest-area object had a different color per training pair. Property-binding closes that gap.",
+    "what_climbed": "+0.30pp training (24/1000 → 27/1000), +0.28pp test inputs",
+    "what_we_now_know": [
+      "Property-bound rules unlock task classes that vocabulary expansion cannot reach",
+      "Depth-2 composition over weak primitives buys nothing (24 → 24 in 48 min)",
+      "Pre-flight per-task fit + test-predict enumeration accurately predicts measurement outcome (3 predicted, 3 measured)"
+    ],
+    "honest_tradeoffs": [
+      "+0.30pp on 1000 tasks is real but small in absolute terms",
+      "The curve from 24 → 27 took 282 LOC; further property-bound additions will hit diminishing returns once the highest-frequency rank-based patterns are covered",
+      "Reaching 5% (50 tasks) likely requires shape/connectivity/neighbor relational rules + pattern completion mechanisms — the categories dominating the unsolved sample"
+    ],
+    "wave_8_targets": [
+      "CropToObjectByColorRank — extract bbox of rank-N-by-color object",
+      "RecolorByNeighborMajority — recolor each cell to majority of its 4-neighbors",
+      "DuplicateObjectAtPosition — copy object to a position derived from train pairs",
+      "FillEnclosedRegions — fill cells topologically enclosed by a non-bg color",
+      "MirrorAcrossDominantAxis — reflect across the axis of symmetry inferred from train pairs"
+    ]
+  },
+
+  "tier_1_attestation": {
+    "no_llm_in_inference_path": true,
+    "no_pretrained_weights": true,
+    "no_learned_parameters_at_eval": true,
+    "no_threshold_tuning_on_public_eval": true,
+    "property_binding_is_deterministic_from_input": true,
+    "rule_type_locked_at_fit_param_values_at_predict_from_input": true,
+    "ci_grep_test": "tests/test_tier1_attestation.py"
+  },
+
+  "rollback_path": "git checkout HEAD -- src/misfit_agent/rules_v3/wave7.py src/misfit_agent/rules_v3/__init__.py src/misfit_agent/arc2_solver.py",
+
+  "audit_chain": {
+    "prev_receipt": "receipts/100day/wave6_orange3_receipt.json",
+    "next_expected_receipt": "receipts/100day/wave8_orange3_receipt.json"
+  }
+}

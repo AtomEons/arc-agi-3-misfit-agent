@@ -1,0 +1,103 @@
+{
+  "order_id": "arc_wave5_climb_2026-06-16",
+  "manifest_path": "C:/AtomEons/orange3/app/control-plane/manifests/arc_wave5_climb.json",
+  "status": "COMPLETED_WITH_HONEST_NULL",
+  "completed_at": "2026-06-16T16:14:00Z",
+  "sovereign": "atom-mccree",
+  "founding_charter_sha": "217d05d",
+  "tier_1_attestation_clean": true,
+
+  "steps": {
+    "step_1_write_wave5": {
+      "state": "COMPLETED",
+      "artifacts": [
+        "src/misfit_agent/rules_v3/wave5.py"
+      ],
+      "lines_of_code_added": 327,
+      "new_rule_classes": [
+        "KeepByPredicate", "DeleteByPredicate",
+        "RecolorByPredicate", "ForEachObjectGravity"
+      ],
+      "predicate_families": [
+        "largest_area", "smallest_area", "max_color", "min_color",
+        "touches_edge", "interior", "unique_color", "duplicated_color"
+      ]
+    },
+    "step_2_wire_factories": {
+      "state": "COMPLETED",
+      "rule_factories_count_before": 43,
+      "rule_factories_count_after": 47,
+      "delta": 4
+    },
+    "step_3_smoke_test": {
+      "state": "COMPLETED",
+      "command": "python -m pytest tests/test_substrate_smoke.py tests/test_arc2_solver.py -q",
+      "result": "19 passed in 3.33s",
+      "exit_code": 0
+    },
+    "step_4b_wave5_depth1_measurement": {
+      "state": "COMPLETED",
+      "command": "python scripts/measure_arc2.py --split training --depth 1 --limit 1000",
+      "wall_clock_seconds": 532.3,
+      "tasks_solved_all": "24/1000",
+      "tasks_solved_pct": 2.40,
+      "test_inputs_solved": "25/1076",
+      "test_inputs_solved_pct": 2.32,
+      "receipt": "receipts/arc/measurement_training_d1_1781646896.jsonl"
+    },
+    "step_4a_depth2_measurement": {
+      "state": "PENDING_IN_BACKGROUND",
+      "background_task_id": "bk185mbbh",
+      "note": "Depth-2 over 43-rule grammar still running at receipt-write time; will be cross-linked when it lands"
+    }
+  },
+
+  "delta_summary": {
+    "baseline_training_pct": 2.40,
+    "wave5_training_pct": 2.40,
+    "delta_training_pp": 0.00,
+    "additional_tasks_solved": 0,
+    "additional_test_inputs_solved": 0,
+    "rule_families_added": 1,
+    "rule_classes_added": 4,
+    "loc_added": 327
+  },
+
+  "diff_analysis": {
+    "w4_solved_set_size": 24,
+    "w5_solved_set_size": 24,
+    "tasks_unique_to_w4": [],
+    "tasks_unique_to_w5": [],
+    "intersection_size": 24,
+    "interpretation": "Wave 5 added zero novel solves. The four predicate-inferred rules and ForEachObjectGravity wrapper caught no tasks that Wave 4 hadn't already caught. Either the four NEW predicates (touches_edge, interior, unique_color, duplicated_color) don't appear in the unsolved set at depth-1, or the tasks that need them also need composition or different parameter inference."
+  },
+
+  "honest_assessment": {
+    "verdict": "ZERO_LIFT_HONEST",
+    "explanation": "Wave 5 shipped 4 new rule classes (327 LOC) attacking object-predicate vocabulary and per-object dispatch. At depth-1 over 47 rules, the lift is exactly +0.00pp. The bottleneck is not 'more object predicates' — it's the WRONG ABSTRACTION LAYER. Failure-mode fingerprinting on 12 random Wave-5-unsolved tasks (sampled with seed=7) shows the dominant failures need cell-level color mapping (Class B, 33%) and bbox cropping to non-bg content (Class D, 25%), not richer object predicates. Wave 6 pivots to those concerns directly.",
+    "what_climbed": "+0.00pp training (24/1000 → 24/1000)",
+    "what_did_not_climb": "Every predicate I added (touches_edge, interior, unique_color, duplicated_color) overlapped functionally with Wave 4's already-shipped keep/delete rules — the new ones caught zero new tasks because the underlying ARC failures aren't object-predicate-shaped",
+    "lesson_learned": "Don't ship a new wave by extrapolating from prior-wave architecture. Diagnose unsolved-task failure modes FIRST, then build the rule family that attacks the most numerous failure mode. Wave 6 is the corrective.",
+    "next_highest_leverage_moves": [
+      "Wave 6 (in progress): ColorMap (10-color permutation), ColorReplace (single src→dst), CropToContent (bbox of non-bg), CropToColor (bbox of color N), KeepOnlyColor",
+      "Wave 7 (planned): pattern completion for same-shape/same-color/small-diff tasks (Class A, 33% of sample) — likely needs symmetry-aware fill",
+      "Composition: depth-2 over the 47/52-rule grammar may catch tasks where each step alone doesn't fit but the chain does — depth-2 still running as background task bk185mbbh"
+    ]
+  },
+
+  "tier_1_attestation": {
+    "no_llm_in_inference_path": true,
+    "no_pretrained_weights": true,
+    "no_learned_parameters_at_eval": true,
+    "no_threshold_tuning_on_public_eval": true,
+    "predicate_inference_is_deterministic_enumeration": true,
+    "ci_grep_test": "tests/test_tier1_attestation.py"
+  },
+
+  "rollback_path": "git checkout HEAD -- src/misfit_agent/rules_v3/wave5.py src/misfit_agent/rules_v3/__init__.py src/misfit_agent/arc2_solver.py",
+
+  "audit_chain": {
+    "prev_receipt": "receipts/100day/wave4_orange3_receipt.json",
+    "next_expected_receipt": "receipts/100day/wave6_orange3_receipt.json"
+  }
+}
