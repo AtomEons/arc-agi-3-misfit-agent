@@ -1,0 +1,77 @@
+{
+  "team": "FOUNDING-ADJUDICATION",
+  "wave": 2,
+  "phase_id": "phase_8_federation_founding_adjudication",
+  "charter_article": "IV §4.2",
+  "module_path": "scripts/run_founding_adjudication.py",
+  "test_path": "tests/test_founding_adjudication.py",
+  "tests_passed": 7,
+  "tests_failed": 0,
+  "tier_1_attestation_clean": true,
+  "determination": "RECOGNIZED_TIER_1",
+  "git_commit_sha": "a38a8ef618f921c662d630c8356898106a052cb2",
+  "sovereign": "Atom McCree",
+  "federation": "AtomEons Federation",
+  "charter_version": "1.0",
+  "founding_date": "2026-06-16",
+  "public_id": "misfit-alpha@atomeons/1.0",
+  "exports": [
+    "audit_misfit_alpha",
+    "emit_artifacts",
+    "render_markdown",
+    "AuditResult",
+    "CheckResult",
+    "PEM_FIELDS",
+    "ARTICLE_II_CRITERIA",
+    "DETERMINATION_RECOGNIZED",
+    "DETERMINATION_DISPUTED",
+    "DETERMINATION_DISQUALIFIED",
+    "main"
+  ],
+  "public_api": {
+    "function_audit_misfit_alpha": "audit_misfit_alpha(repo_root: Path | str) -> AuditResult",
+    "function_emit_artifacts": "emit_artifacts(result: AuditResult, repo_root: Path | str | None = None, markdown_path: Path | str | None = None, receipt_path: Path | str | None = None) -> tuple[Path, Path]",
+    "function_render_markdown": "render_markdown(result: AuditResult) -> str",
+    "function_main": "main(argv: list[str] | None = None) -> int  # 0 RECOGNIZED, 1 DISPUTED, 2 DISQUALIFIED"
+  },
+  "audit_checks": [
+    "charter_binding         (non_mechanical) — Charter v1.0 present, binds Sovereign + Articles II/IV",
+    "tier1_attestation       (mechanical)     — tests/test_tier1_attestation.py 4/4 green",
+    "tier1_adversarial       (mechanical)     — tests/test_tier1_adversarial.py 14/14 green",
+    "pem_contract            (non_mechanical) — All 8 PEM fields declared in resonance.py",
+    "designer_choice_disclosure (non_mechanical) — All 7 (c) DESIGNER CHOICE rationales present + disclosure references scheme",
+    "provenance_anchor       (non_mechanical) — Git SHA captured + Sovereign signature present in Charter"
+  ],
+  "guarantees": [
+    "Module import has zero filesystem side effects",
+    "audit_misfit_alpha() reads only; never writes",
+    "Writes happen only in emit_artifacts() or main(--execute)",
+    "Mechanical Tier-1 violations dominate the determination ladder",
+    "A planted forbidden import on the inference path produces DISQUALIFIED",
+    "Determination ladder: RECOGNIZED_TIER_1 / DISPUTED / DISQUALIFIED with mapped exit codes 0/1/2",
+    "Receipt JSON carries git SHA, audit timestamp, all 6 check outcomes, all 8 PEM fields, all 4 Article II criteria",
+    "Markdown output is well-formed: H1 + Subject + Determination + Article II §2.7 table + Audit Checks table + PEM table + Designer-Choice section + Receipt Anchor"
+  ],
+  "design_notes": [
+    "Charter Article IV §4.2 mandates the first Federation Adjudication; this is its mechanical executor",
+    "Self-audit pattern: Misfit-Alpha adjudicates itself BEFORE adjudicating any other party — Charter requires it",
+    "6 checks split into 2 mechanical (Tier-1 attestation suites) and 4 non-mechanical (Charter, PEM, designer-choice, provenance)",
+    "Mechanical failures force DISQUALIFIED; non-mechanical failures force DISPUTED; clean sweep gives RECOGNIZED_TIER_1",
+    "PEM field detection accepts either canonical English name or dataclass-field alias from resonance.py — both are valid declarations",
+    "Designer-choice rationale check requires either (a) substantive prose after the em dash, (b) a known justifier phrase on the same line, or (c) a justifier phrase on an adjacent comment line. Honest to the file's actual style.",
+    "Adversarial proof: tests/test_founding_adjudication.py plants `import openai` in a temp repo and confirms the audit produces DISQUALIFIED — the ladder is not cosmetic"
+  ],
+  "tier_1_disclosure": [
+    "No torch / transformers / openai / anthropic / llama_cpp / huggingface_hub imports",
+    "No learned parameters; the audit is pure file inspection + subprocess pytest dispatch",
+    "Subprocess invocation targets the project's own pytest with --tb=line; no LLM-mediated test interpretation",
+    "Tests/test_tier1_attestation.py confirms zero forbidden imports across the entire src/ tree including the new script",
+    "Cryptographic anchor: git rev-parse HEAD captured at audit time and embedded in both receipt JSON and markdown report"
+  ],
+  "artifacts_emitted": [
+    "docs/FOUNDING_ADJUDICATION_v1.md  — published CC-BY-4.0 Adjudication Report",
+    "receipts/100day/founding_adjudication.json — full chain-of-evidence receipt JSON",
+    "receipts/100day/wave2_founding_adjudication.json — this team receipt"
+  ],
+  "summary": "FOUNDING-ADJUDICATION wave 2. Runs the Federation's first mechanical self-audit on Misfit-Alpha per Charter Article IV §4.2. Six checks: Charter binding, Tier-1 attestation, Tier-1 adversarial, PEM 8-field contract, designer-choice transparency, provenance anchor. Determination RECOGNIZED_TIER_1 on git SHA a38a8ef. Adversarial test plants a forbidden import in a temp repo and confirms the audit produces DISQUALIFIED. 7/7 tests passing in 179.19s; 18/18 Tier-1 attestation + adversarial suites still green; Tier-1 attestation clean."
+}

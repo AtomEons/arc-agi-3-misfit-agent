@@ -21,6 +21,7 @@ the identity baseline (a safe, non-degenerate guess).
 
 from __future__ import annotations
 
+import time
 from dataclasses import dataclass, field
 from typing import Optional
 
@@ -30,6 +31,20 @@ from .perceptor import perceive_grid, SceneObservation, _background_color
 
 
 Grid = np.ndarray  # 2-D int ARC color grid
+
+
+# ---------------------------------------------------------------------------
+# DSL integration budget defaults — exported so callers can introspect them.
+# Wave-2 integration: the DSL synthesis engine is layered on top of the
+# existing hand-rule beam. The two share a single per-task time budget so the
+# caller-provided cap (default 2.0s for the DSL leg) is the upper bound on
+# everything DSL adds, not a per-stage multiplier.
+# ---------------------------------------------------------------------------
+DSL_DEFAULT_MAX_DEPTH = 3
+DSL_DEFAULT_TIME_BUDGET_S = 2.0
+DSL_DEFAULT_TOP_K = 4
+DSL_DEFAULT_REFINE_MAX_ITERS = 4
+DSL_DEFAULT_RESONANCE_K = 5
 
 
 # ---------------------------------------------------------------------------
@@ -632,11 +647,319 @@ def _fit_all_rules(
     return fitted
 
 
+# ---------------------------------------------------------------------------
+# DSL adapter — wrap a synthesized DSL Program so the existing beam logic
+# (which expects .predict / .signature on every candidate "rule") can mix
+# DSL candidates and hand-rule candidates uniformly.
+#
+# This adapter is intentionally a thin shell. It owns no synthesis logic;
+# the only behaviour it adds is exception-safe prediction (so a runtime
+# error inside the DSL interpreter does not corrupt the beam — the offending
+# candidate just scores 0 in the existing pipeline).
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class _DslProgramRule:
+    """Adapter: wraps a dsl.Program so it presents the rule interface
+    (.predict, .signature) the existing solver beam was built for."""
+    program: object  # dsl.ast.Program — typed via duck-typing to avoid the
+                     # cyclic import at module import time
+    fitted: bool = True
+
+    def predict(self, grid: Grid) -> Grid:
+        # Import lazily to keep arc2_solver importable without DSL loaded.
+        from .dsl.interpreter import evaluate, IncompleteProgramError
+        try:
+            pred = evaluate(self.program, np.asarray(grid))
+        except (IncompleteProgramError, ValueError, IndexError,
+                KeyError, TypeError, AttributeError):
+            # Honest fallback: a DSL prediction that throws is treated as
+            # identity. The merged beam re-scores against train pairs and
+            # discards no-op chains naturally.
+            return np.asarray(grid).copy()
+        if not isinstance(pred, np.ndarray):
+            # Type-changing primitives at the root (e.g. CountObj returning
+            # a Number) cannot be a Grid candidate. Identity-fallback.
+            return np.asarray(grid).copy()
+        return pred.copy()
+
+    def signature(self) -> tuple:
+        # The program's hash_key already encodes the typed AST (primitive
+        # heads, parameters, child structure). We prefix with "Dsl" so DSL
+        # candidates can never collide with hand-rule signatures during
+        # beam deduplication — a Translate2 hand-rule and a Translate DSL
+        # primitive can both legitimately appear in the merged candidate set
+        # because they are scored independently.
+        try:
+            key = self.program.hash_key()
+        except Exception:
+            key = repr(self.program)
+        return ("Dsl", key)
+
+
+def _safe_synthesize(norm_pairs, max_depth: int, time_budget_s: float,
+                     beam_width: int) -> list:
+    """Wrap dsl.synthesize so any import-time or runtime failure inside the
+    DSL leg degrades gracefully to an empty candidate list."""
+    if time_budget_s <= 0:
+        return []
+    try:
+        from .dsl import synthesize as _synthesize
+    except Exception:
+        return []
+    try:
+        return _synthesize(norm_pairs, max_depth=max_depth,
+                           beam_width=beam_width, time_budget_s=time_budget_s)
+    except Exception:
+        return []
+
+
+def _safe_refine(programs, norm_pairs, max_iters: int,
+                 deadline: Optional[float] = None) -> list:
+    """Refine each DSL program; drop any that error out.
+
+    When `deadline` is supplied (monotonic-clock target), refinement stops
+    immediately if it has been exceeded — unrefined programs are returned
+    unchanged. This is the hard time-budget enforcement path for the DSL
+    leg so the merged solver respects an outer wall-clock cap.
+    """
+    if not programs or max_iters <= 0:
+        return list(programs)
+    try:
+        from .dsl import refine as _refine
+    except Exception:
+        return list(programs)
+    out = []
+    for p in programs:
+        if deadline is not None and time.monotonic() > deadline:
+            # Out of time — return what we have plus the unrefined rest.
+            out.append(p)
+            continue
+        try:
+            refined = _refine(p, norm_pairs, max_iters=max_iters)
+        except Exception:
+            refined = p
+        out.append(refined)
+    return out
+
+
+def _safe_resonance_seeds(train_pairs, k: int) -> list:
+    """Pull seeds from the resonance library; honest [] on any failure."""
+    if k <= 0:
+        return []
+    try:
+        from .dsl import seed_from_resonance as _seeds
+    except Exception:
+        return []
+    try:
+        return _seeds(train_pairs, k=k)
+    except Exception:
+        return []
+
+
+def _dsl_train_score(program, norm_pairs) -> float:
+    """Mean cell-accuracy of a DSL Program on the train pairs. Mirrors
+    dsl.synthesis._train_score but uses our local cell_accuracy so the
+    scale matches the hand-rule beam (and a synthesis crash scores 0.0)."""
+    try:
+        from .dsl.interpreter import evaluate, IncompleteProgramError
+    except Exception:
+        return 0.0
+    if not norm_pairs:
+        return 0.0
+    accs = []
+    for inp, out in norm_pairs:
+        try:
+            pred = evaluate(program, inp)
+        except (IncompleteProgramError, ValueError, IndexError,
+                KeyError, TypeError, AttributeError):
+            return 0.0
+        if not isinstance(pred, np.ndarray):
+            accs.append(0.0)
+            continue
+        accs.append(cell_accuracy(pred, out))
+    return float(np.mean(accs)) if accs else 0.0
+
+
+def solve_task_with_dsl_programs(
+    train_pairs: list[tuple],
+    test_input,
+    beam_width: int = 4,
+    compose_depth: int = 1,
+    dsl_max_depth: int = DSL_DEFAULT_MAX_DEPTH,
+    dsl_time_budget_s: float = DSL_DEFAULT_TIME_BUDGET_S,
+    dsl_top_k: int = DSL_DEFAULT_TOP_K,
+    dsl_refine_max_iters: int = DSL_DEFAULT_REFINE_MAX_ITERS,
+    dsl_resonance_k: int = DSL_DEFAULT_RESONANCE_K,
+    total_time_budget_s: Optional[float] = None,
+    use_dsl: bool = True,
+) -> tuple[Grid, Grid, list]:
+    """Same contract as solve_task, but also returns the list of DSL Programs
+    that survived the merged beam. The resonance updater consumes this list
+    to record self-solved programs.
+
+    Returns:
+        (attempt_1, attempt_2, dsl_programs)
+        dsl_programs is the (possibly empty) list of dsl.Program instances
+        whose adapted rule survived into the final beam (top `beam_width`
+        candidates after merge + sort).
+    """
+    # Normalize inputs
+    norm_pairs: list[tuple[Grid, Grid]] = []
+    for inp, out in train_pairs:
+        norm_pairs.append((np.asarray(inp, dtype=np.int32),
+                           np.asarray(out, dtype=np.int32)))
+    test_input = np.asarray(test_input, dtype=np.int32)
+
+    # --- Phase 1: existing hand-rule beam -----------------------------------
+    phase_start = time.monotonic()
+    fitted = _fit_all_rules(norm_pairs, compose_depth=compose_depth)
+    # Always include identity baseline as a fallback program.
+    identity_rule = Identity()
+    identity_rule.fitted = True
+    identity_score = train_score(identity_rule, norm_pairs)
+    if not any(r.signature() == ("Identity",) for r, _ in fitted):
+        fitted.append((identity_rule, identity_score))
+    hand_rule_elapsed = time.monotonic() - phase_start
+
+    # --- Phase 2: DSL leg (synthesize + refine + resonance) ----------------
+    # Honor an outer total-time budget by squeezing the DSL slice. The
+    # default DSL budget is the per-stage cap; we never spend MORE than
+    # the requested DSL budget, but we may spend less when the outer
+    # cap has already been partially consumed by hand-rules.
+    dsl_used_programs: list = []
+    if use_dsl and dsl_time_budget_s > 0:
+        effective_dsl_budget = float(dsl_time_budget_s)
+        if total_time_budget_s is not None:
+            remaining = max(0.0, float(total_time_budget_s) - hand_rule_elapsed)
+            effective_dsl_budget = min(effective_dsl_budget, remaining)
+        if effective_dsl_budget > 0:
+            # DSL leg deadline: enforced as a hard cap across synth+refine.
+            dsl_start = time.monotonic()
+            dsl_deadline = dsl_start + effective_dsl_budget
+            # 2a. Cold-start beam search over the typed grammar.
+            dsl_progs = _safe_synthesize(
+                norm_pairs,
+                max_depth=dsl_max_depth,
+                time_budget_s=effective_dsl_budget,
+                beam_width=max(dsl_top_k, 4),
+            )
+            # 2b. Resonance-seeded candidates — these come from the
+            #     per-install library written by record_solved. The seed
+            #     loader returns [] when the library is missing (cold-start),
+            #     so this branch is free in fresh environments.
+            seeds = _safe_resonance_seeds(norm_pairs, k=dsl_resonance_k)
+            # Merge synth + seeds, deduping by program AST hash.
+            seen_hashes: set = set()
+            combined: list = []
+            for p in list(dsl_progs) + list(seeds):
+                try:
+                    h = p.sha256_hash()
+                except Exception:
+                    h = None
+                if h is not None and h in seen_hashes:
+                    continue
+                if h is not None:
+                    seen_hashes.add(h)
+                combined.append(p)
+
+            # 2c. HRM-style outer refinement loop — patch up near-misses
+            #     to perfect train fit when possible. Bounded by max_iters
+            #     AND the DSL-leg deadline so a runaway refinement cannot
+            #     blow the per-task wall-clock budget.
+            combined = _safe_refine(combined, norm_pairs,
+                                    max_iters=dsl_refine_max_iters,
+                                    deadline=dsl_deadline)
+
+            # 2d. Score each DSL program on the train pairs and rank.
+            scored_dsl = [(p, _dsl_train_score(p, norm_pairs))
+                          for p in combined]
+            # Keep only DSL candidates that EITHER reach perfect fit OR at
+            # least beat the identity baseline. This keeps the merged beam
+            # tight — DSL noise that does no better than identity adds no
+            # information and would just dilute the top-K.
+            scored_dsl = [(p, s) for p, s in scored_dsl
+                          if s >= identity_score + 1e-9 or s >= 1.0 - 1e-9]
+            # Take top-K by score so the merged beam stays bounded.
+            scored_dsl.sort(key=lambda ps: -ps[1])
+            scored_dsl = scored_dsl[:max(dsl_top_k, beam_width)]
+
+            # Wrap surviving DSL programs as rule-shaped beam entries. We
+            # re-dedup by AST hash here because refinement may have nudged
+            # two pre-refinement distinct programs into the same post-refine
+            # AST — that collapse should not produce duplicate beam entries
+            # or duplicate resonance-recording candidates.
+            post_refine_hashes: set = set()
+            for prog, sc in scored_dsl:
+                try:
+                    h = prog.sha256_hash()
+                except Exception:
+                    h = None
+                if h is not None and h in post_refine_hashes:
+                    continue
+                if h is not None:
+                    post_refine_hashes.add(h)
+                rule = _DslProgramRule(program=prog)
+                fitted.append((rule, sc))
+                dsl_used_programs.append(prog)
+
+    # --- Phase 3: merged beam ranking + de-duplication ---------------------
+    # Sort: higher train score wins; on ties, prefer simpler (hand-rule
+    # signature tuple sorts before ("Dsl", ...) lexicographically — keeps
+    # the identity sentinel last among ties).
+    fitted.sort(key=lambda rs: (-rs[1], rs[0].signature()))
+
+    seen_sigs: set = set()
+    beam: list[tuple[object, float]] = []
+    for rule, score_val in fitted:
+        sig = rule.signature()
+        if sig in seen_sigs:
+            continue
+        seen_sigs.add(sig)
+        beam.append((rule, score_val))
+        if len(beam) >= beam_width:
+            break
+
+    if not beam:
+        # Shouldn't happen — identity is always added — but be defensive.
+        return test_input.copy(), test_input.copy(), dsl_used_programs
+
+    # --- Phase 4: top-2 distinct attempts ----------------------------------
+    # An "attempt" is the rendered grid. Two beam entries can share the same
+    # signature but produce identical grids on this particular test input
+    # (e.g. Identity and a NoOp-Recolor coincide for grids that lack the
+    # remapped color). We pick the top entries by score that produce
+    # PIXEL-DISTINCT grids when possible — guaranteeing a true second guess.
+    attempt_1 = beam[0][0].predict(test_input)
+    attempt_2 = None
+    for rule, _ in beam[1:]:
+        candidate = rule.predict(test_input)
+        if candidate.shape != attempt_1.shape or not np.array_equal(
+            candidate, attempt_1
+        ):
+            attempt_2 = candidate
+            break
+    if attempt_2 is None:
+        # All other beam entries coincide with attempt_1 on this test input.
+        # Fall back to the identity baseline as a non-degenerate guess.
+        attempt_2 = test_input.copy()
+
+    return attempt_1, attempt_2, dsl_used_programs
+
+
 def solve_task(
     train_pairs: list[tuple],
     test_input,
     beam_width: int = 4,
     compose_depth: int = 1,
+    dsl_max_depth: int = DSL_DEFAULT_MAX_DEPTH,
+    dsl_time_budget_s: float = DSL_DEFAULT_TIME_BUDGET_S,
+    dsl_top_k: int = DSL_DEFAULT_TOP_K,
+    dsl_refine_max_iters: int = DSL_DEFAULT_REFINE_MAX_ITERS,
+    dsl_resonance_k: int = DSL_DEFAULT_RESONANCE_K,
+    total_time_budget_s: Optional[float] = None,
+    use_dsl: bool = True,
 ) -> tuple[Grid, Grid]:
     """Solve one ARC-AGI-2 task.
 
@@ -645,6 +968,20 @@ def solve_task(
             Each grid may be a list-of-lists or numpy array of int 0..9.
         test_input:  the test input grid (list-of-lists or numpy array).
         beam_width:  bounded beam over candidate programs (default 4).
+        compose_depth: depth-2 hand-rule chain depth (default 1, atomic only).
+        dsl_max_depth: max DSL program AST depth (default 3).
+        dsl_time_budget_s: wall-clock soft cap on the DSL synthesis stage
+            (default 2.0s). Setting this to 0 disables the DSL leg entirely
+            and preserves the legacy hand-rule-only behaviour.
+        dsl_top_k: maximum number of DSL candidates merged into the beam.
+        dsl_refine_max_iters: HRM-style outer refinement iterations per
+            candidate (default 4). Setting to 0 skips refinement.
+        dsl_resonance_k: max resonance-library seeds to pull (default 5).
+        total_time_budget_s: optional outer wall-clock cap covering BOTH
+            the hand-rule beam and the DSL leg. When set, the DSL leg only
+            uses the time remaining after the hand-rule beam finishes.
+        use_dsl: master switch — set False to skip the DSL leg (legacy
+            behaviour). Useful for ablations and the legacy regression bench.
 
     Returns:
         (attempt_1_grid, attempt_2_grid) — both as numpy arrays of int.
@@ -654,48 +991,25 @@ def solve_task(
     Honest-abstain behavior: if no rule fits all train pairs, both attempts
     are the identity prediction (test_input unchanged). This is the
     minimum-information non-degenerate guess under Tier-1 priors.
+
+    Wave-2 integration: the existing hand-rule beam runs FIRST; the DSL
+    synthesis engine then layers on top under a separate time budget. Their
+    candidate sets are merged, ranked by the same train-pair scoring metric,
+    and de-duplicated. The legacy `solve_task(train_pairs, test_input)`
+    call shape is preserved; downstream callers (arc2_runner, eval scripts)
+    require no code changes. Pass `use_dsl=False` for legacy-only behaviour.
     """
-    # Normalize inputs
-    norm_pairs: list[tuple[Grid, Grid]] = []
-    for inp, out in train_pairs:
-        norm_pairs.append((np.asarray(inp, dtype=np.int32),
-                           np.asarray(out, dtype=np.int32)))
-    test_input = np.asarray(test_input, dtype=np.int32)
-
-    fitted = _fit_all_rules(norm_pairs, compose_depth=compose_depth)
-    # Always include the identity baseline as a fallback program.
-    identity_rule = Identity()
-    identity_rule.fitted = True  # identity always "applies"
-    identity_score = train_score(identity_rule, norm_pairs)
-    # Add identity if not already present.
-    if not any(r.signature() == ("Identity",) for r, _ in fitted):
-        fitted.append((identity_rule, identity_score))
-
-    # Sort: higher train score wins; on ties, prefer simpler (Identity) last.
-    fitted.sort(key=lambda rs: (-rs[1], rs[0].signature()))
-
-    # Bounded beam: keep top-N by signature to ensure attempt_2 is *distinct*.
-    seen_sigs: set = set()
-    beam: list[tuple[object, float]] = []
-    for rule, score in fitted:
-        sig = rule.signature()
-        if sig in seen_sigs:
-            continue
-        seen_sigs.add(sig)
-        beam.append((rule, score))
-        if len(beam) >= beam_width:
-            break
-
-    if not beam:
-        # Shouldn't happen — identity is always added — but be defensive.
-        return test_input.copy(), test_input.copy()
-
-    # Attempt 1 = best program
-    attempt_1 = beam[0][0].predict(test_input)
-    # Attempt 2 = second-best distinct program; if none, fall back to identity.
-    if len(beam) >= 2:
-        attempt_2 = beam[1][0].predict(test_input)
-    else:
-        attempt_2 = test_input.copy()
-
+    attempt_1, attempt_2, _ = solve_task_with_dsl_programs(
+        train_pairs=train_pairs,
+        test_input=test_input,
+        beam_width=beam_width,
+        compose_depth=compose_depth,
+        dsl_max_depth=dsl_max_depth,
+        dsl_time_budget_s=dsl_time_budget_s,
+        dsl_top_k=dsl_top_k,
+        dsl_refine_max_iters=dsl_refine_max_iters,
+        dsl_resonance_k=dsl_resonance_k,
+        total_time_budget_s=total_time_budget_s,
+        use_dsl=use_dsl,
+    )
     return attempt_1, attempt_2

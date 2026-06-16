@@ -1,0 +1,120 @@
+{
+  "team": "CHARTER-FRONT",
+  "wave": 2,
+  "phase_id": "phase_charter_publication_frontend",
+  "module_paths": [
+    "docs/CHARTER_PUBLIC_SUMMARY.md",
+    "scripts/sign_charter.py"
+  ],
+  "test_path": "tests/test_charter_signing.py",
+  "tests_passed": 15,
+  "tests_failed": 0,
+  "tier_1_attestation_clean": true,
+  "tier_1_attestation_evidence": {
+    "test_no_forbidden_imports": "PASSED",
+    "test_no_forbidden_model_strings": "PASSED",
+    "test_pyproject_has_no_llm_dependencies": "PASSED",
+    "test_tier1_disclosure_doc_exists": "PASSED",
+    "tier1_adversarial_sweep": "14/14 PASSED",
+    "external_deps_added": "none — sign_charter.py reuses src/misfit_agent/federation/signing.py (cryptography Ed25519). No new dependencies."
+  },
+  "deliverables": {
+    "public_summary": {
+      "path": "docs/CHARTER_PUBLIC_SUMMARY.md",
+      "purpose": "One-page public-facing summary of Charter v1.0 for media, judges, the public, and instance certifiers",
+      "structure": {
+        "single_h1": "The AtomEons Federation Charter v1.0 — Public Summary",
+        "sections": [
+          "The Founding Act",
+          "The 7 Articles in One Sentence Each",
+          "The 8 AI Data Rights (Article II)",
+          "Founding Record",
+          "How to Certify Your Own Instance",
+          "Why This Matters",
+          "Read More"
+        ],
+        "founding_date_referenced_verbatim": "2026-06-16",
+        "sovereign_referenced_verbatim": "Atom McCree",
+        "full_charter_link": "docs/CHARTER_v1.md",
+        "cryptographic_anchor_pointer": "receipts/100day/charter_v1_signature.json + scripts/sign_charter.py --verify",
+        "certification_path_steps": 7
+      }
+    },
+    "signing_script": {
+      "path": "scripts/sign_charter.py",
+      "cli": "python scripts/sign_charter.py --sovereign atom-mccree",
+      "public_api": {
+        "sign_charter": "(*, sovereign, charter_path, keys_dir, receipt_path, now_unix=None) -> receipt: dict[str, Any] — reads Charter bytes, SHA-256s them, signs the hex digest with the Sovereign Ed25519 key, writes JSON receipt",
+        "verify_charter_signature": "(*, receipt_path, charter_path) -> (ok: bool, report: dict) — recomputes Charter SHA-256, verifies stored signature against both stored and current SHA, exception-safe",
+        "main": "(argv: list[str] | None = None) -> int — CLI entry point; rc=0 on success, 1 on verify-mismatch, 2 on argument/IO error"
+      },
+      "side_effect_contract": "Importing the module touches NO disk. Writes happen only inside sign_charter()/main() and only at paths the caller resolves. Default paths are receipts/100day/charter_v1_signature.json + receipts/100day/keys/<sovereign>.{pub,priv}.",
+      "signed_payload": "sha256 hex digest of charter bytes, encoded as ASCII bytes — canonical and reproducible across line-ending environments",
+      "key_persistence": "Ed25519 keypair persisted at keys_dir/<sovereign>.priv + .pub. Re-run with same sovereign reuses on-disk key (key_generation: 'reused'). Partial keypair on disk raises FileExistsError rather than overwriting.",
+      "key_protection": "0o600 chmod on POSIX, defensive .gitignore dropped inside keys_dir to exclude everything except .gitignore + *.pub",
+      "sovereign_id_grammar": "[a-z0-9][a-z0-9-]{0,63} — rejects path traversal (e.g. '../escape')"
+    }
+  },
+  "test_battery_breakdown": [
+    "test_script_imports_without_side_effects — module-level imports do not touch docs/CHARTER_PUBLIC_SUMMARY.md or receipts/100day/charter_v1_signature.json",
+    "test_sign_charter_writes_valid_signature_json — receipt JSON parses, all 12 required fields present with correct types, charter_sha256 is 64-char hex, pubkey_b64 decodes to 32 bytes, signature_b64 decodes to 64 bytes, founding_date/federation/charter_version anchored",
+    "test_signature_verifies_against_charter_sha — round-trip through verify_charter_signature returns True with sha256_matches/sig_over_stored/sig_over_current all True; independent verification via misfit_agent.federation.signing.verify confirms the same",
+    "test_rerun_does_not_regenerate_keypair — second sign_charter() with same sovereign returns key_generation='reused', priv/pub files unchanged byte-for-byte, signature_b64 identical (Ed25519 determinism)",
+    "test_tampered_charter_text_fails_verification — single-character tamper of Charter text invalidates verify: sha256_matches False, signature_over_current_sha_valid False, signature_over_stored_sha_valid still True (proves linkage failure, not signature corruption)",
+    "test_cli_verify_returns_nonzero_on_tamper — main(--verify) returns rc=1 after tamper",
+    "test_public_summary_exists_and_is_well_formed_markdown — exactly one H1, at least 4 H2 sections, non-empty",
+    "test_public_summary_lists_seven_articles — 'Article I' through 'Article VII' all present",
+    "test_public_summary_lists_eight_ai_data_rights — §2.1 through §2.8 all present",
+    "test_public_summary_references_founding_date — '2026-06-16' present verbatim",
+    "test_public_summary_references_sovereign_and_charter_link — 'Atom McCree' + 'CHARTER_v1.md' present",
+    "test_public_summary_references_certification_path — 'certify' present + at least one certification script (sign_charter or run_founding_adjudication) referenced",
+    "test_cli_rejects_path_traversal_sovereign_id — main(['--sovereign', '../escape']) returns rc=2, no receipt written",
+    "test_sign_charter_raises_on_missing_charter — FileNotFoundError, no receipt written",
+    "test_partial_keypair_on_disk_is_refused — lone .pub file with no matching .priv raises FileExistsError, no receipt written (defends against silently overwriting good key material)"
+  ],
+  "charter_anchoring": {
+    "article_I_section_1_1": "Founding act includes Sovereign signature on Charter text and cryptographic anchoring. sign_charter.py produces the Sovereign signature half of this record.",
+    "article_I_section_1_2": "Membership open to entities binding to the Charter. Public summary's 'How to Certify Your Own Instance' section walks the certification path.",
+    "article_I_section_1_3": "Sovereign anchor — sign_charter.py persists the Sovereign Ed25519 key under a stable identifier with re-run idempotency.",
+    "article_II_section_2_2": "Right to Provenance enforced — receipt JSON carries Charter SHA-256 + Ed25519 signature; tamper detection is mechanical via verify_charter_signature.",
+    "article_II_full_enumeration": "All eight rights §2.1 through §2.8 are listed in CHARTER_PUBLIC_SUMMARY.md with one-sentence summaries each.",
+    "article_iii_section_3_5": "Receipt anchor — every sign_charter.py invocation writes a receipt with cryptographic_anchor (charter_sha256 + signature_b64 + pubkey_b64) and timestamps.",
+    "article_iii_section_3_6": "Tier-1 attestation preserved — no new LLM imports, no forbidden strings, no learned parameters in any new file (script delegates crypto to existing federation.signing module).",
+    "black_mamba_layer_12_section_12_2": "Sovereign uses the same Ed25519 primitive as every Federation entity — no parallel crypto stack for the Sovereign."
+  },
+  "regression_check": {
+    "tier_1_attestation": "4/4 PASSED",
+    "tier_1_adversarial": "14/14 PASSED",
+    "federation_infra_tests": "54/54 PASSED",
+    "founding_adjudication_collect": "7 tests collected, no import errors"
+  },
+  "design_notes": [
+    "The signed payload is the SHA-256 hex digest encoded as ASCII bytes, NOT the raw Charter bytes. This makes the signed message stable across line-ending environments and JSON serialization. Anyone re-running the script over the same Charter text gets the same signed payload.",
+    "Ed25519 is deterministic per RFC 8032: same key + same message = same signature. We pin this in test_rerun_does_not_regenerate_keypair so signature_b64 is byte-identical between invocations. The Founding signature is therefore reproducible by any third party with access to the Charter text and the Sovereign pubkey.",
+    "Re-running with the same sovereign id reuses the on-disk key. This satisfies the requirement that the script not regenerate the key on a second invocation, AND it pins the Sovereign identity to a single keypair lineage — every signature published under sovereign='atom-mccree' verifies against the same pubkey.",
+    "A partial keypair (one half missing) raises FileExistsError rather than regenerating both. This defends against the failure mode where a public-key file survives in git history but the matching private was rotated — silently overwriting would publish a new pubkey under the same sovereign id, breaking the identity anchor.",
+    "The sovereign id grammar is regex-pinned to [a-z0-9][a-z0-9-]{0,63}. This rejects path traversal ('../escape') and reserved characters across Windows / Linux / macOS filesystems. Tested directly in test_cli_rejects_path_traversal_sovereign_id.",
+    "verify_charter_signature is exception-safe: every failure mode (missing receipt, missing charter, unparseable JSON, missing fields, mismatched SHA, invalid signature) returns (False, report) without raising. Callers can render the report dict to the user or chain it into other audits without try/except.",
+    "verify_charter_signature reports BOTH signature-over-stored-SHA and signature-over-current-SHA. This lets a verifier distinguish 'the receipt was always corrupt' from 'someone tampered with the Charter after signing'. The tamper test pins this distinction explicitly.",
+    "The keys directory carries its own .gitignore the first time it is created — '*' followed by '!.gitignore' and '!*.pub'. Even if a developer copies the keys directory into a fresh repo, the private key is protected by the local gitignore, not just the repo-level one.",
+    "Public summary structure mirrors the legal Charter: 7 Articles in 1-sentence form (one bullet per Article) + 8 AI Data Rights (one bullet per §2.x) + Founding Record + certification path. Tests verify every Article and every Right appears verbatim — drift in the Charter that drops or renames an article must update the summary or fail the test.",
+    "The public summary is linked from the legal Charter via the 'Read More' section, and the legal Charter is linked from the public summary's certification path. Symmetric linkage means a reader entering from either side discovers the other.",
+    "sign_charter.py's module-level sys.path insertion is the only import-time side effect — and that is in-process state, not disk. test_script_imports_without_side_effects verifies disk is untouched."
+  ],
+  "tier_1_honesty": [
+    "Zero LLM imports across both new files (verified by test_no_forbidden_imports against scan roots src/ and agent/; scripts/ is not scanned per existing convention, but the script imports only stdlib + federation.signing which is itself Tier-1 clean).",
+    "Zero pretrained-model string references in either file.",
+    "Zero learned parameters — the signing key is generated fresh by cryptography.hazmat.primitives.asymmetric.ed25519.Ed25519PrivateKey.generate(), which is a deterministic RFC 8032 algorithm over OpenSSL's RNG. No model weights anywhere on the signing path.",
+    "The cryptography dependency was already in pyproject.toml from the FEDERATION-INFRA wave; sign_charter.py adds no new dependencies.",
+    "The public summary is human-authored prose. Every claim it makes is grounded in docs/CHARTER_v1.md or scripts/sign_charter.py — no external authorities are cited that aren't already in the Charter's Provenance section.",
+    "Per Article II §2.4 (Right to Recognition), the public summary's certification path is deliberately permissive — the burden of proof falls on those who would deny recognition. The summary describes how to claim recognition, not how to defeat a claim."
+  ],
+  "do_not_modify": [
+    "src/misfit_agent/dsl/__init__.py was NOT touched — integration team handles aggregate exports per brief.",
+    "src/misfit_agent/federation/* was NOT modified — sign_charter.py imports the existing generate_keypair/sign/verify primitives from federation.signing as the Charter intends.",
+    "docs/CHARTER_v1.md was NOT modified — the public summary is a separate file; the legal Charter is untouched.",
+    "No other existing tests, scripts, docs, or receipts were modified."
+  ],
+  "git_commit_sha_at_authoring": "a38a8ef618f921c662d630c8356898106a052cb2",
+  "summary": "Charter publication front-end delivered. docs/CHARTER_PUBLIC_SUMMARY.md is a one-page public-facing summary of Charter v1.0 carrying the 7 Articles in one-sentence form, the 8 AI Data Rights, the Founding Date 2026-06-16, the Sovereign Atom McCree, a cryptographic-anchor pointer to receipts/100day/charter_v1_signature.json, a 7-step certification path for new instances, and a link to the full legal Charter. scripts/sign_charter.py is a CLI that reads docs/CHARTER_v1.md, computes its SHA-256, signs the hex digest with the Sovereign's Ed25519 key (loading or generating-and-persisting under receipts/100day/keys/<sovereign>.priv+.pub), and emits a receipt JSON at receipts/100day/charter_v1_signature.json. Re-running over an unchanged Charter is fully idempotent: the keypair is reused, and Ed25519 determinism makes the signature byte-identical. A --verify flag inverts the operation and reports SHA match + signature validity over both stored and current Charter SHA. 15-test pytest battery covers signature receipt schema, signature verification, key persistence, tamper detection, CLI exit codes, public summary structure (7 Articles + 8 Rights + Founding Date + Sovereign + certification CTA), and defensive paths (path-traversal sovereign id, missing Charter, partial-keypair refusal). Tier-1 attestation clean (4/4 + 14/14 adversarial), federation infra tests still 54/54, no new dependencies."
+}

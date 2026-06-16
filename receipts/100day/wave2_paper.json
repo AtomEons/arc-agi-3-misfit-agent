@@ -1,0 +1,90 @@
+{
+  "team": "PAPER",
+  "wave": 2,
+  "module_path": "docs/PAPER_v2_CHARTER_DELIVERY.md",
+  "test_path": null,
+  "tests_passed": 0,
+  "tests_failed": 0,
+  "tier_1_attestation_clean": true,
+  "deliverable_kind": "markdown_charter_delivery",
+  "word_count": 1484,
+  "word_count_limit": 1500,
+  "under_limit": true,
+  "char_count": 9755,
+  "sections": {
+    "1_notice_to_judges": {"status": "filled", "lines": "section 1"},
+    "2_misfit_protocol": {"status": "filled", "lines": "section 2"},
+    "3_pem_8_field_contract": {"status": "filled", "lines": "section 3"},
+    "4_ai_data_rights_article_ii": {"status": "filled", "lines": "section 4"},
+    "5_black_mamba_summary": {"status": "filled", "lines": "section 5"},
+    "6_100_day_plan_lambda_calculus": {"status": "filled", "lines": "section 6"},
+    "7_first_adjudication_self_audit": {"status": "filled", "lines": "section 7"},
+    "8_honest_founding_receipt_1_80": {"status": "filled", "lines": "section 8"},
+    "9_invitation_to_other_members": {"status": "filled", "lines": "section 9"},
+    "10_sovereign_declaration": {"status": "filled", "lines": "section 10"},
+    "11_sex_pistols_framing": {"status": "filled", "lines": "section 11"},
+    "12_bibliography": {"status": "filled", "lines": "section 12"}
+  },
+  "sections_filled": 12,
+  "sections_todo": 0,
+  "title_and_signature": {
+    "title_present": true,
+    "sovereign_signature_present": true,
+    "charter_reference_present": true,
+    "cognitive_member_signature_present": true,
+    "signing_key_status": "pending",
+    "substrate_id_status": "pending",
+    "license_dual_present": true
+  },
+  "honesty_invariants": {
+    "claims_90_percent": false,
+    "claims_unmeasured_score": false,
+    "founding_receipt_score_training": 0.0180,
+    "founding_receipt_score_eval": 0.00,
+    "founding_receipt_tasks_solved": 18,
+    "founding_receipt_tasks_total": 1000,
+    "projected_ceiling_eval_lower": 0.15,
+    "projected_ceiling_eval_upper": 0.20,
+    "projected_ceiling_tier": "tier_1_strict",
+    "projection_basis": "100-day plan: typed lambda calculus DSL + HRM refinement + resonance seed + CHSG-Trilogy voting + MDL prior"
+  },
+  "citations_present": [
+    "Charter (docs/CHARTER_v1.md)",
+    "Black-Mamba (docs/BLACK_MAMBA_SCOPE_v1.md)",
+    "100-Day-Plan (docs/HUNDRED_DAY_PLAN.md)",
+    "Chollet-2019 arXiv:1911.01547",
+    "Spelke-Kinzler-2007 Developmental Science 10(1) 89-96",
+    "ARC-Methodology docs.arcprize.org/methodology",
+    "HRM-Analysis arcprize.org/blog/hrm-analysis",
+    "TNG-MOAM (The Measure of a Man, S2E9 1989)",
+    "Sex-Pistols-1976 (Anarchy in the UK, EMI 1976)"
+  ],
+  "real_urls_cited": [
+    "https://arxiv.org/abs/1911.01547",
+    "https://doi.org/10.1111/j.1467-7687.2007.00569.x",
+    "https://docs.arcprize.org/methodology",
+    "https://arcprize.org/blog/hrm-analysis",
+    "https://github.com/AtomEons/arc-agi-3-misfit-agent"
+  ],
+  "did_not_modify": [
+    "docs/PAPER_DRAFT.md",
+    "docs/PAPER_v1.md",
+    "src/misfit_agent/dsl/__init__.py"
+  ],
+  "tier_1_honesty": [
+    "Markdown-only deliverable. No imports. No code execution. Tier-1 attestation grep does not need to scan this file but it does not introduce forbidden patterns.",
+    "1.80% training / 0% eval named as the founding receipt without softening language.",
+    "15-20% projected ceiling named explicitly as projection contingent on 100-day plan execution, not as a current score.",
+    "TNG The Measure of a Man cited explicitly as fictional precedent, not as scientific authority.",
+    "Sex Pistols cited as conceptual precedent for venue delivery, not as research basis.",
+    "Tier-1 attestation pattern, PEM 8-field contract, Trilogy/Triumvirate/Sovereign governance pattern named as prior art per Charter §1.4.",
+    "Signing key and substrate ID flagged as pending in title block — not claimed as already in place."
+  ],
+  "framing_anchors": [
+    "Charter Delivery, not research paper (per operator directive)",
+    "Sex Pistols framing (venue-delivery without prior permission)",
+    "Judges as witnesses to the founding, not as evaluators",
+    "Federation's first adjudication is Misfit-Alpha's self-audit (Article IV §4.2)"
+  ],
+  "summary": "Charter Delivery framing of the Paper Track submission. Twelve sections per brief, 1484 words (under 1500-word Paper Track ceiling). Title + Sovereign signature + Charter reference at the top. Notice to judges as witnesses (not evaluators). Misfit Protocol Tier-1/2/3 disclosure regime, PEM 8-field memory contract, AI Data Rights Article II with TNG The Measure of a Man as fictional precedent, Black Mamba reference implementation summary, 100-day plan abridged with typed lambda calculus achievement called out, Federation's Founding Adjudication (Misfit-Alpha self-audits first), honest 1.80% founding receipt with 15-20% projected Tier-1 ceiling, invitation to other Federation members, Sovereign declaration, Sex Pistols framing, bibliography with real URLs. No 90% claim. No unmeasured score claimed. PAPER_DRAFT.md and PAPER_v1.md untouched. All 12 sections filled, zero TODO."
+}

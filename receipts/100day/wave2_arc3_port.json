@@ -1,0 +1,52 @@
+{
+  "team": "ARC3-PORT",
+  "wave": 2,
+  "phase_id": "phase_7_arc3_dsl_adapter",
+  "module_path": "src/misfit_agent/dsl/arc3_adapter.py",
+  "test_path": "tests/test_dsl_arc3_adapter.py",
+  "tests_passed": 18,
+  "tests_failed": 0,
+  "tier_1_attestation_clean": true,
+  "exports": [
+    "Arc3DslAdapter",
+    "RESET_ACTION",
+    "ACTION_IDS"
+  ],
+  "public_api": {
+    "class": "Arc3DslAdapter",
+    "constructor": "Arc3DslAdapter(time_budget_per_action_s=0.5, min_distinct_actions=3, min_pairs_per_action=1, rng_seed=0)",
+    "methods": [
+      "observe(prev_state, action, next_state) -> None",
+      "predict_next_state(current_state, action) -> tuple[np.ndarray, float]",
+      "best_action(current_state, available_actions) -> int"
+    ],
+    "properties": [
+      "buffer_size: int",
+      "cached_action_ids: list[int]"
+    ]
+  },
+  "guarantees": [
+    "Adapter initializes with empty buffer and no cached programs",
+    "Synthesis triggers once >= min_distinct_actions distinct action ids observed (default 3)",
+    "predict_next_state returns (predicted_grid, confidence) tuple; uncached actions get identity + 0.0 conf",
+    "best_action returns an int that is always in available_actions",
+    "best_action falls back to deterministic rng_seed random pick when no programs cached",
+    "Time budget is per-action: resynth bounded by len(distinct_actions) * time_budget_per_action_s",
+    "Accepts both numpy arrays and nested lists as state input"
+  ],
+  "design_notes": [
+    "ARC-AGI-3 is a stream of (state, action, next_state) transitions, not (input, output) pairs",
+    "Adapter buffers transitions, groups by action_id, and builds per-action pseudo train pairs (state_before, state_after)",
+    "Each per-action group is fed to the public synthesize() beam search to produce a forward world-model Program",
+    "Cached Program for action a maps any current_state to predicted next_state under a",
+    "Confidence = cell-accuracy of the cached Program against the pseudo-pairs that produced it",
+    "best_action scores each available action by confidence * novelty (fraction of cells that change in the prediction)"
+  ],
+  "tier_1_disclosure": [
+    "No torch / transformers / openai / anthropic / llama_cpp / huggingface_hub imports",
+    "No learned parameters - pure search over the public hand-authored DSL grammar via synthesize()",
+    "Cache + grammar are the entire adapter state; both fully visible to reviewers",
+    "tests/test_tier1_attestation.py passes 4/4 with this module present"
+  ],
+  "summary": "ARC3-PORT wave 2 adapter. Buffers (prev_state, action, next_state) transitions per game, groups by action_id, and runs the public synthesize() beam search on each per-action pseudo train set to build a forward world-model Program per action. predict_next_state evaluates the cached Program; best_action ranks available actions by confidence * predicted-novelty, with deterministic random fallback when no programs are cached. Time-budget bounded per-action. 18/18 tests passing in 9.52s; Tier-1 attestation clean."
+}

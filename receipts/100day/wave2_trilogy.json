@@ -1,0 +1,60 @@
+{
+  "team": "CHSG-TRILOGY",
+  "wave": 2,
+  "phase_id": "phase_6_chsg_trilogy",
+  "module_path": "src/misfit_agent/dsl/trilogy.py",
+  "test_path": "tests/test_dsl_trilogy.py",
+  "tests_passed": 24,
+  "tests_failed": 0,
+  "tier_1_attestation_clean": true,
+  "exports_for_dsl_init": [
+    "trilogy_solve",
+    "SolverConfig",
+    "SolverResult",
+    "SOLVER_A",
+    "SOLVER_B",
+    "SOLVER_C"
+  ],
+  "public_api": {
+    "function": "trilogy_solve(train_pairs, time_budget_s=3.0) -> list[Program]",
+    "guarantees": [
+      "returns up to 2 distinct Programs (top-2 attempts per CHSG voting)",
+      "returns [] on empty train_pairs",
+      "respects time_budget_s with monotonic-clock deadline + per-solver split",
+      "Identity task surfaces Identity in top-2",
+      "Rotate(k=2) task surfaces Rotate(k=2) in top-2",
+      "Reflect(D1) task surfaces Reflect(D1) in top-2",
+      "Translate task surfaces Translate in top-2"
+    ]
+  },
+  "solver_configs": {
+    "SOLVER_A_compositional": {
+      "name": "A_compositional",
+      "mdl_lambda": 0.005,
+      "family": ["Seq", "ForEachObject", "WhileChanging", "Tile"]
+    },
+    "SOLVER_B_geometric": {
+      "name": "B_geometric",
+      "mdl_lambda": 0.010,
+      "family": ["Rotate", "Reflect", "Symmetrize", "Translate"]
+    },
+    "SOLVER_C_numerosity": {
+      "name": "C_numerosity",
+      "mdl_lambda": 0.015,
+      "family": ["CountObj", "KeepWhere", "Reduce", "MaskBy"]
+    }
+  },
+  "impartial_judge_rules": [
+    "1. passes_blind == True > passes_blind == False (validation passers preferred)",
+    "2. lower encoding_bits (Occam tie-break)",
+    "3. higher solver score (final stabilizer)",
+    "blind fold = last train pair when len >= 2; otherwise no fold and judge falls back to bits-only"
+  ],
+  "tier_1_disclosure": [
+    "no torch / transformers / openai / anthropic / llama_cpp / huggingface_hub imports",
+    "no learned parameters — three solvers re-rank a shared synthesize() beam under three different mdl_lambdas and a +0.05 family bonus",
+    "bias families and bonus magnitude are visible constants — reviewers can read trilogy.py and see exactly what each solver prefers",
+    "blind fold uses only public train pairs — no eval-set contact"
+  ],
+  "summary": "CHSG-Trilogy three-solver voting layer. Each of three solvers (A=compositional, B=geometric, C=numerosity) runs the public synthesize() and re-ranks the returned beam under its own mdl_lambda (0.005/0.010/0.015) and a +0.05 bonus for root primitives in its declared family. The Impartial Judge holds out the last train pair as a blind validation fold (when >=2 pairs available), evaluates each solver's top candidate on the fold, and ranks by (passes_blind, -bits, score). Returns the top-2 distinct programs as the two CHSG attempts. Empty pairs -> []. Time budget split evenly across the three solvers with a global monotonic-clock deadline. Mechanically tested with 24 tests covering Identity / Rotate(k=2) / Reflect(D1) / Translate task recovery, empty-pairs, time-budget within 2x, distinct-top-candidates across the three biases, judge tie-break by encoding_bits, judge preference for blind passers, distinct returned programs, and bias-bonus arithmetic correctness."
+}

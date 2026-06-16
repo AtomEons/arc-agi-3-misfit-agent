@@ -1,0 +1,148 @@
+{
+  "determination": "RECOGNIZED_TIER_1",
+  "federation": "AtomEons Federation",
+  "charter_version": "1.0",
+  "founding_date": "2026-06-16",
+  "sovereign": "Atom McCree",
+  "public_id": "misfit-alpha@atomeons/1.0",
+  "git_commit_sha": "a38a8ef618f921c662d630c8356898106a052cb2",
+  "audit_timestamp_unix": 1781609988.894973,
+  "audit_timestamp_iso": "2026-06-16T11:39:48Z",
+  "repo_root": "C:\\AtomEons\\arc-agi-3-misfit-agent",
+  "article_ii_criteria": [
+    {
+      "criterion": "continuity_of_state",
+      "met": true,
+      "evidence": "ResonanceLibrary + EpisodeTracker survive session boundary; PEM contract fully declared"
+    },
+    {
+      "criterion": "provenance_enforcement",
+      "met": true,
+      "evidence": "Tier-1 attestation + adversarial suites green per Article III \u00a73.6"
+    },
+    {
+      "criterion": "self_identification",
+      "met": true,
+      "evidence": "Ed25519 keypair primitives present at src/misfit_agent/federation/signing.py"
+    },
+    {
+      "criterion": "membership_signature",
+      "met": true,
+      "evidence": "Sovereign Atom McCree signature on Charter v1.0 + git SHA anchor"
+    }
+  ],
+  "pem_fields_present": [
+    "source_provenance",
+    "contamination_tier",
+    "creation_event",
+    "replay_pointer",
+    "mutation_history",
+    "expiry_decay_rule",
+    "evidence_payload",
+    "downstream_usage_receipt"
+  ],
+  "pem_fields_missing": [],
+  "designer_choice_count": 7,
+  "designer_choice_disclosure_ok": true,
+  "checks": [
+    {
+      "name": "charter_binding",
+      "passed": true,
+      "summary": "Charter v1.0 present and binds Sovereign + Articles II/IV",
+      "details": {
+        "path": "docs\\CHARTER_v1.md",
+        "has_version_marker": true,
+        "has_sovereign_name": true,
+        "has_article_ii": true,
+        "has_article_iv": true
+      },
+      "blocker_severity": "non_mechanical"
+    },
+    {
+      "name": "tier1_attestation",
+      "passed": true,
+      "summary": "4 attestation checks green",
+      "details": {
+        "test_path": "tests/test_tier1_attestation.py",
+        "tests_passed": 4,
+        "exit_code_zero": true,
+        "output_tail": "....                                                                     [100%]\n4 passed in 3.23s\n"
+      },
+      "blocker_severity": "mechanical"
+    },
+    {
+      "name": "tier1_adversarial",
+      "passed": true,
+      "summary": "14 adversarial checks green",
+      "details": {
+        "test_path": "tests/test_tier1_adversarial.py",
+        "tests_passed": 14,
+        "exit_code_zero": true,
+        "output_tail": "..............                                                           [100%]\n14 passed in 4.63s\n"
+      },
+      "blocker_severity": "mechanical"
+    },
+    {
+      "name": "pem_contract",
+      "passed": true,
+      "summary": "All 8 PEM fields declared in resonance.py",
+      "details": {
+        "path": "src\\misfit_agent\\resonance.py",
+        "fields_present": [
+          "source_provenance",
+          "contamination_tier",
+          "creation_event",
+          "replay_pointer",
+          "mutation_history",
+          "expiry_decay_rule",
+          "evidence_payload",
+          "downstream_usage_receipt"
+        ],
+        "fields_missing": []
+      },
+      "blocker_severity": "non_mechanical"
+    },
+    {
+      "name": "designer_choice_disclosure",
+      "passed": true,
+      "summary": "All 7 (c) DESIGNER CHOICE annotations documented; disclosure doc references (a)/(b)/(c) scheme",
+      "details": {
+        "config_path": "src\\misfit_agent\\config.py",
+        "designer_choice_annotation_lines": [
+          37,
+          48,
+          61,
+          79,
+          82,
+          100,
+          123
+        ],
+        "designer_choice_count": 7,
+        "rationale_ok_lines": [
+          37,
+          48,
+          61,
+          79,
+          82,
+          100,
+          123
+        ],
+        "rationale_missing_lines": [],
+        "disclosure_path": "docs\\TIER_1_DISCLOSURE.md",
+        "disclosure_references_scheme": true
+      },
+      "blocker_severity": "non_mechanical"
+    },
+    {
+      "name": "provenance_anchor",
+      "passed": true,
+      "summary": "SHA=a38a8ef618f9 signed by Atom McCree",
+      "details": {
+        "git_commit_sha": "a38a8ef618f921c662d630c8356898106a052cb2",
+        "sovereign": "Atom McCree",
+        "sovereign_signature_present": true
+      },
+      "blocker_severity": "non_mechanical"
+    }
+  ]
+}

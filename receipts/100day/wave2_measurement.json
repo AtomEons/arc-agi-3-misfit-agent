@@ -1,0 +1,57 @@
+{
+  "team": "MEASUREMENT",
+  "wave": 2,
+  "module_path": "scripts/measure_arc2_dsl.py",
+  "test_path": "tests/test_measure_arc2_dsl.py",
+  "tests_passed": 5,
+  "tests_failed": 0,
+  "tier_1_attestation_clean": true,
+  "exports_added": [
+    "run_one_task",
+    "measure",
+    "main"
+  ],
+  "does_not_touch_measure_arc2_py": true,
+  "engine_under_measurement": "src/misfit_agent/dsl (typed DSL synthesizer)",
+  "api": {
+    "run_one_task": "run_one_task(train_pairs, test_inputs, golds, budget_per_task=5.0, max_depth=3, beam_width=8) -> dict; returns wall_clock_s, programs_evaluated, test_inputs, test_inputs_solved, task_solved_all, task_solved_any, per_input rows with attempt_1_correct/attempt_2_correct/any_correct",
+    "measure": "measure(split, limit, budget_per_task, max_depth, beam_width, out_path=None) -> footer dict; writes JSONL receipt under receipts/arc/measurement_dsl_<split>_<unix>.jsonl",
+    "main": "argparse CLI wrapping measure(); --split {training,evaluation} --limit --budget-per-task --max-depth --beam-width --out"
+  },
+  "receipt_format": {
+    "header": "kind=measurement_header with engine='dsl', split, budget, depth, beam, tasks_planned, started_unix",
+    "per_task": "kind=task with task_id, wall_clock_s, programs_evaluated, test_inputs, test_inputs_solved, task_solved_all, task_solved_any, per_input[{test_idx, attempt_1_correct, attempt_2_correct, any_correct}]",
+    "footer": "kind=measurement_footer with tasks_total, tasks_solved_all, tasks_solved_any, task_solve_rate_all/any, test_inputs_total, test_inputs_solved, pair_solve_rate, mean_wall_clock_s, wall_clock_total_s, receipt_path"
+  },
+  "budget_control": [
+    "budget_per_task is passed directly into synthesize(time_budget_s=...) so each task gets a hard synthesis ceiling.",
+    "synthesize exceptions are caught and treated as 'no program found'; the row still emits with task_solved_all=False, task_solved_any=False.",
+    "evaluate() exceptions on individual test inputs are swallowed via _safe_evaluate so one bad program cannot taint downstream rows."
+  ],
+  "tests_covered": [
+    "test_module_importable: script imports as a module from scripts/ — exposes run_one_task, measure, main.",
+    "test_run_one_task_identity: identity task with 2 train pairs returns task_solved_all=True and test_inputs_solved=1.",
+    "test_empty_split_returns_zero_no_error: monkey-patched empty _load_split yields footer with tasks_total=0, no crash, valid receipt file on disk.",
+    "test_budget_exceeded_returns_partial: 1ms budget completes in <10s and returns structurally valid result dict.",
+    "test_receipt_is_valid_jsonl: every line of the receipt parses as JSON, with header + N task rows + footer; footer aggregates match task rows."
+  ],
+  "smoke_run_against_real_data": {
+    "split": "training",
+    "limit": 3,
+    "budget_per_task_s": 2.0,
+    "max_depth": 2,
+    "beam_width": 4,
+    "tasks_solved_all": 0,
+    "tasks_solved_any": 0,
+    "pair_solve_rate": 0.0,
+    "mean_wall_clock_s": 0.0953,
+    "wall_clock_total_s": 0.31,
+    "interpretation": "Depth-2 beam-4 on 3 raw ARC-AGI-2 training tasks solves none — consistent with the 1.80% baseline from measure_arc2.py. The DSL engine runs end-to-end, the receipt format is valid, and honest abstain is the default behavior when the typed grammar cannot fit the train pairs."
+  },
+  "tier_1_honesty": [
+    "Imports: argparse, json, pathlib, sys, time, typing, numpy, and misfit_agent.dsl only. No LLM / pretrained-weight / API-client dependencies.",
+    "Numbers are not stylized: solver returns 0/3 on this smoke slice and the receipt records 0/3. No fabricated headline.",
+    "When synthesize yields one program, attempt_2 is set to the same program so the receipt cannot inflate via a missing-second-attempt edge case; per_input rows record attempt_1_correct and attempt_2_correct independently so reviewers can detect this."
+  ],
+  "wave2_measurement_summary": "Honest, budget-controlled, receipt-emitting driver for the new DSL synthesizer against ARC-AGI-2 training and evaluation. Independent of measure_arc2.py and arc2_solver.py — drives synthesize/evaluate from src/misfit_agent/dsl directly. Five tests cover importability, identity-task correctness, empty-split safety, budget-exhaustion safety, and JSONL receipt validity. All five green; Tier-1 attestation clean."
+}

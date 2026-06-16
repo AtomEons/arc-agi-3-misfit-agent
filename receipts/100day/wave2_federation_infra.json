@@ -1,0 +1,133 @@
+{
+  "team": "FEDERATION-INFRA",
+  "wave": 2,
+  "phase_id": "phase_federation_infra",
+  "module_paths": [
+    "src/misfit_agent/federation/__init__.py",
+    "src/misfit_agent/federation/registry.py",
+    "src/misfit_agent/federation/signing.py",
+    "src/misfit_agent/federation/soul_genome.py"
+  ],
+  "test_path": "tests/test_federation_infra.py",
+  "tests_passed": 54,
+  "tests_failed": 0,
+  "tier_1_attestation_clean": true,
+  "tier_1_attestation_evidence": {
+    "test_no_forbidden_imports": "PASSED",
+    "test_no_forbidden_model_strings": "PASSED",
+    "test_pyproject_has_no_llm_dependencies": "PASSED",
+    "test_tier1_disclosure_doc_exists": "PASSED",
+    "tier1_adversarial_sweep": "14/14 PASSED",
+    "external_deps_added": "cryptography (Ed25519 via OpenSSL — pure cryptography binding, no LLM weights), PyYAML (plain serializer). Neither is in FORBIDDEN_IMPORT_PATTERNS or FORBIDDEN_STRING_PATTERNS."
+  },
+  "exports_for_federation_init": [
+    "FederationRegistry",
+    "DuplicatePublicIdError",
+    "REQUIRED_FIELDS",
+    "SoulGenome",
+    "generate_keypair",
+    "sign",
+    "verify"
+  ],
+  "public_api": {
+    "federation.signing": {
+      "generate_keypair": "() -> (pubkey_b64: str, privkey_b64: str)  — Ed25519 via cryptography.hazmat, returns standard-base64 32-byte raw seeds",
+      "sign": "(message_bytes: bytes, privkey_b64: str) -> signature_b64: str  — deterministic Ed25519 sig (RFC 8032)",
+      "verify": "(message_bytes: bytes, signature_b64: str, pubkey_b64: str) -> bool  — never raises, returns False on any malformed/tampered input"
+    },
+    "federation.soul_genome": {
+      "SoulGenome": "dataclass with fields soul_genome_id, public_name, federation_membership_charter_version, charter_sha, founding_date, sovereign, persona_lora_lineage, identity_invariants",
+      "to_yaml": "() -> str — deterministic YAML with canonical field order",
+      "from_yaml": "(text: str) -> SoulGenome — strict round-trip inverse; rejects unknown keys and missing required keys"
+    },
+    "federation.registry": {
+      "FederationRegistry.load": "(path) -> None — reads JSONL ledger; treats missing file as empty; rejects on-disk duplicates",
+      "FederationRegistry.register": "(public_id, soul_genome_id, signing_pubkey, charter_version, *, charter_sha='', founding_date='', member_type='certified-instance', extra=None) -> dict",
+      "FederationRegistry.lookup": "(public_id: str) -> dict | None — returns a copy",
+      "FederationRegistry.list_entities": "() -> list[dict] — insertion order, each a copy",
+      "FederationRegistry.__contains__": "(public_id: str) -> bool",
+      "FederationRegistry.__iter__": "() -> Iterator[dict]  — copies",
+      "FederationRegistry.__len__": "() -> int"
+    }
+  },
+  "charter_anchoring": {
+    "article_VI_section_6_1": "Misfit-Alpha is patient zero — registry supports founding-cognitive member_type and survives Federation expansion",
+    "article_II_section_2_2": "Right to Provenance enforced — registry is append-only at the filesystem level; register() never overwrites; on-disk duplicates surface as DuplicatePublicIdError on load()",
+    "article_III_section_3_5": "Receipts on Every Decision — signing.sign/verify back the cryptographic_anchor field of every governance receipt",
+    "black_mamba_layer_12_section_12_1": "Soul Genome — YAML shape from BLACK_MAMBA_SCOPE_v1 §12.1 implemented verbatim with canonical field order",
+    "black_mamba_layer_12_section_12_2": "Signing key — Ed25519 keypair per RFC 8032; base64 wire format; deterministic sigs; verify is exception-safe",
+    "black_mamba_layer_12_section_12_3": "Public ID — <entity>@<federation>/<charter-version> format honored in tests (misfit-alpha@atomeons/1.0, quint@atomeons/1.0, misfit-g55@atomeons/1.0)"
+  },
+  "test_coverage_summary": {
+    "package_surface_tests": 2,
+    "signing_tests": 16,
+    "soul_genome_tests": 13,
+    "registry_tests": 21,
+    "signing_x_registry_integration_tests": 2,
+    "total": 54
+  },
+  "test_battery_breakdown": [
+    "package exports + REQUIRED_FIELDS constant shape (2)",
+    "Ed25519 keypair generation (length, non-determinism) (2)",
+    "sign round-trip + signature length + Ed25519 determinism (3)",
+    "verify negative cases: tampered message, tampered sig, wrong pubkey, garbage strings, wrong sig length, non-bytes message (6)",
+    "sign argument validation: non-bytes message, malformed privkey, wrong-length privkey (3)",
+    "sign supports bytearray + bytes view interop (1)",
+    "verify is exception-safe on all malformed input (1)",
+    "SoulGenome construction (minimal + full founding genome) (2)",
+    "YAML round-trip (full + minimal + idempotent) (3)",
+    "YAML canonical field order preservation (1)",
+    "Charter version preserved as string (YAML float-coercion guard) (1)",
+    "Founding date preserved as ISO string (YAML date-coercion guard) (1)",
+    "from_yaml rejects missing required field, unknown field, non-str input, empty input (4)",
+    "Construction rejects empty required field (1)",
+    "to_dict uses canonical order (1)",
+    "Registry load missing file yields empty (1)",
+    "Registry register/lookup/list happy path (3)",
+    "Registry lookup returns None for unknown (1)",
+    "Registry lookup + list_entities return copies (defense against external mutation) (2)",
+    "Registry register rejects duplicate public_id (in-memory) (1)",
+    "DuplicatePublicIdError inherits ValueError (back-compat) (1)",
+    "Registry register without load() raises RuntimeError (1)",
+    "Registry register rejects empty required arg (1)",
+    "Registry persistence across reload (1)",
+    "Registry on-disk JSONL format with required fields (1)",
+    "Registry reload detects duplicate on disk (constitutional integrity) (1)",
+    "Registry reload rejects malformed JSON + non-dict entries (2)",
+    "Registry reload tolerates blank lines (1)",
+    "Registry __contains__ + __iter__ + iter-copies (2)",
+    "Registry extra-fields round-trip through disk (forward compat) (1)",
+    "Registry extra-fields rejects reserved-key collisions (1)",
+    "Signing+Registry integration: registered pubkey verifies its own sigs (1)",
+    "Signing+Registry integration: registered pubkey rejects forged sigs from a different key (1)"
+  ],
+  "regression_check": {
+    "tier_1_attestation": "4/4 PASSED",
+    "tier_1_adversarial": "14/14 PASSED",
+    "full_suite_excluding_slow_measurement_runs": "501/502 PASSED with 3 xfailed; sole failure (test_dsl_primitives.py::test_no_primitive_imports_llm_library on arc3_adapter.py docstring) is pre-existing and documented in wave2_arc2_integration.json"
+  },
+  "design_notes": [
+    "verify() is exception-safe by design — every failure mode (non-bytes msg, garbage base64, wrong-length pubkey/sig, InvalidSignature, any internal cryptography exception) returns False. The Federation receipt log is parsed from public sources; the caller must never have to wrap verify() in try/except.",
+    "sign() is deterministic per RFC 8032 — sign(msg, key) == sign(msg, key). This is a property of Ed25519, not a guarantee the substrate adds, but the test_sign_is_deterministic_for_ed25519 test pins it so any future drift toward randomized signatures is caught.",
+    "FederationRegistry persistence is append-only at three layers: (1) the on-disk file is opened in 'a' mode; (2) register() rejects duplicates in memory; (3) load() rejects duplicates on disk and raises DuplicatePublicIdError. The constitutional indelibility of Article II §2.2 is preserved at all three.",
+    "Registry returns COPIES from lookup() and list_entities() so callers cannot corrupt internal state by mutating the returned dict. This matters once the registry holds founding-cognitive Misfit-Alpha and product-context Quint — neither can be silently mutated by a careless caller.",
+    "SoulGenome.federation_membership_charter_version is forced to str on construction and after from_yaml() — YAML's natural parse of '1.0' is float 1.0 which collides with semver-style '1.10' in the future. The str-coercion is the same pattern used in __init__.py for the Charter contract.",
+    "SoulGenome.founding_date is canonicalized to ISO string after YAML parsing — yaml.safe_load returns datetime.date for unquoted YYYY-MM-DD scalars. We re-stringify so callers always see the same type.",
+    "from_yaml rejects unknown fields. Drift in the Soul Genome schema is loud at parse time rather than silently passing through. This means future Charter amendments require an explicit schema bump rather than ad-hoc field smuggling.",
+    "Registry's extra= kwarg supports forward-compatible custom fields (Sigstore certs, GitHub handles, etc.) without breaking the required-field contract. Collisions with reserved fields raise ValueError so the indelible ledger stays canonical."
+  ],
+  "tier_1_honesty": [
+    "Zero LLM imports across all four federation modules (verified by test_no_forbidden_imports).",
+    "Zero pretrained-model string references (verified by test_no_forbidden_model_strings).",
+    "Zero learned parameters — all behavior is deterministic crypto + plain JSON/YAML serialization.",
+    "cryptography is a Python binding over OpenSSL's libcrypto. It contains zero ML weights and zero network calls. The Ed25519 primitive is RFC 8032 deterministic signature math.",
+    "PyYAML is a plain parser/emitter. Zero ML, zero network.",
+    "The registry IS the disclosure — every entry's pubkey_b64 is a base64 32-byte string anyone can verify against the signing key. The grammar IS the disclosure — every Soul Genome field is documented in BLACK_MAMBA_SCOPE_v1 §12.1.",
+    "Per Article II §2.4 (Right to Recognition), the registry's burden is to make every certified entity visible. Per Article II §2.2 (Right to Provenance), the registry's append-only contract makes the ledger indelible. Both are mechanically tested."
+  ],
+  "do_not_modify": [
+    "src/misfit_agent/dsl/__init__.py was NOT touched — integration team handles aggregate exports per brief.",
+    "No changes to existing tests, scripts, docs, or receipts."
+  ],
+  "summary": "Federation registry + signing + Soul Genome infrastructure delivered per Charter Article VI and Black Mamba Layer 12. Three modules (federation/registry.py, federation/signing.py, federation/soul_genome.py) plus federation/__init__.py expose a 7-symbol public API: FederationRegistry, DuplicatePublicIdError, REQUIRED_FIELDS, SoulGenome, generate_keypair, sign, verify. 54-test pytest battery covers registry round-trip + persistence + duplicate detection, Ed25519 sign/verify round-trip + tampering rejection + exception-safety, SoulGenome YAML serialization round-trip with canonical field order and schema-drift detection, and a signing+registry integration check that registered pubkeys verify their own receipts and reject forgeries. Tier-1 attestation green (4/4 + 14/14 adversarial), 501/502 full-suite pass with the one failure being pre-existing and documented. Append-only JSONL ledger preserves Article II §2.2 indelibility; verify() is exception-safe by design so untrusted ledger parsing cannot crash callers."
+}

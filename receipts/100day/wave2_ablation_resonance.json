@@ -1,0 +1,81 @@
+{
+  "team": "ABLATION-RESONANCE",
+  "wave": 2,
+  "module_path": "scripts/ablate_resonance.py",
+  "test_path": "tests/test_ablate_resonance.py",
+  "tests_passed": 16,
+  "tests_failed": 0,
+  "tier_1_attestation_clean": true,
+  "exports_added": [
+    "run_ablation",
+    "accumulate_library",
+    "run_condition",
+    "deterministic_split",
+    "classify_verdict",
+    "render_markdown",
+    "main"
+  ],
+  "paper_section": "PAPER_v1.md §5",
+  "charter_commitment": "docs/CHARTER_v1.md — empirical-test commitment, resonance-on vs resonance-off ablation as the central separator between memory theater and real compounding skill.",
+  "api": {
+    "run_ablation": "run_ablation(challenges, solutions, accumulation_size, holdout_size, budget_per_task, max_depth, beam_width, resonance_k, refine_max_iters, library_path=None, receipt_path=None, markdown_path=None, verbose=False) -> dict; runs Condition A, accumulates library, runs Condition B, writes receipt + markdown, returns payload.",
+    "accumulate_library": "accumulate_library(accumulation_ids, challenges, solutions, library_path, budget_per_task, max_depth, beam_width, refine_max_iters, verbose=False) -> dict; solves accumulation tasks, writes one PEM-bound entry per solve, returns {tasks_attempted, tasks_solved, entries_written, atomic_entries_written}.",
+    "run_condition": "run_condition(holdout_ids, challenges, solutions, library_path, use_resonance, budget_per_task, max_depth, beam_width, resonance_k, refine_max_iters, verbose=False) -> dict; runs the DSL pipeline on the held-out set under one ablation condition, returns aggregate metrics.",
+    "deterministic_split": "deterministic_split(task_ids, accumulation_size, holdout_size) -> (accumulation_ids, holdout_ids, split_sha256); sorts task_ids, slices, records sha256 of the joined ordering so reviewers can verify the holdout was not curated.",
+    "classify_verdict": "classify_verdict(cond_a, cond_b) -> str in {'compounds', 'hurts', 'theater', 'no_seeds'}; rules: B solves strictly more -> compounds; B solves strictly less -> hurts; same solves AND B faster by >5% on seeded tasks -> compounds; same solves AND wall within 5% -> theater; no seeds at all -> no_seeds (undefined regime).",
+    "render_markdown": "render_markdown(payload) -> str; renders the receipt as a human-readable markdown report with Split / Accumulation / Held-out results / Verdict / Honest constraints sections.",
+    "main": "argparse CLI: --accumulation 800 --holdout 200 --budget-per-task 5.0 --max-depth 3 --beam-width 8 --resonance-k 5 --refine-max-iters 4 --tiny (smoke mode: 8 accum + 2 holdout) --verbose."
+  },
+  "procedure": [
+    "Phase 1 — Split. Sort the 1000 ARC-AGI-2 training task ids, take the first 800 as the accumulation set, the next 200 as the held-out ablation set. Record sha256(joined_ids) so the holdout cannot be curated.",
+    "Phase 2 — Condition A (resonance OFF). Synthesize + refine on the held-out 200 with seed_from_resonance disabled (resonance_k=0 AND library_path forced to a non-existent path). Records solved_count_A, mean_wall_clock_A.",
+    "Phase 3 — Accumulation. Solve each of the 800 accumulation tasks under Condition A (no library reads — accumulation must not bias on its own half-built library), and for each solve write a PEM-bound LibraryEntry: source_provenance='self-solved', contamination_tier='tier_1', winning_policy=[{signature: <atomic-rule-tuple>}].",
+    "Phase 4 — Condition B (resonance ON). Synthesize + refine on the held-out 200 with seed_from_resonance pointed at the accumulated library file. Records solved_count_B, mean_wall_clock_B, mean_wall_clock_per_seeded_task, seed_winning_task_count, false_rhyme_failures.",
+    "Phase 5 — Compare. solve_delta = B - A; wall_clock_delta = A - B. Classify: compounds / hurts / theater / no_seeds.",
+    "Phase 6 — Emit. docs/ABLATION_RESONANCE.md (markdown report) + receipts/100day/ablation_resonance.json (full payload)."
+  ],
+  "tests_covered": [
+    "test_module_importable: scripts/ablate_resonance.py imports cleanly and exposes run_ablation, accumulate_library, run_condition, deterministic_split, classify_verdict, render_markdown, main.",
+    "test_deterministic_split_is_stable: split is sorted-deterministic; re-shuffling the input does not change the result; sha256 matches across calls.",
+    "test_deterministic_split_rejects_negative_sizes: ValueError on accumulation<0 or holdout<0.",
+    "test_accumulation_produces_non_empty_library: brief requirement — accumulation on 8 identity/reflect tasks produces a file on disk with >=1 PEM-bound entry (source=self-solved, contamination_tier=tier_1, fingerprint, winning_policy).",
+    "test_accumulation_atomic_entries_seedable: at least one accumulated entry must round-trip through program_from_signature so Condition B is non-trivially testable.",
+    "test_condition_a_skips_library_reads: brief requirement — monkey-patches seed_from_resonance to raise; Condition A completes without ever calling it. Verifies the library-read path is dead in Condition A.",
+    "test_condition_b_reads_from_library: brief requirement — spy on seed_from_resonance shows one call per holdout task, every call references the supplied library path with k=resonance_k, at least one task is seeded.",
+    "test_classify_verdict_compounds / _hurts / _theater / _no_seeds / _speedup_with_same_solves: all five verdict classifications tested with synthetic dicts so the rules are auditable.",
+    "test_run_ablation_computes_correct_delta: brief requirement — end-to-end solve_delta and wall_clock_delta match by-hand math from condition_a + condition_b aggregates.",
+    "test_receipt_has_all_expected_fields: brief requirement — all 19 top-level fields, all 4 Tier-1 constraints, all 5 synthesis_config knobs, all 4 accumulation aggregates, all 6 per-condition aggregates, valid JSON on disk.",
+    "test_markdown_output_is_well_formed: brief requirement — section headers (Split / Accumulation phase / Held-out results / Verdict / Honest constraints), table row markers, honesty footer (No LLM, self-solved, tier).",
+    "test_render_markdown_handles_no_seeds_branch: the 'no_seeds' verdict path renders without crashing and includes the 'no usable seeds' guidance message."
+  ],
+  "tier_1_honesty": [
+    "Imports: argparse, hashlib, json, pathlib, sys, tempfile, time, dataclasses, typing, numpy, and misfit_agent.dsl + misfit_agent.resonance only. No LLM / pretrained-weight / API-client dependencies. SCAN_ROOTS in test_tier1_attestation.py is ['src', 'agent']; scripts/ is not in the tier-1 scan but the same restrictions hold here.",
+    "Split is deterministic via sorted(task_ids). Split sha256 is recorded in the receipt so a reviewer can verify the holdout was not curated.",
+    "Both conditions share the same _solve_one_task code path. The ONLY branch difference is whether seed_from_resonance is consulted. Condition A passes a path that does not exist so the seed loader short-circuits to [] even if accidentally consulted.",
+    "Accumulation is performed under Condition A (library off) so the accumulation order does not bias on a half-built library.",
+    "Library entries are PEM-bound: source='self-solved' (Tier-1 enforced at write), contamination_tier='tier_1' (Tier-1 retrieval surface), fingerprint+winning_policy+evidence_grid_hash form the audited evidence payload. Atomic-signature entries are tracked separately so a reviewer can see how many entries actually round-trip through program_from_signature at seed time.",
+    "False-rhyme failures (resonance seeded a wrong policy) are counted per-task and emitted in the receipt — naming the failure mode PAPER_v1.md §5 calls out.",
+    "Verdict classifier is conservative: equal solves AND wall-clock within 5% on seeded tasks -> 'theater', not 'compounds'. The library must clear a real bar to count as compounding.",
+    "When Condition B sees no seeds at all (atomic translation failed for every accumulation entry), the verdict is 'no_seeds' (undefined regime), NOT a silent pass-through to 'theater'. The honest call is to fix the signature schema before drawing conclusions."
+  ],
+  "smoke_run_against_real_data": {
+    "split": "training",
+    "accumulation_size": 8,
+    "holdout_size": 2,
+    "budget_per_task_s": 2.0,
+    "max_depth": 2,
+    "beam_width": 4,
+    "condition_a_solved": 0,
+    "condition_b_solved": 0,
+    "solve_delta": 0,
+    "wall_clock_delta_s": 0.33,
+    "verdict": "no_seeds",
+    "interpretation": "On a tiny 8-task accumulation slice of raw ARC-AGI-2 training tasks, the DSL synthesizer solved 0 (consistent with the 1.80% baseline from receipts/100day/wave2_measurement.json). With no entries in the library, Condition B saw no seeds — verdict='no_seeds', which is the honest classification. The full 800/200 run with budget=5.0s, max_depth=3, beam_width=8 is the receipt-of-record; this smoke confirms the harness runs end-to-end against real data, writes the receipt + markdown, and the verdict classifier correctly returns 'no_seeds' rather than spuriously calling theater."
+  },
+  "next_steps": [
+    "Run the full 800/200 ablation with --budget-per-task 5.0 --max-depth 3 --beam-width 8 --refine-max-iters 4 to produce the canonical docs/ABLATION_RESONANCE.md + receipts/100day/ablation_resonance.json that gets cited in the Paper Track final submission (deadline 2026-11-09).",
+    "If the full run also yields 'no_seeds', that is the cue to enrich the atomic-signature translator in src/misfit_agent/dsl/resonance_seed.py to cover the depth>=2 programs that survive accumulation. The current atomic translator covers Identity, Translate, Rotate, Reflect, Recolor, Crop, Tile, Gravity, Symmetrize, KeepWhere — composed Seq programs will not round-trip until that path is extended.",
+    "Once the harness yields verdict='compounds' or 'hurts' on the full run, fold the result into PAPER_v1.md §5 with the actual numbers, replacing the 'ablation has not yet been run' line."
+  ],
+  "wave2_ablation_resonance_summary": "Honest, deterministic, receipt-emitting harness for the resonance-on / resonance-off ablation that PAPER_v1.md §5 promised. Split via sorted task ids + recorded sha256; Condition A library-read path defended by a monkey-patched spy; Condition B library reads verified by a spy that counts calls per holdout task; delta math tested end-to-end against the by-hand calculation; receipt completeness asserted via a 19-field required-keys list; markdown report contract asserted via section-header + table-row checks. Sixteen tests cover importability, deterministic split, accumulation, Condition A no-read enforcement, Condition B read enforcement, all four verdict classifications, delta math, receipt fields, and markdown well-formedness. All sixteen green; Tier-1 attestation clean. Smoke run against real ARC-AGI-2 data writes a valid receipt with verdict='no_seeds' on the 8/2 slice — the honest baseline before the full 800/200 run."
+}

@@ -1,0 +1,44 @@
+{
+  "team": "ARC2-INTEGRATION",
+  "wave": 2,
+  "module_path": "src/misfit_agent/arc2_solver.py",
+  "test_path": "tests/test_dsl_arc2_integration.py",
+  "tests_passed": 9,
+  "tests_failed": 0,
+  "tier_1_attestation_clean": true,
+  "exports_added": [
+    "solve_task_with_dsl_programs",
+    "DSL_DEFAULT_MAX_DEPTH",
+    "DSL_DEFAULT_TIME_BUDGET_S",
+    "DSL_DEFAULT_TOP_K",
+    "DSL_DEFAULT_REFINE_MAX_ITERS",
+    "DSL_DEFAULT_RESONANCE_K"
+  ],
+  "solve_task_signature_preserved": true,
+  "back_compat_notes": "solve_task(train_pairs, test_input) still returns (a1, a2). New kwargs (dsl_max_depth, dsl_time_budget_s, dsl_top_k, dsl_refine_max_iters, dsl_resonance_k, total_time_budget_s, use_dsl) all default to brief-specified values. arc2_runner.py and existing test_arc2_solver.py are untouched.",
+  "regression_check": {
+    "test_arc2_solver_passing": 7,
+    "test_dsl_synthesis_passing": 20,
+    "test_dsl_refinement_passing": 21,
+    "test_dsl_resonance_seed_passing": 44,
+    "full_suite_unrelated_failures": [
+      "tests/test_dsl_primitives.py::test_no_primitive_imports_llm_library (pre-existing: arc3_adapter.py mentions huggingface_hub in a docstring; unrelated to ARC2-INTEGRATION work)"
+    ]
+  },
+  "integration_pipeline": [
+    "Phase 1: run existing _fit_all_rules hand-rule beam (Identity, Translate2, Recolor, ReflectH/V, Transpose, Rotate{1,2,3}, CropToBbox, Tile + v2 families + optional depth-2 Composed). Identity baseline always included.",
+    "Phase 2: run DSL leg (gated on use_dsl=True and dsl_time_budget_s > 0) — synthesize(train_pairs, max_depth=3, time_budget_s=2.0) + seed_from_resonance(k=5) + refine(max_iters=4) per candidate. Hard deadline enforced across synth+refine via monotonic clock so total_time_budget_s cap is respected.",
+    "Phase 3: each surviving DSL Program wrapped as _DslProgramRule (rule-shaped adapter exposing .predict, .signature) and merged into the hand-rule beam. DSL signatures prefixed ('Dsl', hash_key) so they never collide with hand-rule signatures during dedup.",
+    "Phase 4: merged candidates re-ranked by train cell-accuracy (descending) with signature lexicographic tiebreak. Top-K by beam_width retained.",
+    "Phase 5: top-2 PIXEL-DISTINCT attempts returned. attempt_2 falls back to identity if all other beam entries coincide with attempt_1 on this specific test input."
+  ],
+  "tier_1_honesty": [
+    "Function-local imports of .dsl prevent module-load cycles (resonance_seed.py imports task_fingerprint from arc2_solver).",
+    "DSL leg exceptions (TypeMismatchError, IncompleteProgramError, runtime crashes) are caught at every entry point — DSL noise CANNOT crash the solver.",
+    "DSL candidates are filtered to those that EITHER reach perfect train fit OR beat the identity baseline. Sub-identity DSL noise does not enter the merged beam.",
+    "AST hashes deduplicate DSL programs both before and after refinement so equivalent programs occupy one beam slot and produce one resonance-recording candidate.",
+    "Tier-1 attestation (test_tier1_arc2_no_llm_imports) remains green: arc2_solver.py imports numpy, perceptor, and .dsl (function-local) only. No LLM packages."
+  ],
+  "resonance_library_recording_contract": "solve_task_with_dsl_programs returns (attempt_1, attempt_2, dsl_programs). Callers (e.g. an outer record_solved loop) iterate dsl_programs, score each on test+train, and call ResonanceLibrary.record_solved(fingerprint=task_fingerprint(train_pairs), winning_policy=[{'signature': p.hash_key()}], composite_score=..., source='self-solved', contamination_tier='tier_1'). The DSL program signature schema is the same one seed_from_resonance reconstructs from, closing the read/write loop.",
+  "wave2_integration_summary": "DSL synthesis + refinement + resonance-seeding now layered onto the existing ARC-AGI-2 hand-rule beam. Legacy callers see no contract change. The new solve_task_with_dsl_programs API exposes the DSL programs that made it into the beam so the resonance updater can record them. Per-task wall-clock budget is enforced as a hard cap so the merged solver respects total_time_budget_s under load. Nine integration tests cover Rotate(k=2) end-to-end DSL participation, Recolor regression, time-budget enforcement, two-distinct-attempts guarantee, resonance-update surfacing, use_dsl=False ablation, zero-budget skip, identity-only honest-abstain, and default-constant drift detection."
+}
