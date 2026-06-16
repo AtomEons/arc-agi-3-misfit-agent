@@ -522,6 +522,8 @@ def _rule_factories():
         CropToObjectByColorRank, DeleteAllExceptRankN,
         RecolorAllObjectsToColorOfRank, MirrorAcrossDominantAxis,
         CompleteFrameOf,
+        NeighborAwareRecolor, RecolorEnclosedByColor,
+        RecolorObjectBySizeRank,
     )
     base = [
         lambda: Identity(),
@@ -581,7 +583,12 @@ def _rule_factories():
         lambda: MirrorAcrossDominantAxis(),
         lambda: CompleteFrameOf(),
     ]
-    return base + all_v2_factories() + wave4 + wave5 + wave6 + wave7 + wave8
+    wave9 = [
+        lambda: NeighborAwareRecolor(),
+        lambda: RecolorEnclosedByColor(),
+        lambda: RecolorObjectBySizeRank(),
+    ]
+    return base + all_v2_factories() + wave4 + wave5 + wave6 + wave7 + wave8 + wave9
 
 
 @dataclass

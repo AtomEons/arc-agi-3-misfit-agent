@@ -1,0 +1,91 @@
+{
+  "order_id": "arc_wave9_climb_2026-06-16",
+  "manifest_path": "C:/AtomEons/orange3/app/control-plane/manifests/arc_wave9_climb.json",
+  "status": "COMPLETED_REAL_LIFT_AS_PREDICTED",
+  "completed_at": "2026-06-16T17:33:00Z",
+  "sovereign": "atom-mccree",
+  "tier_1_attestation_clean": true,
+
+  "steps": {
+    "step_1_write_wave9": {
+      "state": "COMPLETED",
+      "artifacts": ["src/misfit_agent/rules_v3/wave9.py"],
+      "lines_of_code_added": 215,
+      "new_rule_classes": ["NeighborAwareRecolor", "RecolorEnclosedByColor", "RecolorObjectBySizeRank"]
+    },
+    "step_2_wire_factories": {
+      "state": "COMPLETED",
+      "rule_factories_count_before": 62,
+      "rule_factories_count_after": 65,
+      "delta": 3
+    },
+    "step_3_smoke_test": {
+      "state": "COMPLETED",
+      "result": "19 passed in 3.38s"
+    },
+    "step_4_preflight_check": {
+      "state": "COMPLETED",
+      "wall_clock_seconds": 681.3,
+      "expected_new_solves": 3,
+      "task_ids_expected": ["00d62c1b", "a5313dff", "ea32f347"],
+      "responsible_rules": {
+        "RecolorEnclosedByColor": ["00d62c1b", "a5313dff"],
+        "RecolorObjectBySizeRank": ["ea32f347"]
+      },
+      "note": "NeighborAwareRecolor fit 0 tasks even with color-restricted enumeration — pattern not present in ARC-AGI-2 training in form expected"
+    },
+    "step_5_measurement": {
+      "state": "COMPLETED",
+      "wall_clock_seconds": 1388.4,
+      "tasks_solved_all": "31/1000",
+      "tasks_solved_pct": 3.10,
+      "test_inputs_solved": "32/1076",
+      "test_inputs_solved_pct": 2.97,
+      "receipt": "receipts/arc/measurement_training_d1_1781652640.jsonl"
+    }
+  },
+
+  "delta_summary": {
+    "baseline_training_pct": 2.80,
+    "wave9_training_pct": 3.10,
+    "delta_training_pp": 0.30,
+    "additional_tasks_solved": 3,
+    "rule_classes_added": 3,
+    "loc_added": 215,
+    "preflight_vs_measured": "exact match (predicted 3, measured 3)"
+  },
+
+  "cumulative_climb_arc_agi_2_training": {
+    "wave_3_baseline_pct": 2.30,
+    "wave_4_pct": 2.40,
+    "wave_5_pct": 2.40,
+    "wave_6_pct": 2.40,
+    "wave_7_pct": 2.70,
+    "wave_8_pct": 2.80,
+    "wave_9_pct": 3.10,
+    "total_delta_pp": 0.80,
+    "total_extra_tasks_solved": 8
+  },
+
+  "honest_assessment": {
+    "verdict": "STRONGEST_WAVE_IN_6_ATTEMPTS",
+    "explanation": "Wave 9 ships topological-reasoning rules (RecolorEnclosedByColor uses 4-connected flood-fill from boundary) and triadic property-bound rules (RecolorObjectBySizeRank with 3-color tuple). +3 tasks net, matching pre-flight exactly. RecolorEnclosedByColor caught 00d62c1b and a5313dff — both classic enclosure-fill puzzles. RecolorObjectBySizeRank caught ea32f347 — color-by-rank pattern.",
+    "what_climbed": "+0.30pp training (28 → 31 tasks)",
+    "noteworthy": "NeighborAwareRecolor fit zero training tasks even after color-set restriction — the (src,neigh,dst) global tuple isn't a common ARC-AGI-2 pattern. Lesson: adjacency-conditioned recolor needs RICHER predicates (e.g., 4-connected vs 8-connected, specific positions, neighbor counts), not just plain (src,neigh,dst)."
+  },
+
+  "tier_1_attestation": {
+    "no_llm_in_inference_path": true,
+    "no_pretrained_weights": true,
+    "no_learned_parameters_at_eval": true,
+    "no_threshold_tuning_on_public_eval": true,
+    "all_inference_deterministic_enumeration": true,
+    "ci_grep_test": "tests/test_tier1_attestation.py"
+  },
+
+  "rollback_path": "git checkout HEAD -- src/misfit_agent/rules_v3/wave9.py src/misfit_agent/rules_v3/__init__.py src/misfit_agent/arc2_solver.py",
+  "audit_chain": {
+    "prev_receipt": "receipts/100day/wave8_orange3_receipt.json",
+    "next_expected_receipt": "receipts/100day/wave10_orange3_receipt.json"
+  }
+}

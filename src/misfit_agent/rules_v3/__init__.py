@@ -34,6 +34,11 @@ from .wave8 import (
     CompleteFrameOf,
     ALL_WAVE8_RULES,
 )
+from .wave9 import (
+    NeighborAwareRecolor, RecolorEnclosedByColor,
+    RecolorObjectBySizeRank,
+    ALL_WAVE9_RULES,
+)
 
 __all__ = [
     "KeepLargest", "KeepSmallest", "KeepByMaxColor", "KeepByMinColor",
@@ -57,4 +62,7 @@ __all__ = [
     "RecolorAllObjectsToColorOfRank", "MirrorAcrossDominantAxis",
     "CompleteFrameOf",
     "ALL_WAVE8_RULES",
+    "NeighborAwareRecolor", "RecolorEnclosedByColor",
+    "RecolorObjectBySizeRank",
+    "ALL_WAVE9_RULES",
 ]
