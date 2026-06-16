@@ -1,6 +1,14 @@
 # misfit-agent — ARC-AGI-3 Tier-1 Substrate
 
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
+[![Tests: 79 passing](https://img.shields.io/badge/tests-79%20passing-brightgreen.svg)](#)
+[![Tier-1: priors only](https://img.shields.io/badge/Tier--1-priors%20only-orange.svg)](docs/TIER_1_DISCLOSURE.md)
+[![Kaggle notebook](https://img.shields.io/badge/Kaggle-notebook-20BEFF.svg)](https://www.kaggle.com/atommccree/agi-in-a-video-shop-atom-eons-nostalgia)
+
 A solo-misfit submission for the [ARC Prize 2026 — ARC-AGI-3 Competition](https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-3) on Kaggle.
+
+**Live Kaggle notebook (public, v4):** https://www.kaggle.com/atommccree/agi-in-a-video-shop-atom-eons-nostalgia
 
 **Target:** Milestone #1 ($25,000), deadline **2026-06-30**.
 

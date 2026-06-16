@@ -107,3 +107,52 @@ class EpisodeTracker:
         if rec.post_levels_completed is not None and rec.post_levels_completed > rec.pre_levels_completed:
             bucket["level_advances"] += 1
         bucket["object_count_delta_sum"] += len(after.objects) - len(prior.objects)
+
+
+def observe_hungarian(prev_scene: SceneObservation,
+                       curr_scene: SceneObservation,
+                       tracker: Optional[Any] = None) -> dict:
+    """Build an (s, a, s') correspondence dict via HungarianTracker.
+
+    Returns a dict with keys:
+      - "mapping": {prev_obj_idx -> curr_obj_idx | None} from HungarianTracker.track
+      - "spawned": list of curr-scene indices unmatched (born objects)
+      - "destroyed": list of prev-scene indices with no successor
+      - "matched_pairs": list of (prev_idx, curr_idx) tuples for matched persistents
+      - "prev_objects": [{"centroid": (r,c), "area": int, "color": int}, ...]
+      - "post_objects": [{"centroid": (r,c), "area": int, "color": int}, ...]
+
+    The `tracker` parameter is accepted for API symmetry with the existing
+    tracker.observe() methods, but is NOT used — correspondences are a pure
+    function of the two scenes under Spelke priors (CONTINUITY, COHESION,
+    SOLIDITY). Callers will typically fold this dict into the WorldModel
+    observation list so per-class rules see object identity, not just
+    summary counts.
+    """
+    # Imported here to keep top-level import surface minimal and to avoid
+    # any chance of cycle (HungarianTracker imports perceptor types too).
+    from .tracker_hungarian import HungarianTracker
+
+    _ = tracker  # accepted for API symmetry; correspondences are pure of scenes
+    ht = HungarianTracker()
+    mapping = ht.track(prev_scene, curr_scene)
+    spawned = ht.spawned_indices(prev_scene, curr_scene, mapping)
+    destroyed = ht.destroyed_indices(mapping)
+    matched_pairs = [(int(i), int(j)) for i, j in mapping.items() if j is not None]
+
+    def _serialize(obj: Any) -> dict:
+        return {
+            "centroid": obj.centroid,
+            "area": int(obj.area),
+            "color": int(obj.color),
+        }
+
+    return {
+        "mapping": {int(k): (int(v) if v is not None else None)
+                    for k, v in mapping.items()},
+        "spawned": [int(j) for j in spawned],
+        "destroyed": [int(i) for i in destroyed],
+        "matched_pairs": matched_pairs,
+        "prev_objects": [_serialize(o) for o in prev_scene.objects],
+        "post_objects": [_serialize(o) for o in curr_scene.objects],
+    }
