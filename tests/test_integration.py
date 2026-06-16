@@ -472,12 +472,30 @@ def test_outer_refinement_loop_is_invoked_by_maybe_refit(tmp_path):
 
 def test_tier1_attestation_still_green_after_integration():
     """Re-run the Tier-1 attestation's forbidden-import scan over the
-    integration changes to prove no new LLM dependencies leaked in."""
-    # Import the attestation module's helpers and rerun the scan in-process.
-    from tests.test_tier1_attestation import (
-        _iter_source_files, _scan_file,
-        FORBIDDEN_IMPORT_PATTERNS, FORBIDDEN_STRING_PATTERNS,
+    integration changes to prove no new LLM dependencies leaked in.
+
+    The tests/ directory is not a package (no __init__.py) so we import the
+    sibling attestation module by absolute file path via importlib instead
+    of `from tests.test_tier1_attestation import ...`. This keeps the test
+    runnable both directly (`pytest tests/test_integration.py`) and from
+    repo root (`pytest -q`).
+    """
+    import importlib.util
+
+    here = Path(__file__).parent
+    att_path = here / "test_tier1_attestation.py"
+    assert att_path.exists(), f"missing sibling test module at {att_path}"
+    spec = importlib.util.spec_from_file_location(
+        "_tier1_attestation_for_integration", att_path
     )
+    assert spec is not None and spec.loader is not None
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+
+    _iter_source_files = mod._iter_source_files
+    _scan_file = mod._scan_file
+    FORBIDDEN_IMPORT_PATTERNS = mod.FORBIDDEN_IMPORT_PATTERNS
+    FORBIDDEN_STRING_PATTERNS = mod.FORBIDDEN_STRING_PATTERNS
 
     hits = []
     for f in _iter_source_files():
