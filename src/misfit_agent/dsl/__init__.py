@@ -27,6 +27,15 @@ from .primitives import (
     CountObj, ShapeOf,
     ALL_PRIMITIVES,
 )
+from .ast import (
+    Program, PrimitiveNode, HoleNode, ConstNode,
+    make_program, make_hole,
+)
+from .interpreter import evaluate, IncompleteProgramError
+from .walker import (
+    walk_preorder, walk_postorder, find_holes,
+    count_primitives, total_mdl_bits, visit,
+)
 
 __all__ = [
     "DslType", "Grid", "Color", "Number", "Object", "ObjSet", "Mask", "Bool",
