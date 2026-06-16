@@ -1,0 +1,12 @@
+{
+  "team": "FOREACH_OBJECT",
+  "day": 5,
+  "module_path": "src/misfit_agent/dsl/combinators/foreach_object.py",
+  "module_package_init": "src/misfit_agent/dsl/combinators/__init__.py",
+  "test_path": "tests/test_dsl_foreach_object.py",
+  "tests_passed": 11,
+  "tests_failed": 0,
+  "tier_1_attestation_clean": true,
+  "exports_for_dsl_init": ["ForEachObject"],
+  "summary": "ForEachObject(child_program) combinator: Grid -> Grid via perceive_grid -> per-object tiny-grid extraction -> evaluate(child) -> stamp back into bbox. Child program is META-parameter validated at construction time; non-Grid child output raises TypeMismatchError before any execution. Hash key inherits child's to_string so memoization tables distinguish distinct children. mdl_bits = catalog-bits + 1 (meta-shape) + sum(child node mdl_bits). Empty-scene fallback returns input unchanged (Identity behaviour). Defensive bbox-overlap stamping handles shape-changing children (e.g., rot90 of 2x3 -> 3x2) without raising. No new third-party imports; relies only on existing perceptor and DSL substrate."
+}

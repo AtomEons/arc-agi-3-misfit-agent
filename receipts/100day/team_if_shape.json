@@ -1,0 +1,11 @@
+{
+  "team": "IFSHAPE",
+  "module_path": "src/misfit_agent/dsl/combinators/if_shape.py",
+  "module_package_init": "src/misfit_agent/dsl/combinators/__init__.py",
+  "test_path": "tests/test_dsl_if_shape.py",
+  "tests_passed": 17,
+  "tests_failed": 0,
+  "tier_1_attestation_clean": true,
+  "exports_for_dsl_init": ["IfShape"],
+  "summary": "IfShape(target_shape, then_program, else_program) combinator: typed Signature(g:Grid -> Grid) with target_shape (tuple[int,int]) and both branch programs as META-parameters. apply() runs perceive_grid(grid) once, walks the perceived objects' bounding boxes (r0,c0,r1,c1) testing (r1-r0+1, c1-c0+1) == target_shape, and dispatches the whole input grid into either the then-branch or the else-branch via the existing interpreter. Both branches are validated at construction time (non-Grid output raises TypeMismatchError before any execution; missing branch is also a type error; non-2-tuple target_shape is also a type error). mdl_bits = catalog-bits + 1 (meta-shape) + 10 (target_shape choice: 2 * ceil(log2(30)) bits for an ARC-realistic 1..30 size range) + sum(then_program nodes) + sum(else_program nodes). to_string() includes the target shape literal and both branch strings; the wrapping PrimitiveNode.hash_key() therefore distinguishes IfShapes with different target shapes, different then-branches, or different else-branches. No new third-party imports; uses only numpy + the existing perceptor + the existing DSL substrate (Primitive, Signature, Program, PrimitiveNode, evaluate)."
+}

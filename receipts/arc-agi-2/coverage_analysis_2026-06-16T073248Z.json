@@ -1,0 +1,25 @@
+{
+  "kind": "arc2_coverage_analysis",
+  "recorded_at_utc": "2026-06-16T073248Z",
+  "n_tasks": 120,
+  "tasks_with_at_least_one_sufficient_rule": 0,
+  "current_3_rule_coverage_upper_bound": 0,
+  "all_geometric_rules_coverage_upper_bound": 0,
+  "sufficient_rule_counts": {},
+  "per_pair_hit_counts": {
+    "identity": 1,
+    "recolor": 0,
+    "translate": 0,
+    "flip_h": 0,
+    "flip_v": 0,
+    "rot90": 0,
+    "rot180": 0,
+    "rot270": 0,
+    "transpose": 0,
+    "crop_to_bbox": 0,
+    "tile_2x2": 0,
+    "tile_3x3": 0,
+    "symmetrize_h": 0
+  },
+  "n_train_pairs_total": 358
+}

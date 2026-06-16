@@ -1,0 +1,11 @@
+{
+  "team": "WHILECHANGING",
+  "module_path": "src/misfit_agent/dsl/combinators/while_changing.py",
+  "module_package_init": "src/misfit_agent/dsl/combinators/__init__.py",
+  "test_path": "tests/test_dsl_while_changing.py",
+  "tests_passed": 25,
+  "tests_failed": 0,
+  "tier_1_attestation_clean": true,
+  "exports_for_dsl_init": ["WhileChanging"],
+  "summary": "WhileChanging(child_program, max_iter=16) combinator: Grid -> Grid fixed-point iteration. Repeatedly evaluates child program on running grid until np.array_equal(next, current) (fixed point) or max_iter cap reached. Child is META-parameter validated at construction time; non-Grid child output raises TypeMismatchError; max_iter must be positive int (ValueError otherwise). Defensive input copy guarantees caller grid is never mutated. Hash key derives from primitive.to_string() which includes BOTH child structure and max_iter value, so memoization tables distinguish identical children under different caps. mdl_bits = catalog-bits + 1 (meta-shape) + sum(child node mdl_bits) + log2(max_iter); cap cost ensures synthesis prior prefers shorter horizons when fit permits. Non-convergent children (e.g. Rotate(k=2) on asymmetric grid) terminate at max_iter and return last iteration grid rather than raising. No new third-party imports; relies only on numpy and existing DSL substrate (interpreter.evaluate, ast.Program, ast.PrimitiveNode, types.TypeMismatchError, types.Signature)."
+}

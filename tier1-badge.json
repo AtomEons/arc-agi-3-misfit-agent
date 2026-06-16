@@ -1,0 +1,55 @@
+{
+  "spec": "tier1-attestation/v0.1",
+  "submission": {
+    "name": "misfit-agent",
+    "version": "v0.5",
+    "license": "Apache-2.0",
+    "url": "https://github.com/AtomEons/arc-agi-3-misfit-agent"
+  },
+  "claim": {
+    "tier": 1,
+    "competitions": [
+      "arc-prize-2026-arc-agi-3",
+      "arc-prize-2026-arc-agi-2",
+      "arc-prize-2026-paper-track"
+    ],
+    "rationale_doc": "docs/TIER_1_DISCLOSURE.md"
+  },
+  "attestation": {
+    "ci_grep_script": "tests/test_tier1_attestation.py",
+    "frozen_constants_git_tag": "constants-frozen-2026-06-16",
+    "memory_source_tag_enforced": true,
+    "no_network_at_inference": true
+  },
+  "exclusions": {
+    "no_imports": [
+      "torch",
+      "transformers",
+      "openai",
+      "anthropic",
+      "llama_cpp",
+      "huggingface_hub",
+      "sentence_transformers",
+      "langchain",
+      "langgraph",
+      "smolagents"
+    ],
+    "no_weight_files": [
+      ".gguf",
+      ".safetensors",
+      ".pth",
+      ".ckpt"
+    ],
+    "no_model_strings": [
+      "gpt-?\\d+",
+      "claude-?\\d+",
+      "gemini-?\\d+",
+      "mamba-?\\d+",
+      "llama-?\\d+",
+      "mistral-?",
+      "qwen-?\\d+"
+    ]
+  },
+  "verified_at_unix": 0,
+  "verifier_sha": "pending-first-verification"
+}

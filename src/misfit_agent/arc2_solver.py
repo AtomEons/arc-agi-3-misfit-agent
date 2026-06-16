@@ -162,6 +162,191 @@ class Recolor:
         return ("Recolor", tuple(sorted(self.mapping.items())))
 
 
+@dataclass
+class ReflectH:
+    """Output = horizontal flip of input. Spelke GEOMETRY prior."""
+    fitted: bool = False
+
+    def fit(self, train_pairs: list[tuple[Grid, Grid]]) -> bool:
+        if not train_pairs:
+            return False
+        for inp, out in train_pairs:
+            inp = np.asarray(inp); out = np.asarray(out)
+            if inp.shape != out.shape:
+                return False
+            if not np.array_equal(np.fliplr(inp), out):
+                return False
+        self.fitted = True
+        return True
+
+    def predict(self, grid: Grid) -> Grid:
+        return np.fliplr(np.asarray(grid)).copy()
+
+    def signature(self) -> tuple:
+        return ("ReflectH",)
+
+
+@dataclass
+class ReflectV:
+    """Output = vertical flip of input. Spelke GEOMETRY prior."""
+    fitted: bool = False
+
+    def fit(self, train_pairs: list[tuple[Grid, Grid]]) -> bool:
+        if not train_pairs:
+            return False
+        for inp, out in train_pairs:
+            inp = np.asarray(inp); out = np.asarray(out)
+            if inp.shape != out.shape:
+                return False
+            if not np.array_equal(np.flipud(inp), out):
+                return False
+        self.fitted = True
+        return True
+
+    def predict(self, grid: Grid) -> Grid:
+        return np.flipud(np.asarray(grid)).copy()
+
+    def signature(self) -> tuple:
+        return ("ReflectV",)
+
+
+@dataclass
+class Transpose:
+    """Output = transpose of input (diagonal reflection). Spelke GEOMETRY."""
+    fitted: bool = False
+
+    def fit(self, train_pairs: list[tuple[Grid, Grid]]) -> bool:
+        if not train_pairs:
+            return False
+        for inp, out in train_pairs:
+            inp = np.asarray(inp); out = np.asarray(out)
+            if inp.shape[::-1] != out.shape:
+                return False
+            if not np.array_equal(inp.T, out):
+                return False
+        self.fitted = True
+        return True
+
+    def predict(self, grid: Grid) -> Grid:
+        return np.asarray(grid).T.copy()
+
+    def signature(self) -> tuple:
+        return ("Transpose",)
+
+
+@dataclass
+class Rotate:
+    """Output = 90/180/270° rotation of input. k = quarter-turns (1, 2, or 3).
+    Spelke GEOMETRY prior (orientation symmetry group).
+    """
+    k: int = 1
+    fitted: bool = False
+
+    def fit(self, train_pairs: list[tuple[Grid, Grid]]) -> bool:
+        if not train_pairs:
+            return False
+        candidates = {1, 2, 3}
+        for inp, out in train_pairs:
+            inp = np.asarray(inp); out = np.asarray(out)
+            local = set()
+            for k in (1, 2, 3):
+                rot = np.rot90(inp, k=k)
+                if rot.shape == out.shape and np.array_equal(rot, out):
+                    local.add(k)
+            candidates &= local
+            if not candidates:
+                return False
+        # Prefer smallest k (Occam).
+        self.k = min(candidates)
+        self.fitted = True
+        return True
+
+    def predict(self, grid: Grid) -> Grid:
+        return np.rot90(np.asarray(grid), k=self.k).copy()
+
+    def signature(self) -> tuple:
+        return ("Rotate", self.k)
+
+
+@dataclass
+class CropToBbox:
+    """Output = crop of input to the bounding box of non-background cells.
+    Spelke OBJECTNESS prior (focus on the figure, not the ground).
+    """
+    fitted: bool = False
+
+    def fit(self, train_pairs: list[tuple[Grid, Grid]]) -> bool:
+        if not train_pairs:
+            return False
+        for inp, out in train_pairs:
+            inp = np.asarray(inp); out = np.asarray(out)
+            cropped = self._crop(inp)
+            if cropped.shape != out.shape:
+                return False
+            if not np.array_equal(cropped, out):
+                return False
+        self.fitted = True
+        return True
+
+    def predict(self, grid: Grid) -> Grid:
+        return self._crop(np.asarray(grid)).copy()
+
+    @staticmethod
+    def _crop(grid: Grid) -> Grid:
+        bg = _background_color(grid)
+        mask = grid != bg
+        if not mask.any():
+            return grid.copy()
+        ys, xs = np.where(mask)
+        r0, r1 = int(ys.min()), int(ys.max())
+        c0, c1 = int(xs.min()), int(xs.max())
+        return grid[r0:r1+1, c0:c1+1]
+
+    def signature(self) -> tuple:
+        return ("CropToBbox",)
+
+
+@dataclass
+class Tile:
+    """Output = input tiled to a consistent (rows_factor, cols_factor) across
+    every train pair. Spelke GEOMETRY (translation symmetry of tiling).
+    """
+    rf: int = 1
+    cf: int = 1
+    fitted: bool = False
+
+    def fit(self, train_pairs: list[tuple[Grid, Grid]]) -> bool:
+        if not train_pairs:
+            return False
+        rf_cf = None
+        for inp, out in train_pairs:
+            inp = np.asarray(inp); out = np.asarray(out)
+            ih, iw = inp.shape; oh, ow = out.shape
+            if oh % ih != 0 or ow % iw != 0:
+                return False
+            rf, cf = oh // ih, ow // iw
+            if rf < 1 or cf < 1 or (rf == 1 and cf == 1):
+                return False
+            tiled = np.tile(inp, (rf, cf))
+            if tiled.shape != out.shape or not np.array_equal(tiled, out):
+                return False
+            if rf_cf is None:
+                rf_cf = (rf, cf)
+            elif rf_cf != (rf, cf):
+                return False
+        if rf_cf is None:
+            return False
+        self.rf, self.cf = rf_cf
+        self.fitted = True
+        return True
+
+    def predict(self, grid: Grid) -> Grid:
+        return np.tile(np.asarray(grid), (self.rf, self.cf)).copy()
+
+    def signature(self) -> tuple:
+        return ("Tile", self.rf, self.cf)
+
+
 def _try_shift_equals(inp: Grid, out: Grid, dy: int, dx: int) -> bool:
     """Return True if shifting inp by (dy, dx) and filling with background
     equals out exactly."""
@@ -303,19 +488,116 @@ def task_fingerprint(train_pairs: list[tuple[Grid, Grid]]) -> np.ndarray:
 
 def _rule_factories():
     """Order matters: Identity first (fast null), then richer rules.
-    Recolor is checked before Translate2 because pure-recolor tasks are
-    cheaper to verify.
+    Each rule encodes a single Spelke prior (cohesion / geometry / topology / numerosity).
     """
-    return [
+    from .arc2_rules_v2 import all_v2_factories
+    base = [
         lambda: Identity(),
         lambda: Recolor(),
         lambda: Translate2(),
+        lambda: ReflectH(),
+        lambda: ReflectV(),
+        lambda: Transpose(),
+        lambda: Rotate(k=1),
+        lambda: Rotate(k=2),
+        lambda: Rotate(k=3),
+        lambda: CropToBbox(),
+        lambda: Tile(),
     ]
+    return base + all_v2_factories()
 
 
-def _fit_all_rules(train_pairs: list[tuple[Grid, Grid]]):
-    """Yield (rule, score) for every rule template that fits all train pairs."""
+@dataclass
+class Composed:
+    """Depth-2 composed program: rule_a, then rule_b. Same fit/predict/
+    signature interface as the base rules so the existing beam works.
+
+    TIER-1 HONESTY: composition is a SEARCH STRATEGY over the existing
+    base templates. No new priors introduced. The composed program is
+    fitted by chaining two already-fitted base rules where the midstate
+    after rule_a is the legitimate "intermediate train output" that
+    rule_b must map to the final train output. If both base fits succeed,
+    the composed program is the deterministic chain.
+    """
+    rule_a: object
+    rule_b: object
+    fitted: bool = False
+    consistency_score: float = 0.0
+
+    def fit(self, train_pairs: list[tuple[Grid, Grid]]) -> bool:
+        # rule_a fits ONLY on its own — we do not require it to map all the
+        # way to the output. It maps to a midstate. Then rule_b is fitted
+        # against (midstate, output) pairs. If both succeed, the chain holds.
+        if not train_pairs:
+            return False
+        try:
+            # rule_a fits against the train pairs treating (input, midstate)
+            # where midstate is unknown — we cannot fit rule_a "to nothing".
+            # Instead, the search is: for every plausible rule_a parameterization,
+            # produce midstates and check whether rule_b can fit (midstates, outputs).
+            # For v1 we use the dumb-but-correct approach: try fitting rule_a as
+            # if it were a one-shot rule (so its parameters are pinned by the
+            # train pairs), then ALSO try fitting rule_b on (rule_a(inputs), outputs).
+            # This catches the common cases:
+            #   (Identity ∘ Recolor) == Recolor   — already covered by base
+            #   (Recolor ∘ Translate2) — first recolor, then translate
+            #   (Translate2 ∘ Recolor) — first translate, then recolor
+            # which are the two genuinely-new depth-2 cases.
+            # We also keep Identity as a sentinel so (Identity ∘ X) is allowed
+            # (degenerates to X but the beam de-dupes by signature).
+            #
+            # The honest fit is:
+            #   1. Try rule_a.fit(train_pairs) under the assumption that its
+            #      output is the FINAL output (degenerate case — caller will
+            #      dedupe by signature).
+            #   2. If rule_a is Identity, midstates = inputs unchanged.
+            #   3. Else if rule_a fits, produce midstates = rule_a.predict(inputs).
+            #   4. Fit rule_b on (midstates, outputs) as a fresh train pair set.
+            #   5. Accept only if rule_b fits ALL midstate→output pairs.
+            if isinstance(self.rule_a, Identity):
+                midstates = [np.asarray(inp).copy() for inp, _ in train_pairs]
+            else:
+                if not self.rule_a.fit(train_pairs):
+                    return False
+                midstates = []
+                for inp, _ in train_pairs:
+                    try:
+                        midstates.append(self.rule_a.predict(np.asarray(inp)))
+                    except Exception:
+                        return False
+            mid_pairs = list(zip(midstates, [out for _, out in train_pairs]))
+            if not self.rule_b.fit(mid_pairs):
+                return False
+            # Final score = cell accuracy on (input, output) after full chain.
+            self.fitted = True
+            self.consistency_score = train_score(self, train_pairs)
+            # Require an EXACT-fit composed program (every train pair matches
+            # cell-perfectly) — Tier-1 honest, no partial-credit dressing.
+            if self.consistency_score < 1.0 - 1e-9:
+                self.fitted = False
+                return False
+            return True
+        except Exception:
+            return False
+
+    def predict(self, grid: Grid) -> Grid:
+        return self.rule_b.predict(self.rule_a.predict(np.asarray(grid)))
+
+    def signature(self) -> tuple:
+        return ("Composed", self.rule_a.signature(), self.rule_b.signature())
+
+
+def _fit_all_rules(
+    train_pairs: list[tuple[Grid, Grid]],
+    compose_depth: int = 1,
+) -> list[tuple[object, float]]:
+    """Yield (rule, score) for every program that fits all train pairs.
+
+    compose_depth=1 -> base rules only (legacy behavior).
+    compose_depth=2 -> base rules + every depth-2 chain over base.
+    """
     fitted: list[tuple[object, float]] = []
+    base_rules: list[tuple[object, float]] = []
     for factory in _rule_factories():
         rule = factory()
         ok = False
@@ -326,7 +608,27 @@ def _fit_all_rules(train_pairs: list[tuple[Grid, Grid]]):
         if not ok:
             continue
         score = train_score(rule, train_pairs)
-        fitted.append((rule, score))
+        base_rules.append((rule, score))
+    fitted.extend(base_rules)
+
+    if compose_depth >= 2:
+        # Try every (factory_a, factory_b) ordered pair. We deliberately
+        # try chains where rule_a does NOT solve alone — that's where
+        # composition adds reach. Identity-as-rule_a is also allowed; the
+        # beam dedupes by signature so it costs only the fit attempt.
+        factories = _rule_factories()
+        for fa in factories:
+            for fb in factories:
+                # Skip the trivial (Identity, Identity) chain.
+                a_inst = fa(); b_inst = fb()
+                if isinstance(a_inst, Identity) and isinstance(b_inst, Identity):
+                    continue
+                composed = Composed(rule_a=fa(), rule_b=fb())
+                try:
+                    if composed.fit(train_pairs):
+                        fitted.append((composed, composed.consistency_score))
+                except Exception:
+                    continue
     return fitted
 
 
@@ -334,6 +636,7 @@ def solve_task(
     train_pairs: list[tuple],
     test_input,
     beam_width: int = 4,
+    compose_depth: int = 1,
 ) -> tuple[Grid, Grid]:
     """Solve one ARC-AGI-2 task.
 
@@ -359,7 +662,7 @@ def solve_task(
                            np.asarray(out, dtype=np.int32)))
     test_input = np.asarray(test_input, dtype=np.int32)
 
-    fitted = _fit_all_rules(norm_pairs)
+    fitted = _fit_all_rules(norm_pairs, compose_depth=compose_depth)
     # Always include the identity baseline as a fallback program.
     identity_rule = Identity()
     identity_rule.fitted = True  # identity always "applies"

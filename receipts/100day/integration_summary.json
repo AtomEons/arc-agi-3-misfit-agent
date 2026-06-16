@@ -1,0 +1,62 @@
+{
+  "phase": "Phase-1 combinator + synthesis integration",
+  "integrator": "claude-opus-4-7[1m]",
+  "timestamp_utc": "2026-06-16",
+  "repo": "C:/AtomEons/arc-agi-3-misfit-agent",
+  "branch": "main",
+  "teams_integrated": 12,
+  "teams": [
+    {"team": "SEQ", "module": "src/misfit_agent/dsl/combinators/seq.py", "test": "tests/test_dsl_seq.py", "tests": 16, "exports": ["Seq"]},
+    {"team": "FOREACH_OBJECT", "module": "src/misfit_agent/dsl/combinators/foreach_object.py", "test": "tests/test_dsl_foreach_object.py", "tests": 11, "exports": ["ForEachObject"]},
+    {"team": "IFCOLOR", "module": "src/misfit_agent/dsl/combinators/if_color.py", "test": "tests/test_dsl_if_color.py", "tests": 17, "exports": ["IfColor"]},
+    {"team": "WHILECHANGING", "module": "src/misfit_agent/dsl/combinators/while_changing.py", "test": "tests/test_dsl_while_changing.py", "tests": 25, "exports": ["WhileChanging"]},
+    {"team": "MASKBY", "module": "src/misfit_agent/dsl/combinators/mask_by.py", "test": "tests/test_dsl_mask_by.py", "tests": 22, "exports": ["MaskBy"]},
+    {"team": "PARALLEL", "module": "src/misfit_agent/dsl/combinators/parallel_combinator.py", "test": "tests/test_dsl_parallel.py", "tests": 25, "exports": ["Parallel"]},
+    {"team": "REDUCE", "module": "src/misfit_agent/dsl/combinators/reduce.py", "test": "tests/test_dsl_reduce.py", "tests": 22, "exports": ["Reduce"]},
+    {"team": "IFSHAPE", "module": "src/misfit_agent/dsl/combinators/if_shape.py", "test": "tests/test_dsl_if_shape.py", "tests": 17, "exports": ["IfShape"]},
+    {"team": "SYNTH", "module": "src/misfit_agent/dsl/synthesis.py", "test": "tests/test_dsl_synthesis.py", "tests": 20, "exports": ["synthesize", "MDL_LAMBDA"]},
+    {"team": "MDL", "module": "src/misfit_agent/dsl/mdl.py", "test": "tests/test_dsl_mdl.py", "tests": 12, "exports": ["encoding_bits", "train_cell_accuracy", "score"]},
+    {"team": "REFINEMENT", "module": "src/misfit_agent/dsl/refinement.py", "test": "tests/test_dsl_refinement.py", "tests": 21, "exports": ["refine", "swap_primitive", "wrap_program", "mutate_param"]},
+    {"team": "RESONANCE_SEED", "module": "src/misfit_agent/dsl/resonance_seed.py", "test": "tests/test_dsl_resonance_seed.py", "tests": 44, "exports": ["seed_from_resonance", "task_fingerprint", "program_from_signature"]}
+  ],
+  "integration_actions": [
+    "Verified all 12 team module files exist on disk",
+    "Verified all 12 team test files exist on disk",
+    "Updated src/misfit_agent/dsl/combinators/__init__.py to re-export 8 combinator classes",
+    "Updated src/misfit_agent/dsl/__init__.py to re-export combinators + synthesize + MDL_LAMBDA + encoding_bits + train_cell_accuracy + score + refine + swap_primitive + wrap_program + mutate_param + seed_from_resonance + task_fingerprint + program_from_signature",
+    "Smoke-tested all 19 new top-level exports via direct import",
+    "Verified no banned third-party imports (torch/transformers/openai/anthropic/llama_cpp/huggingface_hub) anywhere under src/misfit_agent/dsl/",
+    "Ran tests/test_tier1_attestation.py + tests/test_tier1_adversarial.py: 18/18 pass",
+    "Ran python -m pytest -q full suite"
+  ],
+  "full_suite_result": {
+    "passed": 408,
+    "failed": 1,
+    "xfailed": 3,
+    "failing_tests": [
+      {
+        "node": "tests/test_mcts_puct.py::test_hard_timeout_is_respected_within_tolerance",
+        "diagnosis": "Pre-existing wall-clock timing flake unrelated to combinator/synthesis integration. Test passes in isolation; fails under loaded suite due to Windows scheduler jitter when the planner's grace allowance is exceeded by the OS sleep. Test predates this integration phase (initial commit 3ea2506). Not caused by any new code in this phase."
+      }
+    ]
+  },
+  "tier_1_attestation": {
+    "clean": true,
+    "test_no_forbidden_imports": "PASSED",
+    "test_no_forbidden_model_strings": "PASSED",
+    "test_pyproject_has_no_llm_dependencies": "PASSED",
+    "test_tier1_disclosure_doc_exists": "PASSED",
+    "adversarial_tests_passed": "14/14"
+  },
+  "combinators_index_path": "src/misfit_agent/dsl/combinators/__init__.py",
+  "top_level_index_path": "src/misfit_agent/dsl/__init__.py",
+  "new_symbols_exported_from_dsl": [
+    "Seq", "ForEachObject", "IfColor", "WhileChanging",
+    "MaskBy", "Parallel", "Reduce", "IfShape",
+    "synthesize", "MDL_LAMBDA",
+    "encoding_bits", "train_cell_accuracy", "score",
+    "refine", "swap_primitive", "wrap_program", "mutate_param",
+    "seed_from_resonance", "task_fingerprint", "program_from_signature"
+  ],
+  "next_phase_recommendation": "Phase-2 is end-to-end ARC pipeline integration: thread synthesize() + refine() + seed_from_resonance() into the live ARC-AGI-3 solver loop and add a tests/test_dsl_e2e.py that exercises Identity, Rotate(k=2), Translate, and Recolor recovery from real ARC train pairs within a 1-second budget. Separately, investigate the test_mcts_puct.py timing flake — either widen the grace allowance, mock perf_counter, or mark it as @pytest.mark.flaky to keep the suite deterministic."
+}

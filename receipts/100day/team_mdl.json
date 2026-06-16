@@ -1,0 +1,11 @@
+{
+  "team": "MDL",
+  "day": 21,
+  "module_path": "src/misfit_agent/dsl/mdl.py",
+  "test_path": "tests/test_dsl_mdl.py",
+  "tests_passed": 12,
+  "tests_failed": 0,
+  "tier_1_attestation_clean": true,
+  "exports_for_dsl_init": ["encoding_bits", "train_cell_accuracy", "score"],
+  "summary": "MDL prior scorer: arithmetic-coded encoding_bits over typed Program AST (PrimitiveNode bits = primitive.mdl_bits(), HoleNode bits = log2|catalog|, ConstNode bits = log2(domain) with per-type domain table — Color=10, Number=64, Bool=2, Grid/Mask per-cell). score = train_cell_accuracy - mdl_lambda * encoding_bits with shape-mismatch and runtime-error pairs counted as 0.0 accuracy; mdl_lambda=0 collapses to pure fit; larger mdl_lambda penalizes longer programs more. Pure stdlib + numpy."
+}

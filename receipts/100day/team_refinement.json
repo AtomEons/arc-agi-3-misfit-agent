@@ -1,0 +1,10 @@
+{
+  "team": "REFINEMENT",
+  "module_path": "src/misfit_agent/dsl/refinement.py",
+  "test_path": "tests/test_dsl_refinement.py",
+  "tests_passed": 21,
+  "tests_failed": 0,
+  "tier_1_attestation_clean": true,
+  "exports_for_dsl_init": ["refine", "swap_primitive", "wrap_program", "mutate_param"],
+  "summary": "HRM-style outer refinement loop over typed Programs. Pure-structural edit operators (swap_primitive, wrap_program, mutate_param) all deep-copy the input, run __post_init__ type-checks via PrimitiveNode reconstruction, and raise TypeMismatchError on bad composition. refine() classifies per-pair errors as perfect/shape/color/position/mixed/incompatible, biases the candidate generator by dominant error type (Translate dy/dx sweep for position, Rotate k / Reflect axis / Crop / Tile for shape, Recolor + Identity for color, broad sweep otherwise), scores via mean cell-accuracy mirror of the synthesis scorer, accepts only strictly-improving edits above EPSILON=1e-9, returns input unchanged on already-perfect / empty-train_pairs / non-Grid-holes / max_iters=0, raises ValueError on negative max_iters, and never returns a lower-scoring program. Uses walker.walk_preorder for primitive-node addressing and walker.find_holes for hole-type guard. Tier-1 honest: no learned parameters, no pretrained weights, no LLM, deterministic candidate enumeration only."
+}

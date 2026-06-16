@@ -1,0 +1,10 @@
+{
+  "team": "MASKBY",
+  "module_path": "src/misfit_agent/dsl/combinators/mask_by.py",
+  "test_path": "tests/test_dsl_mask_by.py",
+  "tests_passed": 22,
+  "tests_failed": 0,
+  "tier_1_attestation_clean": true,
+  "exports_for_dsl_init": ["MaskBy"],
+  "summary": "MaskBy(predicate, child_program) combinator: Grid -> Grid via predicate -> 2D bool mask, evaluate child on full input, np.where(mask, modified, grid). Four allowed predicates: foreground (grid != bg), background (grid == bg), edge_touching (cells of objects whose bbox touches edge), largest_object (cells of the max-area perceived object). Child program is META-parameter validated at construction time; non-Grid child output raises TypeMismatchError before any execution; bad predicate label raises ValueError. Hash key inherits predicate AND child's to_string so memoization tables distinguish distinct (predicate, child) pairs. mdl_bits = catalog-bits + 1 (meta-shape) + 2 (predicate choice in 4) + sum(child node mdl_bits). Empty-scene fallback for object-based predicates returns all-False mask -> input unchanged. Defensive shape-mismatch handling: if child returns different shape, only the overlap region is masked-composed. No new third-party imports; relies only on existing perceptor (perceive_grid, _background_color) and DSL substrate (Primitive, Program, PrimitiveNode, evaluate, types)."
+}

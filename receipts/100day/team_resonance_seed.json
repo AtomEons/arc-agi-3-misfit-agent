@@ -1,0 +1,10 @@
+{
+  "team": "RESONANCE-SEED",
+  "module_path": "src/misfit_agent/dsl/resonance_seed.py",
+  "test_path": "tests/test_dsl_resonance_seed.py",
+  "tests_passed": 44,
+  "tests_failed": 0,
+  "tier_1_attestation_clean": true,
+  "exports_for_dsl_init": ["seed_from_resonance", "task_fingerprint", "program_from_signature"],
+  "summary": "Resonance-seeded synthesis initialization: seed_from_resonance(train_pairs, library_path=None, k=5) computes the 16-dim ARC-AGI-2 task fingerprint, looks up the K nearest entries in the per-install PEM-bound ResonanceLibrary by cosine similarity, and reconstructs each entry's winning_policy signature tuple into a typed Grid->Grid DSL Program via program_from_signature. Supports atomic signature heads from arc2_solver (Identity, Translate2, Rotate, ReflectH/V, Transpose, Recolor, CropToBbox, Tile) plus native DSL heads (Translate, Reflect, Gravity, Symmetrize, KeepWhere). Composed and unknown heads are silently skipped (soft-fail) — seeds are a search-prior shortcut, not a correctness contract. Returns [] when no library exists, train_pairs is empty, k<=0, or no entries translate. Tier-1 honest: numpy + stdlib only, no learned parameters, no pretrained weights, no public-corpus heuristics. task_fingerprint is a re-export of arc2_solver.task_fingerprint so library writes (record_solved) and reads (seeding) share one definition."
+}
