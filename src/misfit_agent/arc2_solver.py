@@ -519,6 +519,9 @@ def _rule_factories():
         RecolorByCountRank, SwapTwoNonBgColors,
         RecolorByAreaRank, CropToObjectByAreaRank,
         PaintObjectByRankWithColorOfRank,
+        CropToObjectByColorRank, DeleteAllExceptRankN,
+        RecolorAllObjectsToColorOfRank, MirrorAcrossDominantAxis,
+        CompleteFrameOf,
     )
     base = [
         lambda: Identity(),
@@ -571,7 +574,14 @@ def _rule_factories():
         lambda: CropToObjectByAreaRank(),
         lambda: PaintObjectByRankWithColorOfRank(),
     ]
-    return base + all_v2_factories() + wave4 + wave5 + wave6 + wave7
+    wave8 = [
+        lambda: CropToObjectByColorRank(),
+        lambda: DeleteAllExceptRankN(),
+        lambda: RecolorAllObjectsToColorOfRank(),
+        lambda: MirrorAcrossDominantAxis(),
+        lambda: CompleteFrameOf(),
+    ]
+    return base + all_v2_factories() + wave4 + wave5 + wave6 + wave7 + wave8
 
 
 @dataclass

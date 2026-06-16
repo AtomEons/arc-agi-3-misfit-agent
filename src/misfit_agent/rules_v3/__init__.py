@@ -28,6 +28,12 @@ from .wave7 import (
     PaintObjectByRankWithColorOfRank,
     ALL_WAVE7_RULES,
 )
+from .wave8 import (
+    CropToObjectByColorRank, DeleteAllExceptRankN,
+    RecolorAllObjectsToColorOfRank, MirrorAcrossDominantAxis,
+    CompleteFrameOf,
+    ALL_WAVE8_RULES,
+)
 
 __all__ = [
     "KeepLargest", "KeepSmallest", "KeepByMaxColor", "KeepByMinColor",
@@ -47,4 +53,8 @@ __all__ = [
     "RecolorByAreaRank", "CropToObjectByAreaRank",
     "PaintObjectByRankWithColorOfRank",
     "ALL_WAVE7_RULES",
+    "CropToObjectByColorRank", "DeleteAllExceptRankN",
+    "RecolorAllObjectsToColorOfRank", "MirrorAcrossDominantAxis",
+    "CompleteFrameOf",
+    "ALL_WAVE8_RULES",
 ]

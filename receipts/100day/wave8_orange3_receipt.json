@@ -1,0 +1,98 @@
+{
+  "order_id": "arc_wave8_climb_2026-06-16",
+  "status": "COMPLETED_REAL_LIFT_AS_PREDICTED",
+  "completed_at": "2026-06-16T16:55:00Z",
+  "sovereign": "atom-mccree",
+  "tier_1_attestation_clean": true,
+
+  "steps": {
+    "step_1_write_wave8": {
+      "state": "COMPLETED",
+      "artifacts": ["src/misfit_agent/rules_v3/wave8.py"],
+      "lines_of_code_added": 240,
+      "new_rule_classes": [
+        "CropToObjectByColorRank", "DeleteAllExceptRankN",
+        "RecolorAllObjectsToColorOfRank", "MirrorAcrossDominantAxis",
+        "CompleteFrameOf"
+      ]
+    },
+    "step_2_wire_factories": {
+      "state": "COMPLETED",
+      "rule_factories_count_before": 57,
+      "rule_factories_count_after": 62,
+      "delta": 5
+    },
+    "step_3_smoke_test": {
+      "state": "COMPLETED",
+      "result": "19 passed in 1.18s"
+    },
+    "step_4_preflight_check": {
+      "state": "COMPLETED",
+      "expected_new_solves": 1,
+      "task_id_expected": "cd3c21df",
+      "responsible_rule": "CropToObjectByColorRank"
+    },
+    "step_5_measurement": {
+      "state": "COMPLETED",
+      "wall_clock_seconds": 476.3,
+      "tasks_solved_all": "28/1000",
+      "tasks_solved_pct": 2.80,
+      "test_inputs_solved": "29/1076",
+      "test_inputs_solved_pct": 2.70,
+      "receipt": "receipts/arc/measurement_training_d1_1781649969.jsonl"
+    }
+  },
+
+  "delta_summary": {
+    "baseline_training_pct": 2.70,
+    "wave8_training_pct": 2.80,
+    "delta_training_pp": 0.10,
+    "additional_tasks_solved": 1,
+    "rule_classes_added": 5,
+    "loc_added": 240,
+    "preflight_vs_measured": "exact match (predicted 1, measured 1)"
+  },
+
+  "cumulative_climb": {
+    "wave_3_baseline_pct": 2.30,
+    "wave_4_pct": 2.40,
+    "wave_5_pct": 2.40,
+    "wave_6_pct": 2.40,
+    "wave_7_pct": 2.70,
+    "wave_8_pct": 2.80,
+    "total_delta_pp": 0.50,
+    "total_extra_tasks_solved": 5
+  },
+
+  "rule_type_distribution_on_solved": {
+    "Recolor": 4,
+    "CropToObjectByAreaRank": 3,
+    "Rotate": 3,
+    "Transpose": 2,
+    "SymmetrizeV": 2,
+    "Tile": 1, "CropToBbox": 1, "GravityUp": 1, "GravityDown": 1,
+    "ReflectV": 1, "ReflectH": 1, "Translate2": 1, "DrawBorder": 1
+  },
+
+  "honest_assessment": {
+    "verdict": "REAL_BUT_SMALL_LIFT_AS_PREDICTED",
+    "explanation": "Wave 8 shipped 5 more property-bound rules (CropToObjectByColorRank, DeleteAllExceptRankN, RecolorAllObjectsToColorOfRank, MirrorAcrossDominantAxis, CompleteFrameOf). Measured net: +1 task (28/1000), exactly matching pre-flight. Only CropToObjectByColorRank caught a new task (cd3c21df). MirrorAcrossDominantAxis fit zero training tasks — its semantics may need relaxing.",
+    "what_climbed": "+0.10pp training (27 → 28 tasks)",
+    "pattern_observation": "Each new wave of property-bound rules is yielding roughly +1 task per 5-6 rule classes shipped. The curve is logarithmic and the ceiling is in sight unless I attack the dominant unsolved categories with mechanically different rule families.",
+    "next_wave_design_direction": "Stop adding more variants of the same property-bound rule. Instead: build PATTERN-DETECTION primitives (frame extraction, periodic tile detection, axis-symmetric completion that allows ANY axis not just h/v)."
+  },
+
+  "tier_1_attestation": {
+    "no_llm_in_inference_path": true,
+    "no_pretrained_weights": true,
+    "no_learned_parameters_at_eval": true,
+    "no_threshold_tuning_on_public_eval": true,
+    "ci_grep_test": "tests/test_tier1_attestation.py"
+  },
+
+  "rollback_path": "git checkout HEAD -- src/misfit_agent/rules_v3/wave8.py src/misfit_agent/rules_v3/__init__.py src/misfit_agent/arc2_solver.py",
+  "audit_chain": {
+    "prev_receipt": "receipts/100day/wave7_orange3_receipt.json",
+    "next_expected_receipt": "receipts/100day/wave9_orange3_receipt.json"
+  }
+}
