@@ -6,6 +6,25 @@
 
 ---
 
+## Paper structure — organized around the 6 rubric criteria
+
+The ARC Prize 2026 Paper Track judges (Chollet, Kamradt, Knoop, Cruz) score across 6 equally-weighted criteria, 0-5 each. Final = average. **≥4.5/5 unlocks the $375k bonus pool** (split among all qualifying papers).
+
+| Criterion | Where in this paper | Self-score target |
+|---|---|---|
+| **Accuracy** | §5.1 — Milestone #1 leaderboard with submission ID | 3/5 (modest score still beats 0.43% frontier) |
+| **Universality** | §3 (Tier-1/2/3 lattice + CI-grep attestation generalize beyond ARC) + §6.2 | 5/5 |
+| **Progress** | §1.3 contributions + open-source repo + dataset + discussion post | 5/5 |
+| **Theory** | §3 architecture WHY (Spelke priors + HRM analysis-derived design) | 5/5 |
+| **Completeness** | §3 module-by-module + §4 setup + receipts in Appendix B | 5/5 |
+| **Novelty** | §1.2 disclosure regime + §3.5 resonance library as compute-moat workaround | 5/5 |
+
+**Target: 28/30 = 4.67/5 → bonus pool eligible.** Realistic ceiling without leaderboard accuracy: ~4.67. With a 5% Milestone #1 score: ~4.83.
+
+**Word limit:** 1,500 words. We will draft long, cut hard.
+
+---
+
 ## Abstract (TODO — draft after week 2 results)
 
 - One paragraph (~150 words)

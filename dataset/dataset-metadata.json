@@ -1,12 +1,12 @@
 {
-  "title": "misfit-agent: Tier-1 Spelke-priors substrate for ARC-AGI",
+  "title": "misfit-agent: Tier-1 ARC substrate",
   "id": "atommccree/misfit-agent-substrate",
   "licenses": [
     {
       "name": "Apache-2.0"
     }
   ],
-  "subtitle": "Open-source priors-only agent code for ARC Prize 2026. No LLM, no pretrained weights.",
+  "subtitle": "Open-source priors-only ARC-AGI agent. No LLM, no pretrained weights.",
   "description": "Source code for the misfit-agent Tier-1 substrate, designed for the ARC Prize 2026 (ARC-AGI-3 + ARC-AGI-2 + Paper Track). Includes the perceptor, fingerprint, resonance library, world model with outer refinement loop, Goal Inducer, Abstain Policy, Hungarian Tracker, MCTS-PUCT planner, and Click Quantizer. Mechanically Tier-1 enforced via CI grep. 79/79 tests green. Full open-source repo at https://github.com/AtomEons/arc-agi-3-misfit-agent. Companion Kaggle notebook at https://www.kaggle.com/atommccree/agi-in-a-video-shop-atom-eons-nostalgia.",
   "keywords": [
     "arc",
