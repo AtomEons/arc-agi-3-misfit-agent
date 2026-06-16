@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Local experiments
+_research/
+_scratch/
+local_logs/
+*.log
+recordings/
+
+# Resonance library (per-install, never committed)
+resonance_library.jsonl
+*.jsonl.bak
+
+# Credentials — NEVER COMMIT
+.env
+.env.local
+.kaggle/
+kaggle.json
+access_token
+*.token
+
+# Build artifacts
+*.whl
+*.tar.gz

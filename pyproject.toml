@@ -1,0 +1,32 @@
+[project]
+name = "misfit-agent"
+version = "0.1.0"
+description = "Tier-1 Spelke-priors substrate for ARC-AGI-3"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Atom McCree", email = "a.mccree@gmail.com" },
+]
+dependencies = [
+    "arc-agi>=0.9.1",
+    "numpy>=2.3.2",
+    "pydantic>=2.11.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4.1",
+    "ruff>=0.11.4",
+    "mypy>=1.15.0",
+]
+
+[tool.ruff.lint]
+extend-select = ["I"]
+
+[tool.mypy]
+strict = false
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
