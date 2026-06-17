@@ -1,0 +1,13 @@
+{
+  "id": "atommccree/arc-agi-2-misfit-wave-9-tier-1-strict",
+  "title": "ARC-AGI-2 Misfit Wave 9 (Tier-1 strict)",
+  "code_file": "arc-agi-2-misfit-wave9.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "false",
+  "enable_internet": "false",
+  "dataset_sources": ["atommccree/atomeons-misfit-substrate"],
+  "competition_sources": ["arc-prize-2026-arc-agi-2"],
+  "kernel_sources": []
+}
