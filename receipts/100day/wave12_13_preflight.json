@@ -1,0 +1,65 @@
+{
+  "eval": {
+    "label": "eval",
+    "tasks_total": 120,
+    "fits_per_rule": {
+      "ObjectCorrespondenceProgram": 3,
+      "NovelColorRecolor": 0,
+      "PaletteBijectionWithIdentityExtension": 0,
+      "PaintBgWithMissingNonBgColor": 0
+    },
+    "solves_per_rule": {
+      "ObjectCorrespondenceProgram": [],
+      "NovelColorRecolor": [],
+      "PaletteBijectionWithIdentityExtension": [],
+      "PaintBgWithMissingNonBgColor": []
+    },
+    "any_solver_solved_count": 0,
+    "any_solver_solved_ids": [],
+    "any_solver_solved_pct": 0.0,
+    "wall_clock_seconds": 6.6
+  },
+  "training": {
+    "label": "training",
+    "tasks_total": 1000,
+    "fits_per_rule": {
+      "ObjectCorrespondenceProgram": 34,
+      "NovelColorRecolor": 0,
+      "PaletteBijectionWithIdentityExtension": 5,
+      "PaintBgWithMissingNonBgColor": 0
+    },
+    "solves_per_rule": {
+      "ObjectCorrespondenceProgram": [
+        "08ed6ac7",
+        "342dd610",
+        "ad38a9d0",
+        "aedd82e4",
+        "ea32f347",
+        "f45f5ca7"
+      ],
+      "NovelColorRecolor": [],
+      "PaletteBijectionWithIdentityExtension": [
+        "0d3d703e",
+        "b1948b0a",
+        "c8f0f002",
+        "d511f180"
+      ],
+      "PaintBgWithMissingNonBgColor": []
+    },
+    "any_solver_solved_count": 10,
+    "any_solver_solved_ids": [
+      "08ed6ac7",
+      "0d3d703e",
+      "342dd610",
+      "ad38a9d0",
+      "aedd82e4",
+      "b1948b0a",
+      "c8f0f002",
+      "d511f180",
+      "ea32f347",
+      "f45f5ca7"
+    ],
+    "any_solver_solved_pct": 1.0,
+    "wall_clock_seconds": 101.0
+  }
+}

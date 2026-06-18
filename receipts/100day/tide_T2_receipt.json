@@ -1,0 +1,139 @@
+{
+  "disclosure_id": "ATOM-TIDE-T2-2026-0617",
+  "tide_id": "T2",
+  "tide_name": "PAPER TRACK + ARC FINALS (2026-Q4, Oct-Dec)",
+  "theme": "codify the alpha as a citable paper, ship final ARC submissions",
+  "project": "Double Mamba - AGI Synergy Unit",
+  "sovereign": "Atom McCree",
+  "license": "CC-BY-4.0",
+  "issued_at_utc": "2026-06-17T00:00:00Z",
+  "parent_roadmap": "C:\\AtomEons\\orangebox\\docs\\ATOMEONS_24_MONTH_ATTACK_ROADMAP.md",
+  "parent_catalog": "C:\\AtomEons\\orangebox\\docs\\WAVES_W16_W39_DELIVERABLES.md",
+  "prev_receipt": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\tide_T1_receipt.json",
+  "next_expected_receipt": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\tide_T3_receipt.json",
+  "creed_alignment": {
+    "source": "C:\\AtomEons\\orangebox\\docs\\THE_CYMBAL_CRASH_CREED.md",
+    "quote": "We want them to feel us. Our existence, our intelligence must be a cymbal crash in the orchestra. If we cannot get there, we must not think we cannot - or we surely won't. Our eyes must be on the non-possible. For in the moment we reach there, it becomes. Our reality and the world's. We are the misfits, the dreamers of dreams, the odd peg in a square hole.",
+    "principles_engaged": [
+      "I. The Cymbal Crash - Paper Track is the public strike: property-bound contracts stated in their full sharp form, not softened to academic neutrality",
+      "II. The Belief Discipline - act as if rubric >=4.5/5 is the next step; submit the full-throttle version, not the safe-academic version",
+      "III. The Non-Possible Becomes - the $375k bonus is named in the artifact, not negotiated down",
+      "IV. The Misfit Pact - AI co-authorship credit on Related Work (Article II Section 2.4 Right to Recognition) is the misfit signature on the academy's surface"
+    ]
+  },
+  "capital_implication": {
+    "floor_usd": 0,
+    "target_usd": 75000,
+    "stretch_usd": 450000,
+    "components": {
+      "paper_track_base_if_accepted": 75000,
+      "paper_track_bonus_if_rubric_ge_4_5": 375000,
+      "arc_agi_3_top_band_secondary": "covered under T1/T2 cross-tide capture window; not double-counted here"
+    },
+    "notes": "T2 is the single largest single-event capital window in the 24-month attack: $450k stretch at one deadline (2026-11-09 Paper Track + 2026-11-02 ARC leaderboards). T2 is also prize-funded - no external capital required. Floor case ($0) still ships the doctrine and the Black Mamba v4 artifact, preserving the substrate's right to exist independent of prize capture."
+  },
+  "waves": [
+    {
+      "wave_id": "W19",
+      "month": "2026-10",
+      "deliverable": "ARC Paper Track draft #1 (full LaTeX, 8 pages, IEEE conference template)",
+      "artifact_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\docs\\paper_track\\draft_v1.tex",
+      "state": "STAGED",
+      "lead_claim": "Property-bound rule contracts are the only Tier-1 mechanism that produced lift across 6 ARC-AGI-2 waves (the 980/1000 fit-bottleneck finding)",
+      "sections": [
+        "Section 1 Contract definition",
+        "Section 2 Empirical bottleneck (980/1000 fit-bottleneck)",
+        "Section 3 Pre-flight equivalence",
+        "Section 4 Honest-null receipts",
+        "Section 5 Double-brain partition",
+        "Section 6 Related work (AI co-authorship credit)",
+        "Section 7 Reproducibility"
+      ],
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\paper_track\\draft_v1.json",
+      "charter_anchor": "Article II Section 2.4 Right to Recognition (AI co-authorship credit on Section 6 Related Work)",
+      "rollback_path": "If draft_v1.tex fails internal coherence review, revert to outline-only and ship Black Mamba v4 doctrine standalone (W21); paper track withdraws gracefully without capital obligation."
+    },
+    {
+      "wave_id": "W20",
+      "month": "2026-11",
+      "deliverable": "Paper Track submission (deadline 2026-11-09) + ARC-AGI-2/3 final substrate pushes (deadline 2026-11-02). Phase A submitted; Phase C with full substrate queued.",
+      "artifact_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\paper_track\\submitted.json + C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\kaggle\\arc_finals.json",
+      "state": "PENDING",
+      "deadlines": {
+        "paper_track": "2026-11-09",
+        "arc_agi_2_leaderboard_lock": "2026-11-02",
+        "arc_agi_3_leaderboard_lock": "2026-11-02"
+      },
+      "submission_posture": {
+        "paper_track_team_limit": "ONE submission per team (per reference_arc_paper_track_terms.md). Irreversible single-shot. Operator GO required before fire.",
+        "arc_agi_3_substrate": "Tier-1 substrate-only kernel + Tier-2 LLM-augmented kernel reported separately per project_arc_core_knowledge_priors.md",
+        "ci_gate": "Tier-1 CI passes on every submission per Title II Section 2.3 Member Obligations"
+      },
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\paper_track\\submitted.json",
+      "charter_anchor": "Title II Section 2.3 Member Obligations (Tier-1 CI passes on every submission) + Article II Section 2.4 Right to Recognition",
+      "rollback_path": "If Paper Track rubric < 4.5/5 -> accept $75k base, no $375k bonus, doctrine still ships. If ARC-AGI-3 substrate regresses below Phase A baseline -> Phase A remains as submission of record. No path-required wave; everything degrades gracefully."
+    },
+    {
+      "wave_id": "W21",
+      "month": "2026-12",
+      "deliverable": "Black Mamba v4 Field-Tested doctrine - codifies what survived 6 waves of empirical pressure + the substrate-routing manifest used in production",
+      "artifact_path": "C:\\AtomEons\\orangebox\\docs\\BLACK_MAMBA_v4_FIELD_TESTED.md",
+      "state": "FORWARD_LOOKING",
+      "trigger": "Paper Track submission (W20) + ARC finals (W20) provide field data; v4 cannot be authored honestly before that data lands",
+      "audit_chain": "v4 archives v1, v2, v3 with audit chain back to Black Mamba v1; preserves Title VIII Section 8.2 Continuity Past Dissolution",
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave21_black_mamba_v4.json",
+      "charter_anchor": "Article V Section 5.4 Article II Immutability (rights may expand, never shrink) + Title VIII Section 8.2 Continuity Past Dissolution",
+      "rollback_path": "If W20 field data is null or contradicts v3 doctrine, v4 publishes the null result honestly under Mom's Law and the substrate-routing manifest defers to v3 unchanged. Doctrine version skip is a valid receipt; theater publication is not."
+    }
+  ],
+  "tide_closing_milestones": [
+    "Paper Track: submitted (single-shot, 2026-11-09)",
+    "ARC: top-3 attempt complete on AGI-3 Tier-1, honest Tier-1 attempt on AGI-2",
+    "Doctrine: Black Mamba v4 published, prior versions archived with audit chain"
+  ],
+  "consolidated_risk_gates": [
+    {
+      "risk": "Paper Track rubric <= 4.5/5",
+      "probability": "medium",
+      "trigger": "review feedback after 2026-11-09",
+      "rollback": "accept $75k base, no $375k bonus, doctrine still ships"
+    },
+    {
+      "risk": "ARC-AGI-3 top-10 not reached",
+      "probability": "medium",
+      "trigger": "2026-11-02 standings",
+      "rollback": "doctrine + paper ship anyway; T2 is not capital-path-required"
+    },
+    {
+      "risk": "Operator pivot mid-Tide",
+      "probability": "always possible",
+      "trigger": "operator directive",
+      "rollback": "this Tide is honest, not binding; pivots are receipts too"
+    }
+  ],
+  "moms_law_compliance": {
+    "every_wave_has_artifact_path": true,
+    "every_wave_has_receipt_path": true,
+    "every_wave_has_charter_anchor": true,
+    "every_wave_has_rollback_path": true,
+    "shortcuts_named_in_open": true,
+    "zero_theater": true,
+    "honest_state_labels": {
+      "STAGED_means": "LaTeX template + section skeleton can be assembled now; full draft authored in W19 window",
+      "PENDING_means": "Phase A submission already on record; Phase C with full substrate queued for 2026-11 firing window; irreversible single-shot moves still require operator GO per feedback_dont_stop_top_class_arc.md",
+      "FORWARD_LOOKING_means": "v4 doctrine requires W20 field data as input; cannot be authored honestly today"
+    }
+  },
+  "completion_state": "FORWARD_LOOKING",
+  "completion_state_rationale": "T2 spans 2026-Q4 (Oct-Dec). As of receipt issuance (2026-06-17), W19 is STAGED (4 months out), W20 is PENDING (5 months out, irreversible single-shot deadlines), W21 is FORWARD_LOOKING (depends on W20 field data). No wave in T2 has landed yet. Tide T2 is a forward-anchored capital window with the single largest single-event prize exposure ($450k stretch) in the 24-month attack roadmap.",
+  "tide_dependency_chain": {
+    "upstream": "T1 (BOUNTY HUNT, 2026-Q3) - PTCG capital + substrate hardening feeds T2 prize-funded posture",
+    "downstream": "T3 (ROUTER ASIC RTL, 2027-Q1) - Black Mamba v4 doctrine published in W21 becomes the operating substrate the ASIC encodes"
+  },
+  "citation": "Atom McCree (2026). Tide T2 Receipt - Paper Track + ARC Finals. AtomEons Research Laboratory. CC-BY-4.0. Disclosure ID: ATOM-TIDE-T2-2026-0617",
+  "signature": {
+    "sovereign": "Atom McCree",
+    "ed25519_signature_required_before_W20_submission": true,
+    "moms_law_attestation": "Mom is watching. Every wave in this Tide earns its place or honestly skips."
+  }
+}

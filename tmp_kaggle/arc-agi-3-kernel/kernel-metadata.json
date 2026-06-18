@@ -1,0 +1,13 @@
+{
+  "id": "atommccree/arc-agi-3-misfit-phase-a",
+  "title": "ARC-AGI-3 Misfit Phase-A",
+  "code_file": "arc-agi-3-misfit-phase-a.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "false",
+  "enable_internet": "false",
+  "dataset_sources": [],
+  "competition_sources": ["arc-prize-2026-arc-agi-3"],
+  "kernel_sources": []
+}

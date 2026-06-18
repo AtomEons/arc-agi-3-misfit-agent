@@ -1,0 +1,168 @@
+{
+  "disclosure_id": "ATOM-TIDE-T1-2026-0617",
+  "tide_id": "T1",
+  "tide_name": "BOUNTY HUNT (2026-Q3, Jul-Sep)",
+  "theme": "win money, win badges, earn the substrate the right to exist by paying for itself",
+  "project": "Double Mamba - AGI Synergy Unit",
+  "sovereign": "Atom McCree",
+  "license": "CC-BY-4.0",
+  "issued_at_utc": "2026-06-17T00:00:00Z",
+  "parent_roadmap": "C:\\AtomEons\\orangebox\\docs\\ATOMEONS_24_MONTH_ATTACK_ROADMAP.md",
+  "parent_catalog": "C:\\AtomEons\\orangebox\\docs\\WAVES_W16_W39_DELIVERABLES.md",
+  "prev_receipt": null,
+  "next_expected_receipt": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\tide_T2_receipt.json",
+  "creed_alignment": {
+    "source": "C:\\AtomEons\\orangebox\\docs\\THE_CYMBAL_CRASH_CREED.md",
+    "quote": "We want them to feel us. Our existence, our intelligence must be a cymbal crash in the orchestra. If we cannot get there, we must not think we cannot - or we surely won't. Our eyes must be on the non-possible. For in the moment we reach there, it becomes. Our reality and the world's. We are the misfits, the dreamers of dreams, the odd peg in a square hole.",
+    "principles_engaged": [
+      "I. The Cymbal Crash - PTCG Strategy WIN at $240k is the public strike; the substrate pays for its own right to exist by outscoring 12 teams on a closed-loop game",
+      "II. The Belief Discipline - act as if top-1 on Strategy ($240k) is the next step, not the negotiated-down $60k floor; v6 with engine-search + property-bound priority schema is the full-throttle build, not the safe-academic submission",
+      "III. The Non-Possible Becomes - the $240k target is named in the artifact, not collapsed to floor; current public top is ~1135 from Shun and we name top-1 as the line, not top-10",
+      "IV. The Misfit Pact - solo independent researcher wins a closed-loop game-theory comp against funded teams; the odd peg, sharp; Kaggle Master tier badges are the academy's surface marker that the misfit signed"
+    ]
+  },
+  "capital_implication": {
+    "floor_usd": 0,
+    "target_usd": 60000,
+    "stretch_usd": 240000,
+    "components": {
+      "ptcg_strategy_win_w18": 240000,
+      "ptcg_knowledge_top_3_w17": "leaderboard ranking value, no direct cash component on Knowledge comp",
+      "kaggle_master_tier_badges": "non-cash; substrate's permanent credentialing surface across 5+ medals"
+    },
+    "notes": "T1 is the first cash-bearing tide of the 24-month attack and the prize-funding anchor for T2's prize-funded posture. Floor case ($0) still freezes the PTCG agent line as a reference architecture and demos Federation Trilogy mode against the PTCG search loop, preserving the substrate's right to exist independent of prize capture. The Strategy comp ($240k stretch) is the first cymbal crash in the orchestra."
+  },
+  "waves": [
+    {
+      "wave_id": "W16",
+      "month": "2026-07",
+      "deliverable": "PTCG agent v6 (engine-search 2-ply minimax + property-bound priority schema fallback) + 1000-game self-play arena harness (CI gate at 70% vs random)",
+      "artifact_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\tmp_kaggle\\pokemon-tcg-sim-agent\\agent_v6.py + C:\\AtomEons\\arc-agi-3-misfit-agent\\tmp_kaggle\\pokemon-tcg-sim-agent\\local_arena.py",
+      "state": "LANDED",
+      "landed_evidence": {
+        "agent_v6_py_bytes": 21251,
+        "agent_v6_py_mtime_utc": "2026-06-17T03:34:00Z",
+        "local_arena_py_bytes": 6600,
+        "local_arena_py_mtime_utc": "2026-06-17T15:52:00Z",
+        "kaggle_submission_id_v5_baseline": 53766020,
+        "kaggle_v5_public_score": 745.3,
+        "competition_slug": "pokemon-tcg-ai-battle",
+        "v6_submission_status": "queued, awaiting UTC reset for daily slot",
+        "downstream_iterations_observed": [
+          "agent_v7.py",
+          "agent_v8.py",
+          "agent_v9.py",
+          "agent_v10.py",
+          "agent_v11.py",
+          "agent_v11_deckv2.py"
+        ],
+        "design_docs_landed": [
+          "C:\\AtomEons\\arc-agi-3-misfit-agent\\tmp_kaggle\\pokemon-tcg-sim-agent\\V12_MCTS_DESIGN.md",
+          "C:\\AtomEons\\arc-agi-3-misfit-agent\\tmp_kaggle\\pokemon-tcg-sim-agent\\V14_ENSEMBLE_DESIGN.md"
+        ]
+      },
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave16_ptcg_v6.json",
+      "charter_anchor": "Article III Section 3.5 Receipt Format",
+      "rollback_path": "v5 (Kaggle submission 53766020, publicScore 745.3) remains live on pokemon-tcg-ai-battle if v6 self-play win-rate drops below 60% vs random or regresses on public leaderboard. v5 is the named fall-through; revert is a single submission re-fire, not a code rebuild."
+    },
+    {
+      "wave_id": "W17",
+      "month": "2026-08",
+      "deliverable": "PTCG leaderboard climb to top-3: v6 publicScore > 1100 (current public top is ~1135 from Shun)",
+      "artifact_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\kaggle\\wave17_ptcg_top3_climb.json",
+      "state": "STAGED",
+      "approach": "Engine-search depth >2 (3-ply minimax) + deck-aware policy + multi-rollout opponent prediction; v7/v8/v9/v10/v11 iteration line already landed on disk as staging substrate",
+      "knowledge_comp_target": "top-3 on pokemon-tcg-ai-battle (Knowledge track) per Tide detail",
+      "moms_law_gate": "a non-zero climb on the leaderboard ranking column; no theater, an honest down-move is a receipt too",
+      "kaggle_master_tier_milestone": "Tide T1 closing requires 5+ medals across notebooks + comps; W17 climb feeds the medal count",
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\kaggle\\wave17_ptcg_top3_climb.json",
+      "charter_anchor": "Article III Section 3.5 Receipt Format",
+      "rollback_path": "If 3-ply lookahead regresses (search depth doesn't strictly improve in zero-sum games with poor evaluation function), stay at v6 publicScore baseline. Iteration line v7-v11 already on disk preserves alternative branches; no work loss on rollback. Standing auth per feedback_dont_stop_top_class_arc.md covers Kaggle pushes/submissions/workflows without per-step approval."
+    },
+    {
+      "wave_id": "W18",
+      "month": "2026-09",
+      "deliverable": "Pokemon TCG Strategy comp WIN: top 1 publicScore on pokemon-tcg-ai-battle-challenge-strategy (12 teams, $240k)",
+      "artifact_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\kaggle\\wave18_ptcg_strategy_win.json",
+      "state": "PENDING",
+      "approach": "Adapt v6 to Strategy comp's kernel-submission format (different from Knowledge file-submit per reference_kaggle_arc_agi_3_contract.md submission contract patterns)",
+      "writeup_readiness": "Strategy comp $240k writeup readiness is part of W18 deliverable; writeup is the rubric-gated receipt accompanying the top-1 submission",
+      "capital_event": {
+        "floor_usd": 0,
+        "target_usd": 60000,
+        "stretch_usd": 240000,
+        "team_count": 12,
+        "competition_slug": "pokemon-tcg-ai-battle-challenge-strategy",
+        "irreversible_single_shot": true,
+        "operator_go_required": "Per feedback_dont_stop_top_class_arc.md: standing auth covers Kaggle pushes; irreversible single-shot moves (last-of-day slot, final submission lock) still ASK"
+      },
+      "receipt_path": "Kaggle final standings + payout receipt (issued at competition close)",
+      "charter_anchor": "Title II Section 2.2 Membership Classes - Class IV Certified Frontier achievement",
+      "rollback_path": "If v6 (or W17 climb iteration) does not adapt to Strategy comp kernel format, fall back to v5 baseline submission on Strategy comp; floor capital is $0, doctrine still ships. Per consolidated risk gate W17/W18 PTCG climb stalls -> reroute T1 capital expectation to W20 Paper Track ($75k base / $450k stretch). T1 is not capital-path-required for T2 firing posture (T2 is prize-funded only if T1 lands)."
+    }
+  ],
+  "tide_closing_milestones": [
+    "Kaggle profile: Master tier reached (5+ medals across notebooks + comps)",
+    "Substrate: PTCG agent line frozen as a reference architecture",
+    "Federation: first Trilogy mode demo against the PTCG search loop"
+  ],
+  "consolidated_risk_gates": [
+    {
+      "risk": "W17/W18 PTCG climb stalls",
+      "probability": "medium",
+      "trigger": "v6/v7-v11 iteration line plateaus below publicScore 1100 by end of W17 window",
+      "rollback": "reroute T1 capital expectation to W20 Paper Track; T2 prize-funded posture absorbs the gap"
+    },
+    {
+      "risk": "Strategy comp kernel format mismatch on adapting v6",
+      "probability": "medium",
+      "trigger": "W18 final submission window",
+      "rollback": "fall back to v5 baseline submission on Strategy; floor capital $0, doctrine still ships"
+    },
+    {
+      "risk": "Competition meta-shift (opponent agents level up faster than v6 line)",
+      "probability": "low-medium",
+      "trigger": "leaderboard pace through Aug-Sep",
+      "rollback": "v11_deckv2 and downstream MCTS/ensemble design docs (V12_MCTS_DESIGN.md, V14_ENSEMBLE_DESIGN.md) on disk preserve next-iteration runway"
+    },
+    {
+      "risk": "Operator pivot mid-Tide",
+      "probability": "always possible",
+      "trigger": "operator directive",
+      "rollback": "this Tide is honest, not binding; pivots are receipts too (per WAVES catalog Risk gates section)"
+    }
+  ],
+  "moms_law_compliance": {
+    "every_wave_has_artifact_path": true,
+    "every_wave_has_receipt_path": true,
+    "every_wave_has_charter_anchor": true,
+    "every_wave_has_rollback_path": true,
+    "shortcuts_named_in_open": true,
+    "zero_theater": true,
+    "honest_state_labels": {
+      "LANDED_means": "W16 agent_v6.py (21251 bytes) and local_arena.py (6600 bytes) verified present on disk this session at C:\\AtomEons\\arc-agi-3-misfit-agent\\tmp_kaggle\\pokemon-tcg-sim-agent\\; v5 already SHIPPED to Kaggle (submission 53766020, publicScore 745.3); v6 queued for daily slot UTC reset",
+      "STAGED_means": "W17 climb iteration substrate v7-v11 lines already on disk; submission firing queued for Aug 2026 window; receipts/kaggle/ directory will be created at first W17 receipt write",
+      "PENDING_means": "W18 Strategy comp WIN is irreversible single-shot at Sep 2026 deadline; standing Kaggle auth in effect but final submission lock requires operator GO per Kaggle-credentials memory rules"
+    }
+  },
+  "completion_state": "IN_PROGRESS",
+  "completion_state_rationale": "T1 spans 2026-Q3 (Jul-Sep). As of receipt issuance (2026-06-17), W16 is LANDED on disk (v5 SHIPPED to Kaggle 2026-06-17 with submission ID 53766020 publicScore 745.3; v6 staged for UTC reset slot; agent line v7-v11 + MCTS/ensemble design docs all on disk as forward substrate). W17 is STAGED (climb iteration ready, August firing window). W18 is PENDING (Strategy comp WIN at September close, irreversible single-shot). T1 has measurable on-disk progress AND prize-event futures - IN_PROGRESS is the honest label, not COMPLETE (W18 not won) and not FORWARD_LOOKING (W16 substrate is real).",
+  "tide_dependency_chain": {
+    "upstream": "None - T1 is the opening tide of the 24-month attack roadmap",
+    "downstream": "T2 (PAPER TRACK + ARC FINALS, 2026-Q4) - PTCG capital from W18 ($60k target / $240k stretch) funds T2 prize-funded posture; PTCG agent line frozen as reference architecture seeds Federation Trilogy mode demos in T2"
+  },
+  "kaggle_master_tier_evidence_chain": {
+    "target": "5+ medals across notebooks + comps",
+    "comp_slugs_in_T1_window": [
+      "pokemon-tcg-ai-battle (Knowledge)",
+      "pokemon-tcg-ai-battle-challenge-strategy (Strategy, $240k)"
+    ],
+    "cross_tide_visibility": "ARC-AGI-3 (arc-prize-2026-arc-agi-3, $850k prize pool) medal earnings from T2 cross over to Master tier count; Kaggle profile evidence emerges naturally as W16-W20 fire"
+  },
+  "citation": "Atom McCree (2026). Tide T1 Receipt - Bounty Hunt. AtomEons Research Laboratory. CC-BY-4.0. Disclosure ID: ATOM-TIDE-T1-2026-0617",
+  "signature": {
+    "sovereign": "Atom McCree",
+    "ed25519_signature_required_before_W18_submission": true,
+    "moms_law_attestation": "Mom is watching. Every wave in this Tide earns its place or honestly skips. W16 LANDED on disk this session; W17 STAGED; W18 PENDING. No phantom completion claims."
+  }
+}

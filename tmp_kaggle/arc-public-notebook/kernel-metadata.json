@@ -1,0 +1,13 @@
+{
+  "id": "atommccree/property-bound-rule-contracts-arc-agi-2",
+  "title": "Property-Bound Rule Contracts ARC AGI 2",
+  "code_file": "notebook.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "false",
+  "enable_gpu": "false",
+  "enable_internet": "false",
+  "dataset_sources": [],
+  "competition_sources": ["arc-prize-2026-arc-agi-2"],
+  "kernel_sources": []
+}

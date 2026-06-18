@@ -1,0 +1,59 @@
+{
+  "eval": {
+    "label": "eval",
+    "fits": {
+      "CropToSelectedObject": 0,
+      "CropToColorRegion": 0,
+      "ExtendedObjectCorrespondenceProgram": 0
+    },
+    "solves": {
+      "CropToSelectedObject": [],
+      "CropToColorRegion": [],
+      "ExtendedObjectCorrespondenceProgram": []
+    },
+    "any_solved_count": 0,
+    "any_solved_ids": [],
+    "wall_clock_seconds": 33.4
+  },
+  "training": {
+    "label": "training",
+    "fits": {
+      "CropToSelectedObject": 7,
+      "CropToColorRegion": 0,
+      "ExtendedObjectCorrespondenceProgram": 15
+    },
+    "solves": {
+      "CropToSelectedObject": [
+        "1cf80156",
+        "1f85a75f",
+        "23b5c85d",
+        "be94b721",
+        "c909285e",
+        "cd3c21df"
+      ],
+      "CropToColorRegion": [],
+      "ExtendedObjectCorrespondenceProgram": [
+        "342dd610",
+        "66e6c45b",
+        "67385a82",
+        "aedd82e4",
+        "f45f5ca7"
+      ]
+    },
+    "any_solved_count": 11,
+    "any_solved_ids": [
+      "1cf80156",
+      "1f85a75f",
+      "23b5c85d",
+      "342dd610",
+      "66e6c45b",
+      "67385a82",
+      "aedd82e4",
+      "be94b721",
+      "c909285e",
+      "cd3c21df",
+      "f45f5ca7"
+    ],
+    "wall_clock_seconds": 174.9
+  }
+}

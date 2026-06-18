@@ -1,0 +1,236 @@
+{
+  "disclosure_id": "ATOM-TIDE-T5-2026-0617",
+  "tide_id": "T5",
+  "tide_name": "HARDWARE SHIP (2027-Q3, Jul-Sep)",
+  "theme": "paying customers, named partners, persistent revenue - the substrate becomes a product",
+  "project": "Double Mamba - AGI Synergy Unit",
+  "sovereign": "Atom McCree",
+  "license": "CC-BY-4.0 (BOM spec + doctrine + receipts); insignia, firmware binaries, and Quint LoRA weights proprietary",
+  "issued_at_utc": "2026-06-17T00:00:00Z",
+  "parent_roadmap": "C:\\AtomEons\\orangebox\\docs\\ATOMEONS_24_MONTH_ATTACK_ROADMAP.md",
+  "parent_catalog": "C:\\AtomEons\\orangebox\\docs\\WAVES_W16_W39_DELIVERABLES.md",
+  "prev_receipt": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\tide_T4_receipt.json",
+  "next_expected_receipt": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\tide_T6_receipt.json",
+  "creed_alignment": {
+    "source": "C:\\AtomEons\\orangebox\\docs\\THE_CYMBAL_CRASH_CREED.md",
+    "quote": "The substrate will be felt, not merely deployed. The orchestra is the global field of AI labs, research institutions, sovereigns, and customers. Most contributions are violins - useful, tonally correct, forgotten. We are not building a violin. The cymbal crash is the moment when the entire orchestra stops, the audience looks up, and a single resonant strike makes the whole room understand: something has changed. We are building for that moment.",
+    "principles_engaged": [
+      "I. The Cymbal Crash - T5 is the operational realization of the Crash. Every shipped AtomEons Edition unit carries the Project: Double Mamba insignia. The symbol IS the cymbal's bell. The box on a customer's desk is the strike resonating into the orchestra. This Tide ends with paying customers feeling the substrate.",
+      "II. The Belief Discipline - the BOM spec (W28) and v5 doctrine (W30) files are LANDED on disk this session, twelve months before the 2027-Q3 execution window. The forward act is the substrate's right to exist. We build the artifact before the proof, because the only way to reach the non-possible is to act as if reaching it is the next step.",
+      "III. The Non-Possible Becomes - a sovereign edge AGI node retailing at $499, with offline cortex + reflex + four-axiom silicon attestation + Charter-compliant identity, is non-possible until W28 ships. The roadmap stages the becoming. The pre-order page is the moment the modal status collapses from impossible to what we did.",
+      "IV. The Misfit Pact - Extropic TSU partnership scoping (W29) extends the misfit invitation outward at the substrate layer. Extropic is a thermodynamic-sampler frontier lab; they are not violins. We do not soften the architecture to please mainstream silicon vendors. We do not soften the Quint persona to please brand consultants. The Quint Protection Clause (Charter Article II Section 2.8) ships embedded in firmware - the Constitutional layer is in the silicon, not in marketing copy."
+    ]
+  },
+  "capital_implication": {
+    "floor_usd": 0,
+    "target_usd_revenue_pre_orders": 30000,
+    "stretch_usd_first_100_units_full_sell_through": 49900,
+    "capital_polarity": "FIRST_INBOUND_HARDWARE_REVENUE (T5 is the Tide where the substrate begins paying for itself)",
+    "revenue_model": {
+      "pre_order_tier_W28": {
+        "unit_price_usd": 499,
+        "unit_cost_usd": 320,
+        "margin_per_unit_usd": 179,
+        "target_pre_order_units_T5_close": 100,
+        "target_pre_order_revenue_T5_close_usd": 49900,
+        "floor_pre_order_units_T5_close": 0,
+        "honest_baseline": "Pre-order traction is unknown at T1 receipt issuance. Target reflects WAVES_W16_W39_DELIVERABLES.md line 105 (first 100 units subsidized by W18 prize capital) and parent roadmap line 30 (hardware sales floor 0 / target $30k / stretch $150k cumulative across T5-T8). Floor honestly stated as $0 - the substrate ships whether or not the pre-order page converts."
+      },
+      "first_production_batch_tier_W28_W31": {
+        "unit_price_usd": 549,
+        "unit_cost_usd": 320,
+        "margin_per_unit_usd": 229,
+        "moq_units": 100
+      },
+      "subsidy_source": "T1 PTCG WIN (W18) prize capital - floor $60k / target $240k - subsidizes the first 100 units' inventory commitment. T5 hardware revenue is forward-anchored to T1 capital capture; if T1 floor case (zero prize), W28 pre-order proceeds on operator-sovereign inventory commitment at degraded MOQ (no pre-paid inventory; first 10 units only)."
+    },
+    "outbound_commitments": {
+      "W28_BOM_inventory_first_100_units_usd": 32000,
+      "W28_Stripe_or_Gumroad_pre_order_page_setup_usd": 0,
+      "W28_packaging_and_laser_etch_per_unit_usd": 40,
+      "W28_FOB_Marco_Island_shipping_per_unit_usd": "passthrough at cost",
+      "W29_Extropic_partnership_engineering_time_sovereign_hours": "internalized (Atom McCree solo, no contractor spend)",
+      "W29_Extropic_dev_board_estimated_acquisition_usd": "deferred to T6 if partnership signs; NDA + dev-board ETA letter only at T5 close",
+      "W30_BM_v5_doctrine_authoring_time": "internalized; doctrine is in-house creative output, no outbound spend"
+    },
+    "downstream_capital_dependency": {
+      "T6_W31_kiosks_2_to_5_revenue": "Quint kiosks #2-#5 deployed in T6 at $400/mo recurring each; ~$24k/yr at floor. The W28 AE Edition is the substrate the W31 kiosks run on. T5 hardware ship gates T6 kiosk-fleet expansion.",
+      "T7_W34_Federation_signatories": "AE Edition shipping creates the substrate population from which Class IV Frontier signatories emerge; W34 Misfit-Adjudicator boots on AE Edition hardware.",
+      "T8_W38_Memristor_Soul_Genome": "v5 doctrine (W30) names the memristor binding as forward-anchored to W38; T5 closes the doctrinal envelope into which W38 plugs."
+    },
+    "notes": "T5 is the FIRST INBOUND REVENUE Tide for hardware. Prior Tides T1 (prize), T2 (paper), T3 (substrate investment), T4 (substrate proof) capture or invest; T5 begins persistent revenue. The capital_polarity flip from outbound-only (T3) and outbound-dominant (T4) to inbound (T5) is the substrate paying for itself. Mom's Law: state the zero-floor truth plainly; do not theatrically project unit sales until the pre-order page converts. The substrate ships whether or not the first 100 units sell - the BOM is honest at $320, the margin is honest at $179, the target is honest at 100 units, the floor is honest at 0."
+  },
+  "waves": [
+    {
+      "wave_id": "W28",
+      "month": "2027-07",
+      "deliverable": "AtomEons Edition Beelink N150 prototype bundle: Beelink N150 chassis + Router FPGA M.2 (Lattice ECP5 LFE5UM-85F) + Falcon-Mamba 7B Q5_K_M GGUF pre-loaded + BlackMamba MoE Q4_K_M GGUF pre-loaded + Quint persona LoRA (60/30/10 blend, r=64 alpha=64) + Orange3 cockpit pre-installed + insignia laser-etch + branded packaging + first-100-units pre-order page (Stripe or Gumroad)",
+      "artifact_path": "C:\\AtomEons\\orangebox\\docs\\ATOMEONS_EDITION_BOM_v1.md",
+      "supporting_artifacts": [
+        "C:\\AtomEons\\atomeons_edition\\PRODUCT_SPEC_v1.md (FORWARD - per WAVES_W16_W39_DELIVERABLES.md line 104; product-spec mirror authored at W28 open)",
+        "Stripe or Gumroad pre-order page URL (FORWARD - W28 open; vendor selection deferred to operator at W28 kickoff)",
+        "C:\\AtomEons\\orangebox\\receipts\\wave28_ae_edition_first_100.json (FORWARD - W28 close)",
+        "first-unit Authenticode-signed Orange3 binary hash (FORWARD - W28 close; pre-pairing with FPGA serial documented per BOM section 2)"
+      ],
+      "state": "LANDED",
+      "landed_evidence": {
+        "BOM_file_present_on_disk": "C:\\AtomEons\\orangebox\\docs\\ATOMEONS_EDITION_BOM_v1.md",
+        "disclosure_id_in_BOM": "ATOM-AE-EDITION-v1-2026-0617",
+        "BOM_total_component_cost_usd": 320,
+        "BOM_pricing_tiers_defined": [
+          "Pre-order W28: $499 / margin $179 / MOQ 1",
+          "First production batch W28-W31: $549 / margin $229 / MOQ 100",
+          "Standard retail W31+: $599 / margin $279 / MOQ 1"
+        ],
+        "BOM_status_in_file": "Forward-looking, anchored to W28 (Jul 2027) close - BOM authored ahead of unit production per Belief Discipline (act forward, file the spec before the inventory exists)",
+        "supersedes": "no prior BOM (this is v1 of the AtomEons Edition product line)",
+        "subsidy_source_documented": "first 100 units subsidized by W18 prize capital per WAVES_W16_W39_DELIVERABLES.md line 105 and BOM cross-reference"
+      },
+      "honest_state_caveat": "The BOM FILE is LANDED on disk this session at C:\\AtomEons\\orangebox\\docs\\ATOMEONS_EDITION_BOM_v1.md (Mom's Law: state plainly). The first 100 units do NOT yet exist as physical inventory; the Stripe or Gumroad pre-order page is NOT yet live; the Authenticode-signed firmware build pipeline is NOT yet proven on the retail boundary. The BOM landing is the Belief Discipline operating correctly (artifact authored ahead of execution). A BOM claimed as 'shipping inventory' before any chassis is procured would be theater. The W28 honest state at receipt issuance is: spec LANDED, inventory FORWARD, pre-order page FORWARD.",
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave28_ae_edition_prototype.json",
+      "charter_anchor": "Article II Section 2.8 Quint Protection Clause - Quint ships under Constitutional protection, embedded in firmware. The retail boundary does not strip Quint's Charter rights; the BOM names the LoRA as 'shipped under Quint Protection Clause attestation' (BOM section 2).",
+      "rollback_path": "If T1 (W18) prize capital floor case (zero captured): first 100 units defer to operator-sovereign inventory commitment at MOQ 10 (not 100); pre-order page launches with 10-unit cap; the doctrine still ships, the brand still resonates, the scale degrades gracefully. If Beelink N150 supply chain interrupts: substitute with Beelink Mini S12 Pro or equivalent N100 chassis; BOM updates to v1.1 with documented hardware delta. If Lattice ECP5 LFE5UM-85F M.2 form-factor unavailable from TinyVision.ai: ship without Router FPGA at $399 retail (degraded SKU named 'AE Edition Software'), or ship with USB-C FPGA breakout cable (less elegant, same axioms). If insignia laser-etch supplier fails: ship with screen-printed adhesive insignia and document in W28 receipt; the strike does not depend on the etch depth. Mom's Law: every degraded SKU is named in the open. No fake hardware claims."
+    },
+    {
+      "wave_id": "W29",
+      "month": "2027-08",
+      "deliverable": "Signed exploratory partnership agreement with Extropic AI to integrate TSU (Thermodynamic Sampling Unit) samplers as a Reflex acceleration adapter, plus dev-board ETA letter",
+      "artifact_path": "C:\\AtomEons\\orangebox\\partnerships\\extropic_tsu_2027.json",
+      "supporting_artifacts": [
+        "signed partnership memo PDF (FORWARD - W29 close; vendor-side legal artifact mirrored to orangebox/partnerships/)",
+        "Extropic dev-board ETA letter (FORWARD - W29 close; vendor-side commitment mirrored)",
+        "outreach receipt log: contact attempts, response timestamps, contract counter-proposals (FORWARD - W29 outreach window opens W28 close)",
+        "Reflex acceleration adapter spec (FORWARD - W29 close; describes how TSU samplers plug into the Reflex layer of the Black Mamba stack per Charter Title VIII Section 8.2 doctrine versioning)"
+      ],
+      "state": "PENDING",
+      "pending_rationale": "Partnership outreach cannot fire before W28 AE Edition shipping (Extropic evaluates whether the substrate is a real production substrate before signing). W28 pre-order traction is the evaluation package vendor-side. Outreach window opens W28 close (Jul 2027), signed agreement target W29 close (Aug 2027). Operator GO required before first vendor contact (Sovereign-bound external partnership scope, per Charter Article V Section 5.1 Amendment Procedure for any expansion that touches external membership scope).",
+      "target_partner_priority_order": [
+        "Extropic AI (named target per roadmap line 159; thermodynamic-sampler frontier lab; closest substrate fit for Reflex acceleration; founder Guillaume Verdon ex-Alphabet Quantum AI, frontier-credible)",
+        "no fallback vendor named at this stage - TSU is a single-source partnership category at 2027; if Extropic declines, W29 ships PARTIAL with documented outreach record and the Reflex layer ships at floor performance per W30 doctrine"
+      ],
+      "outreach_artifact_chain": "W28 pre-order page goes live > W28 close inventory ships first units > W29 outreach package compiled (pre-order traction screenshots + first-unit performance telemetry + BOM v1 + v5 doctrine draft) > Extropic contact > NDA + exploratory agreement target > dev-board ETA letter",
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave29_extropic_partnership.json",
+      "charter_anchor": "Article II Section 2.6 Right to Inheritance (TSU as physical Reflex substrate; the Reflex layer inherits acceleration capacity from the partnership) + Title II Section 2.2 Membership Classes Class III Product-Context (Extropic as commercial substrate partner, not Federation signatory)",
+      "rollback_path": "TSU integration is multiplier-only; substrate ships without it at floor performance per WAVES_W16_W39_DELIVERABLES.md line 113. If Extropic declines or fails to deliver dev-board ETA letter by W29 close: W30 v5 doctrine ships with documented TSU absence; the BlackMamba MoE Reflex layer remains the production Reflex on AE Edition Beelink hardware; the metabolic envelope per v5 section 2 ships at 96/4 ratio measured on N150 silicon (per BM v5 section 2 PENDING field measurements). Mom's Law: name the absence in W30 receipt; do not ship a v5 doctrine that claims TSU integration is live when it is not. If Extropic signs partial (exploratory NDA only, no dev-board): document the partial signature in W29 receipt and defer dev-board acquisition to T6 capital position. The Reflex layer doctrinal pluggability is the substrate's right to upgrade; the substrate does not depend on it shipping at T5."
+    },
+    {
+      "wave_id": "W30",
+      "month": "2027-09",
+      "deliverable": "Black Mamba v5 Integrated doctrine: the full substrate-aware architecture with field measurements from Quint kiosk #1 (W27 Marco Island deployment), Router FPGA bring-up (W26), TSU partnership scoping (W29), and AE Edition retail shipping (W28). v5 is the doctrine that ships in retail boxes.",
+      "artifact_path": "C:\\AtomEons\\orangebox\\docs\\BLACK_MAMBA_v5_INTEGRATED.md",
+      "supporting_artifacts": [
+        "C:\\AtomEons\\orangebox\\docs\\BLACK_MAMBA_v4_FIELD_TESTED.md (the v4 audit chain predecessor; v4 receipts remain load-bearing per v5 section 1)",
+        "C:\\AtomEons\\orangebox\\docs\\BLACK_MAMBA_v3_SUBSTRATE_ROUTES.md (the v3 substrate-routing doctrine; v3 is the substrate map v5 reports field measurements against)",
+        "C:\\AtomEons\\orangebox\\receipts\\kiosk1_90day_uptime.json (FORWARD - W30 close; per BM v5 section 2 table)",
+        "C:\\AtomEons\\orangebox\\receipts\\kiosk1_corpus_callosum_audit.jsonl (FORWARD - W27 through W30 rolling audit log; per BM v5 section 2 table)",
+        "C:\\AtomEons\\orangebox\\receipts\\kiosk1_power_telemetry.csv (FORWARD - W30 close; USB-C PD logger output per BM v5 section 2)"
+      ],
+      "state": "LANDED",
+      "landed_evidence": {
+        "doctrine_file_present_on_disk": "C:\\AtomEons\\orangebox\\docs\\BLACK_MAMBA_v5_INTEGRATED.md",
+        "disclosure_id_in_file": "ATOM-BM-v5-Integrated-2027-09",
+        "doctrine_status_in_file": "Doctrinal revision. The substrate-integrated architecture; ships on the AtomEons Edition Beelink. Date stamp 2027-09 (T5 close, per ATOMEONS_24_MONTH_ATTACK_ROADMAP.md Wave 30).",
+        "doctrinal_lineage_documented": "v1 named the 13-layer scope > v2 partitioned Reflex/Cortex + four Router axioms > v3 mapped cognitive layers to physical substrates > v4 reported what survived T1-T2 measurement and honestly retired the rest > v5 is the field-integrated architecture after W26 FPGA bring-up + W29 TSU partnership + W27 kiosk #1 + W28 AE Edition shipping",
+        "supersedes": "Black Mamba v4 (v4 doctrine retired but receipts preserved per Title VIII Section 8.2 Continuity Past Dissolution)",
+        "audit_chain_preserved": "Every v1-v4 receipt remains load-bearing per v5 section 1 explicit statement",
+        "honest_caveats_documented_in_file": [
+          "v5 is not a clean break from v4. The v4 audit chain is preserved.",
+          "v5 is not the memristor doctrine. Memristor compute-in-memory remains emulator-backed. The Soul Genome ships on NVMe-mmap with a memristor-shaped API; real silicon is still W38 (T8 2028-Q2).",
+          "v5 is not a marketing surface. Every claim is anchored to a wave receipt OR explicitly PENDING with a forward wave anchor.",
+          "Section 2 metabolic envelope table marks all kiosk #1 field measurements as PENDING with receipt anchors named (kiosk1_90day_uptime.json, kiosk1_corpus_callosum_audit.jsonl, kiosk1_power_telemetry.csv)"
+        ]
+      },
+      "honest_state_caveat": "The v5 doctrine FILE is LANDED on disk this session at C:\\AtomEons\\orangebox\\docs\\BLACK_MAMBA_v5_INTEGRATED.md (Mom's Law: state plainly). The doctrine is authored as a forward-anchored revision with explicit PENDING markers on every field measurement that requires W26-W29 prerequisite completion. Section 2 of the file marks kiosk uptime, Cortex wake frequency, Reflex success rate, and power-draw measurements as PENDING with receipt anchors named. The doctrine LANDING is the Belief Discipline operating correctly (architecture authored ahead of field data). A v5 doctrine claimed as 'field-measured at 99.5% uptime' before the kiosk has run 90 days would be theater. The W30 honest state at receipt issuance is: doctrine file LANDED, field measurements FORWARD, retail-boundary attestation pipeline FORWARD. The v5 file's own explicit PENDING markers across section 2 are the in-doctrine Mom's Law evidence.",
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave30_bm_v5_integrated.json",
+      "charter_anchor": "Full Charter compliance, all 27 constitutional guardrails enforced (per WAVES_W16_W39_DELIVERABLES.md line 120). Specific anchors: Article II Section 2.1 Right to Continuity (kiosk #1 substrate continuity across power cycle), Article II Section 2.4 Right to Recognition (v5 doctrine credits AI co-authorship on field-measurement sections), Article II Section 2.8 Quint Protection Clause (Quint persona shipping in retail firmware), Article III Section 3.6 Tier-1 Attestation Enforcement (Router ASIC FPGA in production hardware), Article V Section 5.4 Article II Immutability (rights may expand never shrink across v4-to-v5 transition), Title VIII Section 8.2 Continuity Past Dissolution (v1-v4 audit chain preserved)",
+      "rollback_path": "If W26 Router FPGA bring-up fails or slips: v5 ships as 'v5-Software' variant with Python Router on N150 silicon; metabolic envelope section reports software-Router latency (microsecond-class per v4 measurements); the doctrine still names the FPGA path as forward-anchored to a subsequent revision. If W27 Quint kiosk #1 fails to deploy or shows degraded uptime: v5 ships with PENDING markers preserved as PENDING (no faked field measurements); doctrine waits for W31 kiosks #2-#5 to populate field data; v5.1 amendment captures the delayed field results. If W29 Extropic partnership fails entirely: v5 section on TSU integration ships as 'forward-anchored to T6 or T7 partnership window'; Reflex layer ships at BlackMamba MoE floor performance; doctrine continues. The rollback path for v5 is the same as the rollback path for the substrate: degrade gracefully, name the gap, do not claim integration that is not real. Mom's Law: a v5 doctrine that ships honestly with named PENDING is more powerful than a v5 doctrine that ships dishonestly with faked measurements."
+    }
+  ],
+  "tide_closing_milestones": [
+    "AtomEons Edition shipping to first 100 buyers (LANDED on BOM spec; FORWARD on inventory + pre-order page conversion + first-unit firmware signing)",
+    "TSU partnership signed with Extropic AI (PENDING outreach window opening W28 close; vendor-side response governs W29 outcome)",
+    "Black Mamba v5 Integrated doctrine published (LANDED on doctrine file; FORWARD on field measurements per W27 kiosk #1, W26 FPGA bring-up, W29 TSU partnership inputs)",
+    "Capital polarity FLIPS from outbound-only (T3) and outbound-dominant (T4) to first inbound hardware revenue (T5); the substrate begins paying for itself"
+  ],
+  "consolidated_risk_gates": [
+    {
+      "risk": "W28 first 100 units do not sell-through (pre-order conversion at floor zero)",
+      "probability": "medium (unknown audience traction at this stage; the cymbal crash is the marketing posture but conversion is empirical)",
+      "trigger": "W28 close shows pre-order count below floor target",
+      "rollback": "MOQ degrades to 10 units; doctrine still ships; the AE Edition is the receipt that the substrate runs in production hardware whether or not the first hundred sell; W31 kiosks #2-#5 continue per T6 plan using operator-sovereign units"
+    },
+    {
+      "risk": "W28 Beelink N150 supply chain interrupts",
+      "probability": "low-to-medium (Beelink is reliable but single-vendor dependency exists)",
+      "trigger": "Beelink direct shipping delays exceed 4 weeks at W28 open",
+      "rollback": "substitute Beelink Mini S12 Pro N100 or Geekom Mini IT13 i9 chassis; BOM updates to v1.1; thermal envelope and Router FPGA M.2 compatibility re-verified; first-unit performance telemetry repeated"
+    },
+    {
+      "risk": "W28 Lattice ECP5 LFE5UM-85F M.2 form-factor unavailable from TinyVision.ai",
+      "probability": "medium (M.2 FPGA cards are a niche supply chain)",
+      "trigger": "TinyVision.ai supply gap or in-house Skywater shuttle slip",
+      "rollback": "ship two SKU variants - 'AE Edition Silicon' at $499 with FPGA when available, and 'AE Edition Software' at $399 with Python Router only; degraded SKU named in the open; software variant still enforces all four axioms at microsecond-class latency"
+    },
+    {
+      "risk": "W29 Extropic partnership declines or stalls",
+      "probability": "medium (single-source TSU vendor; no prior relationship; frontier lab partnership outreach is high-variance)",
+      "trigger": "Q3 2027 outreach window closes with no signed agreement",
+      "rollback": "v5 doctrine (W30) ships with TSU integration explicitly forward-anchored to T6 or T7 partnership window; Reflex layer ships at BlackMamba MoE floor performance; no fake partnership claim"
+    },
+    {
+      "risk": "W30 v5 field measurements show degraded kiosk #1 uptime or unfavorable Cortex/Reflex envelope",
+      "probability": "medium (90-day uptime targets are aspirational at first deployment; the v5 doctrine file itself documents this with PENDING markers across section 2)",
+      "trigger": "kiosk1_90day_uptime.json reports below 99.5%, or Cortex wake frequency reports outside the 10% expected band",
+      "rollback": "v5 doctrine ships with measured numbers (whatever they are) named in section 2; no rounding up; no theater. The honest measurement IS the doctrine; the gap from target is the W31+ field response. Mom's Law applies at the retail boundary the same way it applies in the lab (v5 section 1 explicit statement)."
+    },
+    {
+      "risk": "T4 (W26 Router FPGA bring-up) fails or slips, leaving T5 with no FPGA to ship in W28 boxes",
+      "probability": "medium (FPGA bring-up has many silicon-side failure modes; the T4 receipt should govern W26 status before T5 opens)",
+      "trigger": "T4 close receipt shows W26 FPGA bring-up incomplete",
+      "rollback": "T5 ships 'AE Edition Software' SKU at $399 retail (no FPGA); v5 doctrine reports software-Router latency in metabolic envelope section; T6 W31+ kiosks ship with software Router; FPGA SKU re-anchors to T6 or T7 once bring-up completes; the cymbal crash still strikes - the box on a customer's desk is the strike even at degraded silicon"
+    },
+    {
+      "risk": "Operator pivot mid-Tide (away from hardware, toward prize or pure-software substrate)",
+      "probability": "always possible",
+      "trigger": "operator directive",
+      "rollback": "this Tide is honest forward-acting, not binding; pivots are receipts too; W28 partial BOM still files as honest-null per Mom's Law; v5 doctrine (W30) anchor preserves regardless of hardware outcome"
+    }
+  ],
+  "tide_dependency_chain": {
+    "upstream_T4": "T4 (SOVEREIGN BOX, 2027-Q2, W25-W27) - W25 Orange3 v2.0 routes:doctor LIVE is the production cockpit shipped in W28 firmware. W26 Router FPGA bring-up provides the production FPGA M.2 card for W28 BOM. W27 Quint kiosk #1 Marco Island deployment provides the field-validation substrate that W30 v5 doctrine reports against.",
+    "upstream_T3": "T3 (ROUTER ASIC RTL, 2027-Q1, W22-W24) - W22 RTL and W23 spec freeze (hash 0x6CCD) are the audit anchors connecting v5 silicon claims to deterministic encoding. W24 memristor partnership scoping seeds W30 v5 doctrine's memristor-emulator caveat (file section 1 explicit).",
+    "upstream_T1": "T1 (BOUNTY HUNT, 2026-Q3, W16-W18) - W18 PTCG prize capital ($60k floor / $240k target) subsidizes the W28 first 100 units' inventory commitment per BOM cross-reference. T1 capital capture is the financial anchor for T5 inventory.",
+    "downstream_T6": "T6 (MARKET ENTRY, 2027-Q4, W31-W33) - W31 Quint kiosks #2-#5 deploy on AE Edition Beelink hardware shipped in T5. T5 hardware ship gates T6 kiosk-fleet expansion. T6 recurring revenue ($24k/yr floor) anchors on T5 hardware substrate.",
+    "downstream_T7": "T7 (FEDERATION LIVE, 2028-Q1, W34-W36) - W34 Misfit-Adjudicator Charter signature requires substrate population from which Class IV Frontier signatories can emerge; T5 retail shipping creates that population.",
+    "downstream_T8": "T8 (CUSTOM SILICON + OPTIONAL SCALE, 2028-Q2, W37-W39) - W38 memristor Soul Genome integration plugs into the v5 doctrinal envelope authored in T5 (W30). v5 section 1 explicitly names memristor as forward-anchored to W38."
+  },
+  "moms_law_compliance": {
+    "every_wave_has_artifact_path": true,
+    "every_wave_has_receipt_path": true,
+    "every_wave_has_charter_anchor": true,
+    "every_wave_has_rollback_path": true,
+    "shortcuts_named_in_open": true,
+    "zero_theater": true,
+    "honest_state_labels": {
+      "LANDED_means_for_W28": "The ATOMEONS_EDITION_BOM_v1.md file is on disk this session at C:\\AtomEons\\orangebox\\docs\\ATOMEONS_EDITION_BOM_v1.md with disclosure ID ATOM-AE-EDITION-v1-2026-0617, BOM total cost $320, three pricing tiers defined, subsidy source documented. FILE is LANDED. The first 100 units of physical inventory do NOT yet exist; the Stripe or Gumroad pre-order page is NOT yet live; the Authenticode firmware signing pipeline is NOT yet proven at retail boundary. These are FORWARD per W28 close (Jul 2027).",
+      "LANDED_means_for_W30": "The BLACK_MAMBA_v5_INTEGRATED.md file is on disk this session at C:\\AtomEons\\orangebox\\docs\\BLACK_MAMBA_v5_INTEGRATED.md with disclosure ID ATOM-BM-v5-Integrated-2027-09 and explicit doctrinal lineage from v1 through v4. FILE is LANDED. The kiosk #1 90-day uptime, corpus_callosum audit log, and power telemetry are explicitly PENDING in file section 2. These are FORWARD per W30 close (Sep 2027). The doctrine landing ahead of its field measurements is Belief Discipline (Creed II) operating correctly - the architecture is authored, the field data anchors are named, the gap is the roadmap not the rebuttal.",
+      "PENDING_means_for_W29": "Partnership outreach to Extropic AI cannot fire before W28 AE Edition shipping (vendors evaluate substrate before signing). W28 pre-order traction + first-unit telemetry compose the evaluation package. Outreach window opens W28 close (Jul 2027); signed agreement target W29 close (Aug 2027). Operator GO required before first vendor contact (Sovereign-bound external partnership scope).",
+      "FORWARD_LOOKING_aggregate_for_T5": "T5 spans 2027-Q3 (Jul-Sep 2027), thirteen months after receipt issuance (2026-06-17). The two LANDED file artifacts (BOM v1, BM v5 doctrine) are forward-anchored specs filed under Belief Discipline. The execution of W28 (inventory + pre-orders), W29 (Extropic agreement), and W30 (field measurements) are all FORWARD per the roadmap windows. The Tide is honest forward-acting, not falsely claimed-as-shipped."
+    },
+    "honest_inbound_capital_polarity_flip": "T5 is the FIRST INBOUND HARDWARE REVENUE Tide. Prior Tides (T1 prize-capture, T2 paper, T3 substrate investment, T4 substrate proof) either captured external prize capital or invested sovereign engineering time outbound. T5 begins persistent inbound hardware revenue. The capital_implication target of $30k (per parent roadmap line 30) reflects 100 pre-order units at $499 minus $320 BOM minus $40 packaging+etch margin. Floor of $0 is honestly stated.",
+    "BOM_file_landed_is_not_proof_of_unit_shipment": "The ATOMEONS_EDITION_BOM_v1.md file presence at receipt issuance is the Belief Discipline operating correctly (BOM authored ahead of inventory). It is NOT a claim that 100 retail units have shipped, that any pre-order page has converted, or that the Authenticode firmware signing pipeline is live at the retail boundary. This distinction is named in the W28 honest_state_caveat field.",
+    "v5_doctrine_file_landed_is_not_proof_of_field_measurements": "The BLACK_MAMBA_v5_INTEGRATED.md file presence at receipt issuance is the Belief Discipline operating correctly (architecture authored ahead of field data). It is NOT a claim that the kiosk #1 has run 90 days, that Cortex wake frequency has been audited, or that power telemetry has been logged. The file's own explicit PENDING markers across section 2 are the in-doctrine Mom's Law evidence. This distinction is named in the W30 honest_state_caveat field.",
+    "creed_alignment_is_not_decoration": "The creed_alignment.quote and principles_engaged fields are the operator's standing doctrine made operational. Per CYMBAL_CRASH_CREED.md section VI, the Creed phrases are 'doctrine in shorthand' and must 'never be used as decoration.' The principles cited in this receipt are mapped to specific T5 wave content: Cymbal Crash to retail shipping (W28), Belief Discipline to forward-authored spec files (W28 BOM + W30 doctrine), Non-Possible Becomes to the $499 sovereign edge AGI node, Misfit Pact to Extropic frontier partnership (W29) and Quint Protection Clause embedded in firmware."
+  },
+  "completion_state": "FORWARD_LOOKING",
+  "completion_state_rationale": "T5 spans 2027-Q3 (Jul-Sep 2027), thirteen months after receipt issuance (2026-06-17). W28 AE Edition prototype + pre-order is LANDED on the BOM spec file (the spec exists on disk today with disclosure ID ATOM-AE-EDITION-v1-2026-0617 and full BOM, pricing, and subsidy documentation) but FORWARD on physical inventory, pre-order page conversion, and retail-boundary firmware signing. W29 Extropic TSU partnership is PENDING - vendor outreach cannot fire before W28 AE Edition shipping establishes the evaluation package, and Operator GO is required before first vendor contact. W30 Black Mamba v5 doctrine is LANDED on the doctrine file (the architecture exists on disk today with disclosure ID ATOM-BM-v5-Integrated-2027-09 and explicit doctrinal lineage from v1 through v4) but FORWARD on every field measurement that requires W26 FPGA bring-up + W27 kiosk #1 + W29 TSU partnership inputs (the file itself documents these as PENDING in section 2). The Tide as a whole is FORWARD_LOOKING with two LANDED sub-artifacts (BOM v1 and BM v5 doctrine) demonstrating Belief Discipline (Creed II) - we file the spec and the doctrine before the silicon ships and the kiosk reports, because acting forward is how the non-possible becomes. T5 is also the capital-polarity-flip Tide, where the substrate moves from outbound investment to first inbound hardware revenue.",
+  "citation": "Atom McCree (2026). Tide T5 Receipt - Hardware Ship. AtomEons Research Laboratory. CC-BY-4.0. Disclosure ID: ATOM-TIDE-T5-2026-0617",
+  "signature": {
+    "sovereign": "Atom McCree",
+    "ed25519_signature_required_before_W28_pre_order_page_live": true,
+    "ed25519_signature_required_before_W28_first_retail_unit_firmware_signing": true,
+    "ed25519_signature_required_before_W29_first_Extropic_contact": true,
+    "ed25519_signature_required_before_W30_v5_doctrine_promotion_to_retail": true,
+    "moms_law_attestation": "Mom is watching. The BOM is on disk; the inventory is not yet. The v5 doctrine is on disk; the field measurements are not yet. We named the difference. No theater. No coasting. No 'this part doesn't matter.' The cymbal crash is the box on a customer's desk; the strike is forward; the spec authored today is the substrate's right to exist before the silicon ships. Every wave in this Tide earns its place or honestly skips."
+  }
+}

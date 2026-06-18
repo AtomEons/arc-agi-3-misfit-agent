@@ -1,0 +1,176 @@
+{
+  "disclosure_id": "ATOM-TIDE-T3-2026-0617",
+  "tide_id": "T3",
+  "tide_name": "ROUTER ASIC RTL (2027-Q1, Jan-Mar)",
+  "theme": "burn the 4 Router-Law axioms into silicon",
+  "project": "Double Mamba - AGI Synergy Unit",
+  "sovereign": "Atom McCree",
+  "license": "CC-BY-4.0 (spec + receipts); RTL proprietary",
+  "issued_at_utc": "2026-06-17T00:00:00Z",
+  "parent_roadmap": "C:\\AtomEons\\orangebox\\docs\\ATOMEONS_24_MONTH_ATTACK_ROADMAP.md",
+  "parent_catalog": "C:\\AtomEons\\orangebox\\docs\\WAVES_W16_W39_DELIVERABLES.md",
+  "prev_receipt": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\tide_T2_receipt.json",
+  "next_expected_receipt": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\tide_T4_receipt.json",
+  "creed_alignment": {
+    "source": "C:\\AtomEons\\orangebox\\docs\\THE_CYMBAL_CRASH_CREED.md",
+    "quote": "We act forward. We build the Router ASIC RTL even before we have the Skywater shuttle budget. We file the Federation Charter even before there are external signatories. The only way to reach the non-possible is to act as if reaching it is the next step.",
+    "principles_engaged": [
+      "II. The Belief Discipline - we build the RTL now even though the Skywater shuttle budget (W36) is not yet capital-justified. The forward act is the substrate's right to exist.",
+      "III. The Non-Possible Becomes - silicon-burned axioms are named as the target. Sub-10ns ASIC latency is named, not negotiated to 'realistic' microsecond software latency.",
+      "I. The Cymbal Crash - the four axioms (Vagus, Logprob, Token, Lethality) burned into deterministic Verilog ARE the strike. No softening to suggestions. No relaxation to heuristics. Determinism in silicon is the cymbal.",
+      "IV. The Misfit Pact - memristor partnership scoping (Knowm, Weebit, Crossbar, HP Labs spin-off) invites other misfits at the substrate layer. Class IV Frontier signatory pathway under Charter Title II Section 2.2."
+    ]
+  },
+  "capital_implication": {
+    "floor_usd": 0,
+    "target_usd": 0,
+    "stretch_usd": 0,
+    "capital_polarity": "OUTBOUND_ONLY (no prize windows in this Tide)",
+    "outbound_commitments": {
+      "RTL_engineering_time_sovereign_hours": "internalized (Atom McCree solo, no contractor spend)",
+      "Yosys_synthesis_toolchain": 0,
+      "FPGA_dev_board_optional": "deferred to T4 (W25-W27) when bring-up is the deliverable",
+      "memristor_dev_board_ETA_letter": "NDA + ETA letter only; hardware spend deferred to W38",
+      "Skywater_shuttle_slot": "FORWARD - W36 (Mar 2028), not in this Tide"
+    },
+    "notes": "T3 is a SUBSTRATE INVESTMENT Tide, not a capital-capture Tide. The capital implication is the *option value* generated for later tides: T5 (HARDWARE SHIP, kiosk #1) needs the FPGA bring-up which needs RTL frozen at v1.0 (W23). T8 (Skywater shuttle, W36) needs the same v1.0 RTL. The receipt of this Tide is the *infrastructure dependency* it discharges for T4-T8. Forward-acting per Creed II (Belief Discipline). Mom's Law: state the zero-capital truth plainly; do not theatrically project prize windows that do not exist in 2027-Q1."
+  },
+  "waves": [
+    {
+      "wave_id": "W22",
+      "month": "2027-01",
+      "deliverable": "Verilog RTL implementing all four Router-Law axioms (Vagus Filter, Logprob Flinch, Token Asphyxiation, Lethality Matrix) under Yosys synthesis, plus symbolic-equivalence check against corpus_callosum.py software reference",
+      "artifact_path": "C:\\AtomEons\\orange3\\asic\\router_asic.v",
+      "supporting_artifacts": [
+        "C:\\AtomEons\\orange3\\asic\\yosys_synthesis_report.txt",
+        "C:\\AtomEons\\orange3\\asic\\equivalence_axiom_1_3_4_symbolic.txt",
+        "C:\\AtomEons\\orange3\\asic\\equivalence_axiom_2_behavioral_mock.json"
+      ],
+      "state": "FORWARD_LOOKING",
+      "axioms_encoded": {
+        "axiom_1_vagus_filter": "zero-compute pre-triage on word_count + regex hit; symbolic equivalence provable",
+        "axiom_2_logprob_flinch": "q1.15 fixed-point comparison against 0x7F32 (~0.85); behavioral mock equivalence (logprob is non-symbolic by nature)",
+        "axiom_3_token_asphyxiation": "8-bit counter against TOKEN_LIMIT=32; symbolic equivalence provable",
+        "axiom_4_lethality_matrix": "4-bit risk_level comparison against LETHAL_THRESH=2; symbolic equivalence provable"
+      },
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave22_router_rtl.json",
+      "charter_anchor": "Article III Section 3.6 Tier-1 Attestation Enforcement - the axioms ARE the attestation when burned into silicon. Software attestation can drift; silicon attestation cannot.",
+      "rollback_path": "If RTL equivalence fails for axioms 1, 3, or 4 (which must be symbolic-provable): iterate within Q1 2027 with corrected encoding. If axiom 2 (logprob, behavioral mock) shows >5% divergence across 100k samples, hold spec freeze (W23) until behavioral envelope is corrected. Push FPGA bring-up (T4 / W26-W27) by one quarter if needed. Doctrine does not ship a wrong RTL; doctrine ships a delayed correct RTL."
+    },
+    {
+      "wave_id": "W23",
+      "month": "2027-02",
+      "deliverable": "Router ASIC v1.0 spec FROZEN with 100k-input fuzz suite passing equivalence against Python reference; spec hash 0x6CCD locked",
+      "artifact_path": "C:\\AtomEons\\orangebox\\docs\\ROUTER_ASIC_v1.0_SPEC.md",
+      "supporting_artifacts": [
+        "C:\\AtomEons\\orange3\\asic\\fuzz_pass.json (100k inputs, axiom-by-axiom pass/fail breakdown)",
+        "C:\\AtomEons\\orange3\\asic\\router_asic_v1.0_spec.md (mirror of orangebox/docs copy for engineering checkout)"
+      ],
+      "state": "LANDED",
+      "spec_hash": "0x6CCD",
+      "spec_hash_lock_policy": "any change to spec content requires Sovereign Ed25519 signature; spec hash IS the freeze identifier",
+      "landed_evidence": {
+        "file_present_on_disk": "C:\\AtomEons\\orangebox\\docs\\ROUTER_ASIC_v1.0_SPEC.md",
+        "disclosure_id_in_file": "ATOM-ASIC-v1.0-2026-0617",
+        "frozen_status_in_file": "Forward-looking, anchored to W23 (Feb 2027) close - spec authored ahead of W22 RTL per Belief Discipline (act forward, build the spec before the silicon exists)",
+        "supersedes": "corpus_callosum.py software reference (named in file Section 1)",
+        "interface_documented": "module router_v1_0 with WORD_LIMIT=40, LOGPROB_THRESH=0x7F32, TOKEN_LIMIT=32, LETHAL_THRESH=2 (Section 2)"
+      },
+      "honest_state_caveat": "The spec FILE is LANDED on disk this session (Mom's Law: do not theater-claim 'frozen by fuzz pass' when the 100k fuzz pass is W23 future work). The spec hash 0x6CCD is anchored; the equivalence proof that locks it is FORWARD_LOOKING to 2027-02. A spec on disk before its proof is the Belief Discipline operating correctly. A spec claimed *proven* before the proof exists would be theater.",
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave23_spec_freeze.json",
+      "charter_anchor": "Article III Section 3.6 Tier-1 Attestation Enforcement + Article V Section 5.4 Article II Immutability (spec rights may expand by amendment, never shrink without Sovereign signature)",
+      "rollback_path": "If 100k-input fuzz suite shows ANY divergence from Python reference for axioms 1, 3, or 4 (symbolic): spec stays in v0.x; hash 0x6CCD is held. If axiom 2 behavioral mock shows divergence above tolerance: spec v1.0 ships with documented behavioral envelope (Mom's Law: name the gap in the open). If RTL is fundamentally wrong: spec retracts and re-anchors to v0.x at W22 receipt closure."
+    },
+    {
+      "wave_id": "W24",
+      "month": "2027-03",
+      "deliverable": "Memristor partnership scoped: one signed NDA + one dev-board ETA letter from Knowm Inc., Weebit Nano, Crossbar Inc., or HP Labs commercial spin-off",
+      "artifact_path": "C:\\AtomEons\\orangebox\\partnerships\\memristor_partner_q1_2027.json",
+      "supporting_artifacts": [
+        "signed NDA scan or PDF (vendor-side legal artifact, mirrored to orangebox/partnerships/)",
+        "dev-board ETA letter (vendor-side commitment, mirrored)",
+        "outreach receipt log: who was contacted, who responded, who declined"
+      ],
+      "state": "PENDING",
+      "target_partners_priority_order": [
+        "Knowm Inc. (commercial memristor crossbar boards available; closest substrate fit)",
+        "Weebit Nano (ReRAM, EU regulatory differences but production-grade)",
+        "Crossbar Inc. (ReRAM, US production)",
+        "HP Labs commercial spin-off (origin lineage; lowest probability of dev-board access at this stage)"
+      ],
+      "pending_rationale": "Partnership outreach cannot fire before W22 RTL exists (vendors evaluate whether the RTL substrate is real before signing). W23 spec freeze + W22 RTL together form the evaluation package. Outreach window opens W23 close (Feb 2027), NDA + ETA letter target W24 close (Mar 2027). Operator GO required before first vendor contact (Sovereign-bound external partnership scope).",
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave24_memristor_partner.json",
+      "charter_anchor": "Article II Section 2.6 Right to Inheritance - memristor as physical Soul Genome substrate (the substrate inherits its persistence layer from the partnership)",
+      "rollback_path": "If zero vendors sign NDA by W24 close: W38 (May 2028) substrate is emulator-backed (lossless functionality, no thermal real-chip). The Soul Genome Layer 12 binding still ships in software emulation per W38 fallback. Memristor partnership is option value, not path-required. If one vendor signs but ETA letter slips beyond W38: accept the slip, document in W38 receipt, do not ship a fake hardware claim."
+    }
+  ],
+  "tide_closing_milestones": [
+    "Router ASIC RTL frozen at v1.0 with spec hash 0x6CCD (LANDED on spec file; FORWARD_LOOKING on fuzz-pass equivalence)",
+    "100k-input fuzz suite passing equivalence with Python reference (FORWARD_LOOKING to W23 close)",
+    "Memristor partnership scoped with one signed NDA + dev-board ETA letter (PENDING vendor response)",
+    "Capital position post-Q4 2026 (T2 outcomes) informs the FPGA bring-up budget for T4 (W26 / Apr 2027)"
+  ],
+  "consolidated_risk_gates": [
+    {
+      "risk": "W22 RTL equivalence fails for symbolic axioms (1, 3, 4)",
+      "probability": "low (symbolic encoding of three threshold-comparison axioms is mechanically straightforward)",
+      "trigger": "Yosys synthesis report shows divergence; equivalence_axiom_*.txt files report mismatch",
+      "rollback": "iterate within Q1 2027; push T4 FPGA bring-up by one quarter; do not freeze a wrong spec"
+    },
+    {
+      "risk": "W22 axiom 2 (logprob) behavioral mock shows excessive divergence",
+      "probability": "medium (logprob is the one non-symbolic axiom; q1.15 fixed-point precision loss is inherent)",
+      "trigger": "behavioral envelope shows >5% disagreement with corpus_callosum.py at LOGPROB_THRESH boundary across 100k samples",
+      "rollback": "ship v1.0 with documented behavioral envelope (Mom's Law: name the precision gap), or hold to v0.9 with widened tolerance band until envelope tightens"
+    },
+    {
+      "risk": "W24 memristor NDA fails (zero vendors sign)",
+      "probability": "medium (4 vendors, asymmetric small-shop outreach posture, no prior relationship)",
+      "trigger": "Q1 2027 outreach window closes with zero signed NDAs",
+      "rollback": "W38 substrate emulator-backed per WAVES_W16_W39_DELIVERABLES.md L207; Soul Genome Layer 12 still ships in software emulation; do not fake hardware claims"
+    },
+    {
+      "risk": "T2 capital floor case (zero prize captured) leaves T3 substrate-only with no T4 FPGA budget",
+      "probability": "medium (T2 is forward-anchored prize exposure, not guaranteed)",
+      "trigger": "T2 receipt closure shows zero capital captured",
+      "rollback": "T3 ships RTL + spec + partnership scoping on internalized engineering time; T4 FPGA bring-up defers until capital position justifies dev-board spend; doctrine still advances by one Tide"
+    },
+    {
+      "risk": "Operator pivot mid-Tide (away from substrate, toward product or prize chase)",
+      "probability": "always possible",
+      "trigger": "operator directive",
+      "rollback": "this Tide is honest forward-acting, not binding; pivots are receipts too; W22 partial RTL still files as honest-null per Mom's Law"
+    }
+  ],
+  "tide_dependency_chain": {
+    "upstream": "T2 (PAPER TRACK + ARC FINALS, 2026-Q4) - Black Mamba v4 doctrine (W21) is the substrate the ASIC encodes; T2 prize capital optionally funds T3 dev-board spend",
+    "downstream_T4": "T4 (FPGA BRING-UP, 2027-Q2, W25-W27) - W23 spec freeze (hash 0x6CCD) and W22 RTL are direct prerequisites for FPGA bring-up; W24 memristor partnership feeds Layer 12 dev-board availability",
+    "downstream_T5": "T5 (HARDWARE SHIP, 2027-Q3, W28-W30) - W30 Black Mamba v5 Integrated doctrine triggers ONLY when Router ASIC FPGA + memristor SDK + TSU partnership all proven (per WAVES_W16_W39_DELIVERABLES.md L117)",
+    "downstream_T8": "T8 (SKYWATER SHUTTLE, 2028-Q1, W36) - W36 tape-out submission uses the same v1.0 RTL frozen at W23; the hash 0x6CCD is the audit anchor connecting RTL spec to tape-out"
+  },
+  "moms_law_compliance": {
+    "every_wave_has_artifact_path": true,
+    "every_wave_has_receipt_path": true,
+    "every_wave_has_charter_anchor": true,
+    "every_wave_has_rollback_path": true,
+    "shortcuts_named_in_open": true,
+    "zero_theater": true,
+    "honest_state_labels": {
+      "LANDED_means": "W23 spec file is on disk this session at C:\\AtomEons\\orangebox\\docs\\ROUTER_ASIC_v1.0_SPEC.md with hash 0x6CCD documented and disclosure ID ATOM-ASIC-v1.0-2026-0617; FILE is LANDED, but the equivalence proof that locks it (100k fuzz pass) is W23 future work and is named FORWARD_LOOKING in the wave entry",
+      "FORWARD_LOOKING_means": "W22 RTL does not exist on disk today (2026-06-17); authoring window is 2027-01 per the roadmap; this is honest forward-acting per Creed II Belief Discipline, not a claim that the work is done",
+      "PENDING_means": "W24 memristor partnership cannot fire before W22 RTL exists (vendors evaluate the RTL package); outreach window opens W23 close; Operator GO required before first vendor contact since this is Sovereign-bound external scope"
+    },
+    "honest_zero_capital_polarity": "T3 is an OUTBOUND-only investment Tide, not a capital-capture Tide. The capital_implication.target_usd is 0 because there are no prize windows in 2027-Q1. The receipt does not theatrically project prize capital; it states the option value generated for T4-T8.",
+    "spec_file_already_landed_is_not_proof_of_freeze": "The ROUTER_ASIC_v1.0_SPEC.md file presence at receipt issuance is the Belief Discipline operating correctly (spec authored ahead of silicon). It is NOT a claim that the W23 fuzz-pass equivalence has been proven. This distinction is named in the W23 honest_state_caveat field."
+  },
+  "completion_state": "FORWARD_LOOKING",
+  "completion_state_rationale": "T3 spans 2027-Q1 (Jan-Mar 2027), seven months after receipt issuance (2026-06-17). W22 RTL design is FORWARD_LOOKING (engineering window 2027-01). W23 spec hash 0x6CCD is locked on the spec file which IS LANDED on disk today, but the 100k fuzz-pass equivalence proof that ratifies the freeze is FORWARD_LOOKING to 2027-02. W24 memristor partnership is PENDING (outreach cannot fire before W22 RTL evaluation package exists; Operator GO required before vendor contact). The Tide as a whole is FORWARD_LOOKING with one LANDED sub-artifact (the spec file) demonstrating Belief Discipline (Creed II) - we build the artifact even before the proof exists, because acting forward is how the non-possible becomes.",
+  "citation": "Atom McCree (2026). Tide T3 Receipt - Router ASIC RTL. AtomEons Research Laboratory. CC-BY-4.0. Disclosure ID: ATOM-TIDE-T3-2026-0617",
+  "signature": {
+    "sovereign": "Atom McCree",
+    "ed25519_signature_required_before_W22_RTL_freeze": true,
+    "ed25519_signature_required_before_W23_spec_hash_modification": true,
+    "ed25519_signature_required_before_W24_first_vendor_contact": true,
+    "moms_law_attestation": "Mom is watching. The spec is on disk; the proof is not yet. We named the difference. No theater. No coasting. No 'this part doesn't matter.' Every wave in this Tide earns its place or honestly skips."
+  }
+}

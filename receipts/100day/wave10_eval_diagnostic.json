@@ -1,0 +1,26 @@
+{
+  "wave": 10,
+  "verb": "eval_gap_diagnostic",
+  "tier_1_strict": true,
+  "wall_clock_seconds": 1114.0,
+  "eval_set": "C:\\AtomEons\\arc-agi-3-misfit-agent\\_research\\arc-agi-2\\arc-agi_evaluation_challenges.json",
+  "tasks_total": 120,
+  "factories_count": 65,
+  "fit_distribution": {
+    "zero_fits": 120,
+    "any_fit": 0,
+    "fit_count_mean": 0.0,
+    "fit_count_max": 0,
+    "fit_count_p50": 0,
+    "fit_count_p90": 0
+  },
+  "predict_distribution": {
+    "any_correct_tasks": 0,
+    "any_correct_pct": 0.0,
+    "fit_but_all_wrong_tasks": 0
+  },
+  "rules_that_fit": {},
+  "rules_that_predict_correctly": {},
+  "any_correct_task_ids": [],
+  "fit_but_wrong_sample": []
+}

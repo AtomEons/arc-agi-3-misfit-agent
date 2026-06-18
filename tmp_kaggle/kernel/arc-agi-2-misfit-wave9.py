@@ -104,7 +104,8 @@ def _two_attempts(solve_task, task_dict):
             attempt_1, attempt_2 = solve_task(
                 train_pairs, test_inp,
                 compose_depth=1,
-                use_dsl=False,
+                use_dsl=True,
+                dsl_time_budget_s=8.0,
             )
             a1 = np.asarray(attempt_1, dtype=np.int32).tolist()
             a2 = np.asarray(attempt_2, dtype=np.int32).tolist()

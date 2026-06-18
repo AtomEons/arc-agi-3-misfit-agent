@@ -15,8 +15,8 @@
   ],
   "n_tasks": 100,
   "tasks_solved": 2,
-  "mean_wall_clock_s": 0.3556,
-  "wall_clock_total_s": 35.67,
+  "mean_wall_clock_s": 0.7069,
+  "wall_clock_total_s": 70.73,
   "exceptions_raised": 0,
   "all_programs_executable": true,
   "refinement_never_decreased_score": true,
@@ -32,7 +32,7 @@
     {
       "task_id": "00576224",
       "solved": false,
-      "wall_clock_s": 0.063,
+      "wall_clock_s": 0.203,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -49,7 +49,7 @@
     {
       "task_id": "007bbfb7",
       "solved": false,
-      "wall_clock_s": 0.109,
+      "wall_clock_s": 0.297,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -66,7 +66,7 @@
     {
       "task_id": "009d5c81",
       "solved": false,
-      "wall_clock_s": 0.688,
+      "wall_clock_s": 1.562,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "KeepWhere(pred=largest)(<?:Grid#0>)",
@@ -83,7 +83,7 @@
     {
       "task_id": "00d62c1b",
       "solved": false,
-      "wall_clock_s": 0.515,
+      "wall_clock_s": 1.204,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -100,7 +100,7 @@
     {
       "task_id": "00dbd492",
       "solved": false,
-      "wall_clock_s": 0.313,
+      "wall_clock_s": 0.75,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -117,7 +117,7 @@
     {
       "task_id": "017c7c7b",
       "solved": false,
-      "wall_clock_s": 0.093,
+      "wall_clock_s": 0.546,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -134,7 +134,7 @@
     {
       "task_id": "025d127b",
       "solved": false,
-      "wall_clock_s": 0.36,
+      "wall_clock_s": 1.891,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Translate(dy=0, dx=1)(<?:Grid#0>)",
@@ -151,24 +151,24 @@
     {
       "task_id": "03560426",
       "solved": false,
-      "wall_clock_s": 0.5,
+      "wall_clock_s": 1.593,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
-      "top_program": "KeepWhere(pred=non_edge)(<?:Grid#0>)",
+      "top_program": "Reflect(axis=V)(<?:Grid#0>)",
       "top_program_complete": true,
-      "refined_program": "KeepWhere(pred=non_edge)(<?:Grid#0>)",
+      "refined_program": "Reflect(axis=V)(<?:Grid#0>)",
       "refined_program_complete": true,
-      "synth_score": 0.724967,
-      "refined_score": 0.724967,
-      "top_train_cell_acc": 0.816667,
-      "refined_train_cell_acc": 0.816667,
+      "synth_score": 0.681634,
+      "refined_score": 0.681634,
+      "top_train_cell_acc": 0.773333,
+      "refined_train_cell_acc": 0.773333,
       "score_non_decreasing": true,
       "prediction_error": null
     },
     {
       "task_id": "045e512c",
       "solved": false,
-      "wall_clock_s": 0.578,
+      "wall_clock_s": 1.719,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -185,7 +185,7 @@
     {
       "task_id": "0520fde7",
       "solved": false,
-      "wall_clock_s": 0.187,
+      "wall_clock_s": 0.985,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -202,7 +202,7 @@
     {
       "task_id": "05269061",
       "solved": false,
-      "wall_clock_s": 0.25,
+      "wall_clock_s": 1.062,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Symmetrize(axis=BOTH)(<?:Grid#0>)",
@@ -219,7 +219,7 @@
     {
       "task_id": "05a7bcf2",
       "solved": false,
-      "wall_clock_s": 0.75,
+      "wall_clock_s": 0.672,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -236,7 +236,7 @@
     {
       "task_id": "05f2a901",
       "solved": false,
-      "wall_clock_s": 0.344,
+      "wall_clock_s": 0.234,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "KeepWhere(pred=smallest)(<?:Grid#0>)",
@@ -253,7 +253,7 @@
     {
       "task_id": "0607ce86",
       "solved": false,
-      "wall_clock_s": 0.844,
+      "wall_clock_s": 1.094,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -270,7 +270,7 @@
     {
       "task_id": "0692e18c",
       "solved": false,
-      "wall_clock_s": 0.078,
+      "wall_clock_s": 0.063,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -287,7 +287,7 @@
     {
       "task_id": "06df4c85",
       "solved": false,
-      "wall_clock_s": 0.469,
+      "wall_clock_s": 0.343,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -304,7 +304,7 @@
     {
       "task_id": "070dd51e",
       "solved": false,
-      "wall_clock_s": 0.281,
+      "wall_clock_s": 0.219,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -321,7 +321,7 @@
     {
       "task_id": "08ed6ac7",
       "solved": false,
-      "wall_clock_s": 0.078,
+      "wall_clock_s": 0.281,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Recolor({5\u21921})(<?:Grid#0>)",
@@ -338,7 +338,7 @@
     {
       "task_id": "09629e4f",
       "solved": false,
-      "wall_clock_s": 1.188,
+      "wall_clock_s": 2.516,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -355,7 +355,7 @@
     {
       "task_id": "0962bcdd",
       "solved": false,
-      "wall_clock_s": 0.187,
+      "wall_clock_s": 0.766,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -372,7 +372,7 @@
     {
       "task_id": "09c534e7",
       "solved": false,
-      "wall_clock_s": 0.453,
+      "wall_clock_s": 1.265,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -389,7 +389,7 @@
     {
       "task_id": "0a1d4ef5",
       "solved": false,
-      "wall_clock_s": 1.219,
+      "wall_clock_s": 1.875,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -406,7 +406,7 @@
     {
       "task_id": "0a2355a6",
       "solved": false,
-      "wall_clock_s": 0.219,
+      "wall_clock_s": 0.672,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Recolor({8\u21921})(<?:Grid#0>)",
@@ -423,7 +423,7 @@
     {
       "task_id": "0a938d79",
       "solved": false,
-      "wall_clock_s": 0.172,
+      "wall_clock_s": 0.406,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -440,7 +440,7 @@
     {
       "task_id": "0b148d64",
       "solved": false,
-      "wall_clock_s": 0.328,
+      "wall_clock_s": 0.828,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -457,7 +457,7 @@
     {
       "task_id": "0b17323b",
       "solved": false,
-      "wall_clock_s": 0.14,
+      "wall_clock_s": 0.594,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -474,7 +474,7 @@
     {
       "task_id": "0bb8deee",
       "solved": false,
-      "wall_clock_s": 0.141,
+      "wall_clock_s": 0.61,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -491,7 +491,7 @@
     {
       "task_id": "0becf7df",
       "solved": false,
-      "wall_clock_s": 0.453,
+      "wall_clock_s": 1.453,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -508,7 +508,7 @@
     {
       "task_id": "0c786b71",
       "solved": false,
-      "wall_clock_s": 0.422,
+      "wall_clock_s": 1.39,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Tile(rf=2, cf=2)(<?:Grid#0>)",
@@ -525,7 +525,7 @@
     {
       "task_id": "0c9aba6e",
       "solved": false,
-      "wall_clock_s": 0.218,
+      "wall_clock_s": 0.36,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -542,7 +542,7 @@
     {
       "task_id": "0ca9ddb6",
       "solved": false,
-      "wall_clock_s": 0.235,
+      "wall_clock_s": 0.297,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -559,7 +559,7 @@
     {
       "task_id": "0d3d703e",
       "solved": false,
-      "wall_clock_s": 0.218,
+      "wall_clock_s": 0.375,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Recolor({2\u21926,3\u21924,8\u21929})(<?:Grid#0>)",
@@ -576,7 +576,7 @@
     {
       "task_id": "0d87d2a6",
       "solved": false,
-      "wall_clock_s": 0.344,
+      "wall_clock_s": 0.515,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -593,7 +593,7 @@
     {
       "task_id": "0e206a2e",
       "solved": false,
-      "wall_clock_s": 0.453,
+      "wall_clock_s": 0.906,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "KeepWhere(pred=edge_touching)(<?:Grid#0>)",
@@ -610,7 +610,7 @@
     {
       "task_id": "0e671a1a",
       "solved": false,
-      "wall_clock_s": 0.296,
+      "wall_clock_s": 1.266,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -627,7 +627,7 @@
     {
       "task_id": "0f63c0b9",
       "solved": false,
-      "wall_clock_s": 0.313,
+      "wall_clock_s": 1.672,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -644,7 +644,7 @@
     {
       "task_id": "103eff5b",
       "solved": false,
-      "wall_clock_s": 0.203,
+      "wall_clock_s": 1.375,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -661,7 +661,7 @@
     {
       "task_id": "10fcaaa3",
       "solved": false,
-      "wall_clock_s": 0.109,
+      "wall_clock_s": 0.391,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Tile(rf=2, cf=2)(<?:Grid#0>)",
@@ -678,7 +678,7 @@
     {
       "task_id": "11852cab",
       "solved": false,
-      "wall_clock_s": 0.204,
+      "wall_clock_s": 0.765,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -695,7 +695,7 @@
     {
       "task_id": "1190bc91",
       "solved": false,
-      "wall_clock_s": 0.25,
+      "wall_clock_s": 0.406,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -712,7 +712,7 @@
     {
       "task_id": "1190e5a7",
       "solved": false,
-      "wall_clock_s": 0.265,
+      "wall_clock_s": 0.391,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -729,7 +729,7 @@
     {
       "task_id": "11dc524f",
       "solved": false,
-      "wall_clock_s": 0.281,
+      "wall_clock_s": 0.672,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -746,7 +746,7 @@
     {
       "task_id": "11e1fe23",
       "solved": false,
-      "wall_clock_s": 0.141,
+      "wall_clock_s": 0.219,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -763,7 +763,7 @@
     {
       "task_id": "12422b43",
       "solved": false,
-      "wall_clock_s": 0.234,
+      "wall_clock_s": 0.406,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -780,7 +780,7 @@
     {
       "task_id": "12997ef3",
       "solved": false,
-      "wall_clock_s": 0.141,
+      "wall_clock_s": 0.203,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -797,7 +797,7 @@
     {
       "task_id": "12eac192",
       "solved": false,
-      "wall_clock_s": 0.219,
+      "wall_clock_s": 0.391,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -814,7 +814,7 @@
     {
       "task_id": "13713586",
       "solved": false,
-      "wall_clock_s": 0.281,
+      "wall_clock_s": 0.672,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -831,7 +831,7 @@
     {
       "task_id": "137eaa0f",
       "solved": false,
-      "wall_clock_s": 0.109,
+      "wall_clock_s": 0.296,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -848,7 +848,7 @@
     {
       "task_id": "137f0df0",
       "solved": false,
-      "wall_clock_s": 0.219,
+      "wall_clock_s": 0.203,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -865,7 +865,7 @@
     {
       "task_id": "13f06aa5",
       "solved": false,
-      "wall_clock_s": 0.235,
+      "wall_clock_s": 0.406,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -882,7 +882,7 @@
     {
       "task_id": "140c817e",
       "solved": false,
-      "wall_clock_s": 0.187,
+      "wall_clock_s": 0.36,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Symmetrize(axis=BOTH)(<?:Grid#0>)",
@@ -899,7 +899,7 @@
     {
       "task_id": "14754a24",
       "solved": false,
-      "wall_clock_s": 0.766,
+      "wall_clock_s": 1.594,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -916,7 +916,7 @@
     {
       "task_id": "1478ab18",
       "solved": false,
-      "wall_clock_s": 0.172,
+      "wall_clock_s": 0.437,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -933,7 +933,7 @@
     {
       "task_id": "14b8e18c",
       "solved": false,
-      "wall_clock_s": 0.203,
+      "wall_clock_s": 0.5,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -950,7 +950,7 @@
     {
       "task_id": "150deff5",
       "solved": false,
-      "wall_clock_s": 0.11,
+      "wall_clock_s": 0.203,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Recolor({5\u21928})(<?:Grid#0>)",
@@ -967,7 +967,7 @@
     {
       "task_id": "15113be4",
       "solved": false,
-      "wall_clock_s": 0.718,
+      "wall_clock_s": 1.485,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -984,7 +984,7 @@
     {
       "task_id": "15660dd6",
       "solved": false,
-      "wall_clock_s": 0.438,
+      "wall_clock_s": 0.656,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1001,7 +1001,7 @@
     {
       "task_id": "15663ba9",
       "solved": false,
-      "wall_clock_s": 0.266,
+      "wall_clock_s": 0.844,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1018,7 +1018,7 @@
     {
       "task_id": "15696249",
       "solved": false,
-      "wall_clock_s": 0.171,
+      "wall_clock_s": 0.14,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1035,7 +1035,7 @@
     {
       "task_id": "17829a00",
       "solved": false,
-      "wall_clock_s": 0.454,
+      "wall_clock_s": 1.047,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "KeepWhere(pred=edge_touching)(<?:Grid#0>)",
@@ -1052,7 +1052,7 @@
     {
       "task_id": "178fcbfb",
       "solved": false,
-      "wall_clock_s": 0.265,
+      "wall_clock_s": 0.344,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1069,7 +1069,7 @@
     {
       "task_id": "17b80ad2",
       "solved": false,
-      "wall_clock_s": 0.531,
+      "wall_clock_s": 0.578,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1086,7 +1086,7 @@
     {
       "task_id": "17b866bd",
       "solved": false,
-      "wall_clock_s": 0.313,
+      "wall_clock_s": 0.437,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1103,7 +1103,7 @@
     {
       "task_id": "17cae0c1",
       "solved": false,
-      "wall_clock_s": 0.203,
+      "wall_clock_s": 0.297,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Recolor({0\u21924,5\u21923})(<?:Grid#0>)",
@@ -1120,7 +1120,7 @@
     {
       "task_id": "18286ef8",
       "solved": false,
-      "wall_clock_s": 0.531,
+      "wall_clock_s": 0.907,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1137,7 +1137,7 @@
     {
       "task_id": "182e5d0f",
       "solved": false,
-      "wall_clock_s": 0.375,
+      "wall_clock_s": 0.578,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1154,7 +1154,7 @@
     {
       "task_id": "18419cfa",
       "solved": false,
-      "wall_clock_s": 0.36,
+      "wall_clock_s": 0.562,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1171,7 +1171,7 @@
     {
       "task_id": "18447a8d",
       "solved": false,
-      "wall_clock_s": 0.5,
+      "wall_clock_s": 1.266,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Gravity(direction=L)(<?:Grid#0>)",
@@ -1188,7 +1188,7 @@
     {
       "task_id": "184a9768",
       "solved": false,
-      "wall_clock_s": 0.781,
+      "wall_clock_s": 1.406,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "KeepWhere(pred=non_edge)(<?:Grid#0>)",
@@ -1205,7 +1205,7 @@
     {
       "task_id": "195ba7dc",
       "solved": false,
-      "wall_clock_s": 0.187,
+      "wall_clock_s": 0.422,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1222,7 +1222,7 @@
     {
       "task_id": "1990f7a8",
       "solved": false,
-      "wall_clock_s": 0.235,
+      "wall_clock_s": 0.281,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1239,7 +1239,7 @@
     {
       "task_id": "19bb5feb",
       "solved": false,
-      "wall_clock_s": 0.219,
+      "wall_clock_s": 0.125,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1256,7 +1256,7 @@
     {
       "task_id": "1a07d186",
       "solved": false,
-      "wall_clock_s": 0.875,
+      "wall_clock_s": 0.469,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1273,7 +1273,7 @@
     {
       "task_id": "1a244afd",
       "solved": false,
-      "wall_clock_s": 0.296,
+      "wall_clock_s": 0.453,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1290,7 +1290,7 @@
     {
       "task_id": "1a2e2828",
       "solved": false,
-      "wall_clock_s": 0.188,
+      "wall_clock_s": 0.781,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1307,7 +1307,7 @@
     {
       "task_id": "1a6449f1",
       "solved": false,
-      "wall_clock_s": 0.891,
+      "wall_clock_s": 1.453,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1324,7 +1324,7 @@
     {
       "task_id": "1acc24af",
       "solved": false,
-      "wall_clock_s": 0.234,
+      "wall_clock_s": 0.594,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1341,7 +1341,7 @@
     {
       "task_id": "1b2d62fb",
       "solved": false,
-      "wall_clock_s": 0.219,
+      "wall_clock_s": 0.328,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1358,7 +1358,7 @@
     {
       "task_id": "1b59e163",
       "solved": false,
-      "wall_clock_s": 0.453,
+      "wall_clock_s": 0.969,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "KeepWhere(pred=edge_touching)(<?:Grid#0>)",
@@ -1375,7 +1375,7 @@
     {
       "task_id": "1b60fb0c",
       "solved": false,
-      "wall_clock_s": 0.203,
+      "wall_clock_s": 0.359,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1392,7 +1392,7 @@
     {
       "task_id": "1b8318e3",
       "solved": false,
-      "wall_clock_s": 0.75,
+      "wall_clock_s": 1.375,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1409,7 +1409,7 @@
     {
       "task_id": "1be83260",
       "solved": false,
-      "wall_clock_s": 0.266,
+      "wall_clock_s": 0.453,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Crop(<?:Grid#0>)",
@@ -1426,7 +1426,7 @@
     {
       "task_id": "1bfc4729",
       "solved": false,
-      "wall_clock_s": 0.125,
+      "wall_clock_s": 0.172,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Symmetrize(axis=H)(<?:Grid#0>)",
@@ -1443,7 +1443,7 @@
     {
       "task_id": "1c02dbbe",
       "solved": false,
-      "wall_clock_s": 0.343,
+      "wall_clock_s": 0.984,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1460,7 +1460,7 @@
     {
       "task_id": "1c0d0a4b",
       "solved": false,
-      "wall_clock_s": 0.375,
+      "wall_clock_s": 0.704,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "KeepWhere(pred=edge_touching)(<?:Grid#0>)",
@@ -1477,7 +1477,7 @@
     {
       "task_id": "1c56ad9f",
       "solved": false,
-      "wall_clock_s": 0.485,
+      "wall_clock_s": 0.671,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1494,7 +1494,7 @@
     {
       "task_id": "1c786137",
       "solved": false,
-      "wall_clock_s": 0.953,
+      "wall_clock_s": 1.141,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1511,7 +1511,7 @@
     {
       "task_id": "1caeab9d",
       "solved": false,
-      "wall_clock_s": 0.172,
+      "wall_clock_s": 0.391,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1528,7 +1528,7 @@
     {
       "task_id": "1cf80156",
       "solved": true,
-      "wall_clock_s": 0.093,
+      "wall_clock_s": 0.343,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Crop(<?:Grid#0>)",
@@ -1545,7 +1545,7 @@
     {
       "task_id": "1d0a4b61",
       "solved": false,
-      "wall_clock_s": 1.157,
+      "wall_clock_s": 1.579,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Symmetrize(axis=BOTH)(<?:Grid#0>)",
@@ -1562,7 +1562,7 @@
     {
       "task_id": "1d398264",
       "solved": false,
-      "wall_clock_s": 0.281,
+      "wall_clock_s": 0.468,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1579,7 +1579,7 @@
     {
       "task_id": "1d61978c",
       "solved": false,
-      "wall_clock_s": 0.422,
+      "wall_clock_s": 0.516,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1596,7 +1596,7 @@
     {
       "task_id": "1da012fc",
       "solved": false,
-      "wall_clock_s": 0.359,
+      "wall_clock_s": 0.328,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1613,7 +1613,7 @@
     {
       "task_id": "1e0a9b12",
       "solved": true,
-      "wall_clock_s": 0.281,
+      "wall_clock_s": 0.344,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Gravity(direction=D)(<?:Grid#0>)",
@@ -1630,7 +1630,7 @@
     {
       "task_id": "1e32b0e9",
       "solved": false,
-      "wall_clock_s": 0.328,
+      "wall_clock_s": 0.265,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1647,7 +1647,7 @@
     {
       "task_id": "1e5d6875",
       "solved": false,
-      "wall_clock_s": 0.156,
+      "wall_clock_s": 0.125,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1664,7 +1664,7 @@
     {
       "task_id": "1e81d6f9",
       "solved": false,
-      "wall_clock_s": 0.375,
+      "wall_clock_s": 0.657,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1681,7 +1681,7 @@
     {
       "task_id": "1efba499",
       "solved": false,
-      "wall_clock_s": 0.406,
+      "wall_clock_s": 0.39,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1698,7 +1698,7 @@
     {
       "task_id": "1f0c79e5",
       "solved": false,
-      "wall_clock_s": 0.313,
+      "wall_clock_s": 0.235,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",
@@ -1715,7 +1715,7 @@
     {
       "task_id": "1f642eb9",
       "solved": false,
-      "wall_clock_s": 0.187,
+      "wall_clock_s": 0.39,
       "n_synth_programs": 4,
       "n_seed_programs": 0,
       "top_program": "Identity(<?:Grid#0>)",

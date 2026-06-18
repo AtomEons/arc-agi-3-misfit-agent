@@ -1,0 +1,13 @@
+{
+  "id": "atommccree/property-bound-schemas-arc-and-pokemon-tcg",
+  "title": "Property Bound Schemas From ARC AGI to Pokemon TCG",
+  "code_file": "notebook.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "false",
+  "enable_gpu": "false",
+  "enable_internet": "false",
+  "dataset_sources": [],
+  "competition_sources": ["pokemon-tcg-ai-battle-challenge-strategy"],
+  "kernel_sources": []
+}

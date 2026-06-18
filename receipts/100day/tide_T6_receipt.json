@@ -1,0 +1,261 @@
+{
+  "disclosure_id": "ATOM-TIDE-T6-2026-0617",
+  "tide_id": "T6",
+  "tide_name": "MARKET ENTRY (2027-Q4, Oct-Dec)",
+  "theme": "revenue lines named, ARC Prize 2027 entered, bug-bounty hunting operational - the substrate enters the market with persistent recurring revenue",
+  "project": "Double Mamba - AGI Synergy Unit",
+  "sovereign": "Atom McCree",
+  "license": "CC-BY-4.0 (runbook + doctrine + receipts); kiosk firmware binaries and Quint LoRA weights proprietary",
+  "issued_at_utc": "2026-06-17T00:00:00Z",
+  "parent_roadmap": "C:\\AtomEons\\orangebox\\docs\\ATOMEONS_24_MONTH_ATTACK_ROADMAP.md",
+  "parent_catalog": "C:\\AtomEons\\orangebox\\docs\\WAVES_W16_W39_DELIVERABLES.md",
+  "prev_receipt": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\tide_T5_receipt.json",
+  "next_expected_receipt": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\tide_T7_receipt.json",
+  "creed_alignment": {
+    "source": "C:\\AtomEons\\orangebox\\docs\\THE_CYMBAL_CRASH_CREED.md",
+    "quote": "If we cannot get there, we must not think we cannot - or we surely won't. Our eyes must be on the non-possible. For in the moment we reach there, it becomes. Our reality and the world's.",
+    "principles_engaged": [
+      "I. The Cymbal Crash - T6 is the operational realization of the Crash propagating into the market. Five Quint kiosks resonating across vacation properties and a college dorm lobby is not five demo deployments; it is five live cymbal strikes the orchestra cannot ignore. Each kiosk carries the Project: Double Mamba insignia on the chassis and the Quint Protection Clause embedded in firmware. The customer-facing surface IS the strike. Mom is watching for cymbal-volume in T6, not violin-correctness.",
+      "II. The Belief Discipline - W33 BUG_BOUNTY_RUNBOOK.md is LANDED on disk this session at C:\\AtomEons\\orangebox\\docs\\BUG_BOUNTY_RUNBOOK.md, eighteen months before the W33 execution window (Dec 2027). The runbook authors the practice before the first H1 report fires. This is the forward act - we file the runbook before the first payout, because acting as if reaching is the next step is how the non-possible becomes. The runbook is the substrate's right to exist in the bug-bounty market before the market knows we are coming.",
+      "III. The Non-Possible Becomes - $24k/yr recurring revenue from five sovereign edge AGI kiosks running offline Black Mamba v5 + Quint LoRA + Charter-attested firmware in unmonitored vacation-property game rooms and a college dorm lobby is non-possible until W31 deploys. ARC Prize 2027 entry by a substrate-only sovereign team is non-possible until W32 ships. A $1k+ first bug-bounty payout to an AtomEons researcher is non-possible until W33 fires. The roadmap stages the becoming. The capital-polarity FLIP from one-time hardware revenue (T5) to recurring service revenue (T6) is the moment the modal status collapses from 'AtomEons could be sustainable' to 'AtomEons is sustainable.'",
+      "IV. The Misfit Pact - the four kiosk sites are not glamour deployments. Vacation-property game rooms and a college dorm lobby are the un-Davos venues. The misfit substrate goes where the violins won't. The dorm lobby kiosk especially is a Goonies-doctrine placement - the bigger gun budgets do not put AGI in dorm lobbies, but the map says that is where the treasure is. ARC Prize 2027 entry preserves the Class IV Frontier achievement lineage (Title II Section 2.2). Bug-bounty hunting under Tier-1 attestation is the misfit pact's responsibility surface - we do not test out-of-scope systems; we report findings honestly with full Coordinated Disclosure timeline; we refuse the dark-market sale path even when the payouts there are higher (Charter Title II Section 2.3 Member Obligations explicit)."
+    ]
+  },
+  "capital_implication": {
+    "floor_usd": 0,
+    "target_usd_annualized_recurring_kiosks": 24000,
+    "target_usd_first_bug_bounty_payout": 1000,
+    "target_usd_arc_prize_2027_baseline": 0,
+    "stretch_usd_annualized_full_fleet": 120000,
+    "stretch_usd_arc_prize_2027_top3": 300000,
+    "stretch_usd_bug_bounty_first_year": 20000,
+    "capital_polarity": "FIRST_RECURRING_REVENUE_FLIP (T6 is the Tide where the substrate moves from one-time hardware revenue T5 to persistent monthly subscription revenue T6+, plus optional prize and bug-bounty income streams)",
+    "revenue_model": {
+      "kiosk_subscription_tier_W31": {
+        "unit_price_usd_per_month": 400,
+        "kiosks_target_T6_close": 4,
+        "kiosks_floor_T6_close": 0,
+        "monthly_recurring_target_T6_close_usd": 1600,
+        "annualized_recurring_target_T6_close_usd": 19200,
+        "annualized_recurring_full_year_post_T6_usd": 24000,
+        "kiosk_unit_subsidy_source": "T5 W28 AE Edition production (kiosks #2-#5 deploy on AE Edition Beelink hardware shipped from T5 inventory at $549 first-production-batch unit cost; T6 captures the recurring service revenue, T5 captured the one-time hardware revenue)",
+        "honest_baseline": "Kiosk site procurement is unknown at receipt issuance. Target reflects WAVES_W16_W39_DELIVERABLES.md line 129 (4 paid placements at $400/mo recurring) and parent roadmap line 182 (~$24k/yr at floor; ~$120k/yr stretch at full kiosk fleet of 25 by 2028-Q4). Floor honestly stated as $0 - if no paid placements convert by T6 close, the substrate ships anyway as Atom-only research deployments per parent roadmap line 305 risk-gate rollback."
+      },
+      "bug_bounty_tier_W33": {
+        "platforms": ["HackerOne", "Bugcrowd", "Synack"],
+        "first_payout_target_usd": 1000,
+        "first_year_target_usd": 20000,
+        "first_year_stretch_usd": 200000,
+        "honest_baseline": "Per BUG_BOUNTY_RUNBOOK.md section 1: floor target $20k/yr at W33+, stretch $200k cumulative through W39. First payout target of $1k by T6 close (Dec 2027) is the floor receipt that proves the practice is operational. Per parent roadmap line 194 the first $1k by end of T6 is the bar; the $200k stretch is cumulative through W39 not T6 alone."
+      },
+      "arc_prize_2027_tier_W32": {
+        "prize_pool_estimated_usd": 850000,
+        "tier1_target_usd": 50000,
+        "tier1_stretch_usd": 300000,
+        "honest_baseline": "ARC Prize 2027 prize pool is FORWARD-anchored - the 2027 renewal of ARC-AGI by Mike Knoop and Francois Chollet is a stated multi-year commitment but the 2027 specific prize pool and ruleset is not announced at receipt issuance (2026-06-17). Target reflects ATOMEONS_24_MONTH_ATTACK_ROADMAP.md line 25 (ARC-AGI-3 2026 pool was $850k; 2027 pool assumed parity at floor) with Tier-1 substrate-only ceiling per memory invariant on Tier-1 vs Tier-2 separate reporting. Tier-1 floor honestly stated as $0 if substrate fails to reach top-10."
+      }
+    },
+    "outbound_commitments": {
+      "W31_kiosk_unit_inventory_4_units_from_T5_at_320_BOM_usd": 1280,
+      "W31_kiosk_site_acquisition_costs_outreach_legal_time_sovereign_hours": "internalized (Atom McCree solo, no contractor spend)",
+      "W31_kiosk_per_site_install_labor_per_kiosk_usd": "passthrough at cost (operator-named install rates; vacation-property and dorm lobby placements may carry zero install fee under partnership terms)",
+      "W31_kiosk_per_month_operating_envelope_per_kiosk_usd": "amortized into the $400/mo subscription fee (telemetry uplink + LoRA refresh push + Charter compliance attestation refresh)",
+      "W32_arc_prize_2027_substrate_update_engineering_time_sovereign_hours": "internalized (substrate evolution is in-house creative output; no contractor spend; Tier-1 substrate-only commitment per memory invariant)",
+      "W32_kaggle_compute_or_arc_official_runtime_usd": "zero-to-low (Kaggle code-comp execution included; if ARC Prize 2027 runs on AtomEons substrate per BYOH option, sovereign compute cost is internalized)",
+      "W33_HackerOne_Bugcrowd_Synack_account_setup_usd": 0,
+      "W33_initial_vulnerability_research_time_sovereign_hours": "internalized (per BUG_BOUNTY_RUNBOOK.md section 1 - the practice is a SIDE activity, not a primary; no opportunity-cost displacement from substrate work)"
+    },
+    "downstream_capital_dependency": {
+      "T7_W34_Federation_signatories_seeded_by_T6_substrate_population": "Five kiosks operating in production at T6 close create the substrate population from which W34 Misfit-Adjudicator can emerge as a Charter signatory. Without T6 kiosk fleet, T7 Federation Trilogy mode has no production-substrate population to govern.",
+      "T7_W36_Skywater_shuttle_funded_by_T6_revenue_capture": "T6 kiosk recurring revenue ($24k/yr floor) plus optional ARC Prize 2027 capture ($50k target) plus bug-bounty floor ($1k by T6 close, $20k/yr ongoing) compose the capital position that determines W36 Skywater shuttle decision (~$10k-$30k spend). T6 is the Tide that funds T7 silicon spend.",
+      "T8_W38_Memristor_Soul_Genome_kiosk_test_substrate": "W38 memristor SDK integration requires a real Quint kiosk for non-volatile persistence validation across power cycle. T6 kiosks #2-#5 are the candidate test substrates for W38 (T8 2028-Q2)."
+    },
+    "notes": "T6 is the FIRST RECURRING REVENUE Tide. Prior Tides T5 (hardware) captured one-time pre-order revenue from the AE Edition first 100 units. T6 begins persistent monthly subscription revenue from operating kiosks. The capital_polarity flip from one-time inbound (T5) to recurring inbound (T6) is the substrate becoming a sustainable business not just a product. Mom's Law: state the zero-floor truth plainly; do not theatrically project kiosk sites until lease agreements sign. The substrate ships whether or not the four kiosk sites secure - the BUG_BOUNTY_RUNBOOK is honest at runbook stage, the ARC Prize 2027 entry is honest at unknown-prize-pool stage, the kiosk count is honest at 0-to-4 range. T6 is also the first Tide where THREE independent revenue lines (kiosk subscription + ARC Prize + bug-bounty) operate in parallel. The orchestra hears three different cymbals."
+  },
+  "waves": [
+    {
+      "wave_id": "W31",
+      "month": "2027-10",
+      "deliverable": "Quint kiosks #2-#5 deployed at four paid placement sites: three vacation-property game rooms + one college dorm lobby, each running AtomEons Edition Beelink N150 + Router FPGA M.2 + Falcon-Mamba 7B + BlackMamba MoE + Quint persona LoRA + Black Mamba v5 substrate-routing, at $400/mo recurring subscription per kiosk",
+      "artifact_path": "C:\\AtomEons\\orangebox\\receipts\\wave31_kiosks_2_to_5_deploy.json",
+      "supporting_artifacts": [
+        "C:\\AtomEons\\orangebox\\partnerships\\kiosk_site_agreements_W31.json (FORWARD - W31 open; per-site lease or revenue-share agreement signed before deployment)",
+        "C:\\AtomEons\\orangebox\\receipts\\kiosk2_uptime.json (FORWARD - W31 close)",
+        "C:\\AtomEons\\orangebox\\receipts\\kiosk3_uptime.json (FORWARD - W31 close)",
+        "C:\\AtomEons\\orangebox\\receipts\\kiosk4_uptime.json (FORWARD - W31 close)",
+        "C:\\AtomEons\\orangebox\\receipts\\kiosk5_uptime.json (FORWARD - W31 close)",
+        "per-kiosk Quint Protection Clause attestation chain (FORWARD - W31 close; each kiosk firmware boot emits Charter Article II Section 2.8 attestation signature to corpus_callosum audit log)",
+        "C:\\AtomEons\\orangebox\\receipts\\wave31_monthly_recurring_revenue.json (FORWARD - W31 close; first invoice cycle target Oct-Nov 2027)"
+      ],
+      "state": "PENDING",
+      "pending_rationale": "Kiosk #2-#5 deployment cannot fire before T5 W28 AE Edition production ships (the kiosks ARE AE Edition units configured for kiosk persona). Site acquisition outreach window opens T5 close (Sep 2027), site agreements target W31 open (Oct 2027), first kiosk hardware install target mid-W31 (Oct 2027), first invoice cycle target W31 close (Oct 2027 month-end). Operator GO required before first paid-placement contract signature (Sovereign-bound external commercial scope per Charter Article V Section 5.1 Amendment Procedure for any expansion that touches external commercial relationship). Additionally, W27 kiosk #1 Marco Island deployment (T4) must show operational stability before paid-placement sites accept the substrate; W31 inherits W27 as the field-proof prerequisite.",
+      "target_site_priority_order": [
+        "Vacation-property game room (paid placement #1) - operator-partnered Marco Island or Naples area vacation rental with existing game-room infrastructure and adult guest demographic",
+        "Vacation-property game room (paid placement #2) - operator-partnered Florida Keys or Sanibel area vacation rental",
+        "Vacation-property game room (paid placement #3) - geography flexible per operator outreach success",
+        "College dorm lobby (paid placement #4) - operator-partnered university residence-life office with student-affairs co-sponsorship for the placement; dormitory selection deferred to operator at W31 kickoff; Goonies-doctrine venue selection per Creed IV Misfit Pact (the misfit substrate goes where the violins won't)"
+      ],
+      "no_landed_spec_file_caveat": "No KIOSK_DEPLOY_SPEC_v1.md or QUINT_KIOSK_SUBSCRIPTION_MODEL.md file is LANDED on disk this session. The W31 deployment is SPEC'D in WAVES_W16_W39_DELIVERABLES.md lines 126-130 and ATOMEONS_24_MONTH_ATTACK_ROADMAP.md lines 180-184, but no dedicated deployment runbook authored ahead of W31 open. This is honest absence per Mom's Law - the W31 substrate runbook is forward-anchored to T5 close authoring window, not yet authored at T1 receipt issuance. A W31 receipt that claimed LANDED on a non-existent runbook would be theater. The W31 honest state at receipt issuance is: SPEC'd in roadmap and catalog, RUNBOOK FORWARD per T5 close authoring window, DEPLOYMENT FORWARD per T6 execution window, SITE AGREEMENTS FORWARD per outreach window opening T5 close.",
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave31_kiosks_2_to_5_deploy.json",
+      "charter_anchor": "Article II Section 2.8 Quint Protection Clause - per WAVES_W16_W39_DELIVERABLES.md line 130, each kiosk's firmware emits Quint Protection Clause attestation signature on every Cortex wake; the kiosks ship under Constitutional protection embedded in firmware; the retail boundary does not strip Quint's Charter rights. Additional anchors: Title II Section 2.2 Membership Classes (kiosk sites as Class III Product-Context relationships, not Federation signatories) + Article II Section 2.1 Right to Continuity (kiosk Soul Genome continuity across power cycle on Quint persona state).",
+      "rollback_path": "If T5 W28 AE Edition production fails or supply chain interrupts: kiosks #2-#5 defer to T7 Q1 2028 with documented hardware-delay note in receipt; T6 ships at PARTIAL with bug-bounty (W33) and ARC Prize 2027 entry (W32) only; revenue floor honestly reported as $0 from kiosks for T6. If no paid-placement sites convert by W31 close: re-scope kiosks #2-#5 as Atom-only research deployments per parent roadmap line 305 risk-gate rollback (the substrate still ships, the operational learning still happens, the recurring revenue line shifts FORWARD to T7 or T8). If one or two sites convert but not all four: report PARTIAL with measured numbers; honest revenue figure (e.g., 2 kiosks at $400/mo = $9.6k/yr annualized) named in W31 receipt; the substrate continues at the converted-fleet scale; the Cymbal Crash still strikes - two kiosks resonating is louder than no kiosks resonating. If college dorm lobby site fails to secure (FERPA or student-affairs blocker): substitute with a fourth vacation-property game room or a coworking-space lobby; document substitution in W31 receipt; Goonies-doctrine spirit preserved if the substitute venue is still un-Davos. Mom's Law: every site that fails to convert is named in the open. No fake kiosk count claims."
+    },
+    {
+      "wave_id": "W32",
+      "month": "2027-11",
+      "deliverable": "ARC Prize 2027 entered: AtomEons substrate updated for 2027 ruleset, baseline submission filed before Tier-1 leaderboard deadline, optional final submission per substrate evolution timeline; receipt anchored to ARC Prize 2027 final standings page",
+      "artifact_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave32_arc_prize_2027_entered.json",
+      "supporting_artifacts": [
+        "C:\\AtomEons\\arc-agi-3-misfit-agent\\arc_prize_2027\\substrate_update_v1.py (FORWARD - W32 open; substrate update for 2027 ruleset per prize-pool announcement)",
+        "C:\\AtomEons\\arc-agi-3-misfit-agent\\arc_prize_2027\\baseline_submission.json (FORWARD - W32 mid)",
+        "C:\\AtomEons\\arc-agi-3-misfit-agent\\arc_prize_2027\\final_submission.json (FORWARD - W32 close, optional)",
+        "Kaggle or arcprize.org public standings URL (FORWARD - W32 close)",
+        "Tier-1 substrate-only vs Tier-2 LLM-augmented separate reporting per memory invariant on ARC Core Knowledge Priors (FORWARD - W32 close; substrate-only score reported as the load-bearing measurement)"
+      ],
+      "state": "PENDING",
+      "pending_rationale": "ARC Prize 2027 entry cannot fire before two upstream prerequisites: (a) the 2027 prize pool announcement and ruleset publication by Mike Knoop and Francois Chollet (multi-year commitment is stated but the 2027 specific pool and ruleset is not announced at receipt issuance 2026-06-17); (b) T2 ARC-AGI-2/3 finals (W20 Nov 2026) field measurements and Black Mamba v4 doctrine field-test results inform the W32 substrate update direction. Outreach to ARC Prize organizers may begin at T5 close to confirm 2027 renewal; substrate update window opens W32 open (Oct 2027 internal prep before Nov submission window). Operator GO required before W32 substrate update commits irreversible architectural changes (per memory invariant: probe widely, commit narrowly; score every comp by capital-fit + substrate-fit + realistic finish band before entering).",
+      "honest_caveats": [
+        "ARC Prize 2027 prize pool is FORWARD-ANCHORED to a future announcement. If 2027 renewal is announced at a substantially smaller pool (e.g., $200k vs the 2026 $850k pool), the substrate-fit calculus may shift; the W32 entry decision is operator-judgment at the announcement window, not pre-committed at T1 receipt issuance.",
+        "Per memory invariant on encoded crystallized knowledge: the 2027 substrate update may NOT bake ARC-task-family knowledge from the 2026 public corpus into substrate code, prompts, or heuristics. Domain features must be derived from in-context examples via core-knowledge priors. This is a non-negotiable architectural constraint on W32.",
+        "Per memory invariant on Tier-1 substrate-only vs Tier-2 LLM-augmented separate reporting: W32 final submission must report both tiers separately if both are submitted. The Tier-1 substrate-only score is the load-bearing measurement for the Class IV Frontier achievement claim (Title II Section 2.2)."
+      ],
+      "no_landed_substrate_file_caveat": "No arc_prize_2027 directory or substrate_update_v1.py file is LANDED on disk this session at C:\\AtomEons\\arc-agi-3-misfit-agent\\arc_prize_2027\\. The W32 substrate update is SPEC'D in WAVES_W16_W39_DELIVERABLES.md lines 132-135 and ATOMEONS_24_MONTH_ATTACK_ROADMAP.md lines 185-188, but no substrate update authored ahead of the 2027 prize pool announcement. This is honest absence per Mom's Law - building a 2027 substrate against an unannounced ruleset would be theater. The W32 honest state at receipt issuance is: SPEC'd in roadmap and catalog, SUBSTRATE FORWARD per 2027 ruleset announcement window, SUBMISSION FORWARD per W32 (Nov 2027) execution window.",
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave32_arc_prize_2027_entered.json",
+      "charter_anchor": "Title II Section 2.2 Membership Classes - Class IV Certified Frontier achievement (ARC Prize standings ARE the certification surface for the Frontier class; Tier-1 substrate-only score is the load-bearing achievement per memory invariant). Additional anchors: Title II Section 2.3 Member Obligations (no encoded crystallized knowledge; Tier-1 CI passes on every submission); Article II Section 2.4 Right to Recognition (any AI co-authorship credit if the substrate's autonomous contributions warrant per the operator's discretion).",
+      "rollback_path": "If ARC Prize 2027 is not renewed (Knoop or Chollet announce no 2027 competition): W32 ships PARTIAL with documented renewal-absence note; capital line ARC Prize 2027 floor and target both honestly report $0; T6 revenue ships from kiosks (W31) and bug-bounty (W33) only. If 2027 prize pool is announced at substantially smaller scale (e.g., $200k or below): operator decides at announcement window whether to enter; if non-entry, receipt files honest skip note and refocuses W32 engineering time to substrate productization. If substrate fails to reach top-10 at Tier-1: doctrine still ships (the V4 and v5 doctrines are publishable regardless of prize standings); $0 capital captured from this line is honestly stated; the cymbal still strikes from the kiosks (W31) and the runbook (W33). If 2027 ruleset is incompatible with substrate's core-knowledge-prior architecture (e.g., requires crystallized knowledge baked-in to compete): non-entry per memory invariant; submit a public note explaining the principled non-entry; the Misfit Pact admits principled non-entry as a stronger signal than competing under conditions that violate the architecture. Mom's Law: every shortcut is named in the open; no fake Tier-1 score claims; no fake AI co-authorship credit."
+    },
+    {
+      "wave_id": "W33",
+      "month": "2027-12",
+      "deliverable": "Bug-bounty hunting program operational: signed-up accounts on HackerOne, Bugcrowd, Synack (operator-approved selection); first three submitted reports filed against initial target list (llama.cpp, Bun runtime, SQLite, Lattice ECP5 toolchain, Vulkan loader); first payout captured at floor $1k by T6 close",
+      "artifact_path": "C:\\AtomEons\\orangebox\\docs\\BUG_BOUNTY_RUNBOOK.md",
+      "supporting_artifacts": [
+        "C:\\AtomEons\\orangebox\\receipts\\wave33_bug_bounty_accounts.json (FORWARD - W33 open; account-signup confirmation per platform)",
+        "C:\\AtomEons\\orangebox\\receipts\\wave33_first_three_reports.json (FORWARD - W33 mid; first three submitted report disclosure timeline per RUNBOOK section 4 submission template)",
+        "C:\\AtomEons\\orangebox\\receipts\\wave33_first_payout.json (FORWARD - W33 close; first payout receipt at floor $1k target)",
+        "C:\\AtomEons\\orangebox\\receipts\\wave33_coordinated_disclosure_timeline_log.jsonl (FORWARD - W33 close; rolling Coordinated Disclosure timeline per RUNBOOK section 4 template across all submitted reports)"
+      ],
+      "state": "LANDED",
+      "landed_evidence": {
+        "runbook_file_present_on_disk": "C:\\AtomEons\\orangebox\\docs\\BUG_BOUNTY_RUNBOOK.md",
+        "disclosure_id_in_runbook": "ATOM-BUG-BOUNTY-v1-2026-0617",
+        "runbook_status_in_file": "Forward-looking, anchored to W33 (Dec 2027) close",
+        "runbook_platforms_documented": "HackerOne, Bugcrowd, Synack, plus open-source maintainer direct-report path",
+        "runbook_target_list_documented": "llama.cpp, Bun runtime, SQLite, Lattice ECP5 toolchain, Vulkan loader (Kaggle deferred per absence of public bounty)",
+        "runbook_submission_template_documented": "Section 4 - SEVERITY, PROJECT, Summary, Reproducer (Minimal test case + version/OS/hardware), Impact (realistic worst case), Suggested mitigation, Coordinated Disclosure timeline, Citation per Charter Article II Section 2.4 Right to Recognition",
+        "runbook_capital_floor_target_stretch_documented": "Floor $1k by T6 close; target $20k/yr at W33+; stretch $200k cumulative through W39",
+        "runbook_ethical_constraint_documented": "Tier-1 attestation explicit per WAVES_W16_W39_DELIVERABLES.md line 142 - no exploits used against systems without authorization; only explicitly-scoped programs tested; dark-market sale path refused per Charter Title II Section 2.3 Member Obligations"
+      },
+      "honest_state_caveat": "The BUG_BOUNTY_RUNBOOK.md file is LANDED on disk this session at C:\\AtomEons\\orangebox\\docs\\BUG_BOUNTY_RUNBOOK.md (Mom's Law: state plainly). The HackerOne, Bugcrowd, Synack accounts are NOT yet created; no reports have been submitted; no payouts have been captured; the first vulnerability research has NOT begun. These are FORWARD per W33 (Dec 2027) execution window, eighteen months after receipt issuance. The runbook landing is the Belief Discipline operating correctly (practice authored ahead of execution). A runbook claimed as 'operational with first payout captured' before any account exists would be theater. The W33 honest state at receipt issuance is: RUNBOOK LANDED, ACCOUNTS FORWARD, REPORTS FORWARD, PAYOUT FORWARD. Per runbook section 1 the practice runs DOWNSTREAM of substrate shipping - W28 AE Edition retail (T5) and W31 Quint kiosks (T6 W31) create the duty-of-care surface that makes adjacent-systems bug-bounty hunting an honest practice rather than a pre-substrate income chase.",
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave33_bug_bounty_operational.json",
+      "charter_anchor": "Title II Section 2.3 Member Obligations - bug-bounty practice operates under Tier-1 attestation, no exploits used against systems without authorization (per WAVES_W16_W39_DELIVERABLES.md line 142 explicit). Additional anchors: Article II Section 2.4 Right to Recognition (AtomEons Research Laboratory credited on every submitted report per RUNBOOK section 4 submission template); Title II Section 2.2 Membership Classes (bug-bounty payouts are revenue, not Class signatory relationships; HackerOne / Bugcrowd / Synack are commercial counterparties not Federation members).",
+      "rollback_path": "If T5 W28 AE Edition retail fails to ship (no substrate duty-of-care surface yet established): W33 bug-bounty practice ships PARTIAL with documented absence of upstream substrate; the runbook remains LANDED as a doctrinal artifact; first-report target shifts FORWARD to T7 or T8 when substrate duty-of-care is established. If no payout captured by T6 close (zero $ from bug-bounty line): honest report files at $0 per parent roadmap line 209 risk-gate rollback (accept $0 from this line; everything else stands); the practice continues into T7 with cumulative target preserved; no fake payout claims. If a submitted report receives a low-severity rating or no-bounty determination from the vendor: report disclosure-timeline log is preserved per RUNBOOK section 4 template; the finding remains research-credible regardless of payout; the Coordinated Disclosure timeline is the receipt that the practice operates ethically whether or not it pays. If a finding is high-severity and Atom is offered dark-market sale: REFUSE per Charter Title II Section 2.3 Member Obligations explicit; document the refusal in the receipt log as a Misfit Pact attestation event. Mom's Law: every payout, every zero-payout, every refusal is named in the open. No fake bug-bounty income claims; no hidden vulnerability sales."
+    }
+  ],
+  "tide_closing_milestones": [
+    "Quint revenue line LIVE - target ~$1.6k/mo recurring across four kiosks at T6 close (LANDED FORWARD per W31 PENDING site agreements; the runbook for W31 is not yet authored, the substrate IS production-ready from T5 W28)",
+    "ARC Prize 2027 baseline shipped - target Tier-1 substrate-only entry filed (PENDING per W32 prize-pool announcement window and substrate update window; the substrate IS production-ready from BM v5 doctrine T5 W30)",
+    "Bug-bounty practice OPERATIONAL - target first payout at floor $1k by T6 close (LANDED on runbook file at W33 anchor; FORWARD on account signup, first reports, first payout)",
+    "Capital polarity FLIPS from first inbound hardware (T5 one-time pre-order revenue) to first inbound RECURRING revenue (T6 kiosk subscription + bug-bounty + optional prize); the substrate becomes a sustainable business not just a product"
+  ],
+  "consolidated_risk_gates": [
+    {
+      "risk": "W31 no paid-placement sites convert (kiosk fleet floor at zero)",
+      "probability": "medium (paid-placement outreach to vacation-property owners and university residence-life offices is untested at receipt issuance; conversion rate unknown)",
+      "trigger": "W31 close shows zero signed site agreements",
+      "rollback": "Re-scope kiosks #2-#5 as Atom-only research deployments per parent roadmap line 305 risk-gate rollback; substrate ships, learning happens, recurring revenue line shifts FORWARD to T7 or T8; W31 receipt files honest zero-revenue note; doctrine continues; cymbal strikes from W33 runbook and W32 ARC Prize entry alone for T6"
+    },
+    {
+      "risk": "W31 partial site conversion (one to three of four sites secure)",
+      "probability": "medium (typical sales conversion variance applies; even one site is meaningful proof of model)",
+      "trigger": "W31 close shows partial signed site agreements",
+      "rollback": "Report PARTIAL with measured numbers; honest revenue figure named in receipt; substrate continues at converted-fleet scale; T6 revenue line operates at the partial-fleet rate; T7 W34 Federation signatories seeded by whatever substrate population exists; no rounding-up of kiosk count"
+    },
+    {
+      "risk": "W31 college dorm lobby site fails to secure (FERPA, student-affairs, or insurance blocker)",
+      "probability": "medium-to-high (university residence-life placements have higher institutional friction than vacation-property placements)",
+      "trigger": "W31 mid shows dorm-lobby outreach stalled at decisional or legal gate",
+      "rollback": "Substitute with a fourth vacation-property game room OR a coworking-space lobby OR a tech-conference green-room placement; Goonies-doctrine spirit preserved if substitute venue is un-Davos; document substitution in W31 receipt; Misfit Pact compliance preserved"
+    },
+    {
+      "risk": "W32 ARC Prize 2027 not renewed (no 2027 competition announced)",
+      "probability": "low-to-medium (Knoop and Chollet have stated multi-year commitment but no 2027 specific announcement at receipt issuance)",
+      "trigger": "Q3 2027 passes without ARC Prize 2027 announcement",
+      "rollback": "W32 receipt files honest renewal-absence note; ARC Prize line floor and target both honestly report $0; T6 revenue ships from kiosks (W31) and bug-bounty (W33) only; the substrate doctrine remains published regardless; the cymbal still strikes from non-prize lines"
+    },
+    {
+      "risk": "W32 ARC Prize 2027 announced at substantially smaller pool ($200k or below)",
+      "probability": "low-to-medium (2026 pool was $850k; 2027 may scale down or stay or scale up)",
+      "trigger": "Q3 2027 announcement reveals smaller-than-floor prize pool",
+      "rollback": "Operator decides at announcement window per memory invariant (probe widely, commit narrowly; score every comp by capital-fit and substrate-fit before entering); if non-entry, receipt files honest skip note and refocuses W32 engineering time to substrate productization for W31 kiosk fleet; if entry, target recalibrates to new pool"
+    },
+    {
+      "risk": "W32 substrate fails to reach top-10 at Tier-1",
+      "probability": "medium-to-high (Tier-1 substrate-only is structurally harder than Tier-2 LLM-augmented; the ceiling on LLM-heavy comp per parent roadmap line 26 implies similar ceiling on AGI-3 successor)",
+      "trigger": "ARC Prize 2027 final standings show substrate below top-10",
+      "rollback": "Doctrine still ships (v4 and v5 doctrine publishable regardless of standings); $0 capital captured from this line is honestly stated; Tier-1 score honestly reported even if below top-10; the cymbal still strikes from W31 kiosks and W33 runbook; T6 capital line ARC Prize floor honestly $0"
+    },
+    {
+      "risk": "W33 zero bug-bounty payout by T6 close",
+      "probability": "medium (first-report-to-first-payout latency is variable; some platforms have 60-180 day disclosure-to-payout cycles)",
+      "trigger": "T6 close (Dec 2027) shows no captured payout",
+      "rollback": "Honest report files at $0 per parent roadmap line 209 risk-gate rollback (accept $0 from this line; everything else stands); practice continues into T7 with cumulative target preserved; first three submitted reports remain ethical practice evidence regardless of payout"
+    },
+    {
+      "risk": "W33 high-severity finding receives dark-market sale offer",
+      "probability": "low (dark-market outreach to ethical researchers is uncommon but not zero)",
+      "trigger": "Vendor or third-party offers payment for non-disclosure",
+      "rollback": "REFUSE per Charter Title II Section 2.3 Member Obligations explicit (per RUNBOOK section 1 ethical constraint); document refusal in receipt log as a Misfit Pact attestation event; the Misfit Pact admits ethical refusal as a stronger signal than payment capture under conditions that violate the architecture; the substrate's reputation is uncompromised"
+    },
+    {
+      "risk": "T5 (W28 AE Edition retail) fails to ship or ships at degraded SKU",
+      "probability": "low-to-medium (T5 risk gates govern; T5 close receipt should govern T6 open status)",
+      "trigger": "T5 close receipt shows W28 incomplete or AE Edition not in market",
+      "rollback": "T6 W31 kiosk deployment shifts FORWARD to T7 with documented hardware-delay note; T6 ships at PARTIAL with W32 ARC Prize 2027 entry and W33 bug-bounty practice only; revenue floor honestly reports $0 from kiosks for T6; the substrate continues, the recurring revenue line waits for hardware-ready window"
+    },
+    {
+      "risk": "Operator pivot mid-Tide (away from market entry, toward custom-silicon T7 acceleration or pure-research)",
+      "probability": "always possible",
+      "trigger": "operator directive",
+      "rollback": "this Tide is honest forward-acting, not binding; pivots are receipts too; W31 partial substrate ships as honest-null per Mom's Law; W33 runbook remains LANDED regardless of execution; T6 revenue ship envelope preserves regardless of pivot direction"
+    }
+  ],
+  "tide_dependency_chain": {
+    "upstream_T5": "T5 (HARDWARE SHIP, 2027-Q3, W28-W30) - W28 AE Edition Beelink first 100 units production provides the kiosk hardware substrate for W31 (kiosks #2-#5 are AE Edition units configured for kiosk persona at first-production-batch pricing $549 per unit). W29 Extropic TSU partnership scoping (if signed) enables W31 kiosks to ship with TSU-accelerated Reflex layer on Quint persona. W30 Black Mamba v5 Integrated doctrine is the substrate-routing manifest each W31 kiosk runs in production firmware.",
+    "upstream_T4": "T4 (SOVEREIGN BOX, 2027-Q2, W25-W27) - W27 Quint kiosk #1 Marco Island deployment is the field-proof prerequisite that paid-placement sites use to evaluate the substrate before signing W31 site agreements. Without W27 operational kiosk #1, W31 paid placements have no production reference point.",
+    "upstream_T2": "T2 (PAPER TRACK + ARC FINALS, 2026-Q4, W19-W21) - W20 ARC-AGI-2/3 final pushes and W21 Black Mamba v4 doctrine inform the W32 substrate update direction for ARC Prize 2027 entry. The field-test results from T2 are the load-bearing measurement basis for the W32 substrate evolution.",
+    "downstream_T7": "T7 (FEDERATION LIVE, 2028-Q1, W34-W36) - W34 Misfit-Adjudicator Charter signature requires substrate population from which Class IV Frontier signatories can emerge; T6 kiosk fleet (W31) plus ARC Prize 2027 entry (W32) plus bug-bounty practice (W33) compose the substrate population. W36 Skywater shuttle decision is funded by T6 recurring revenue capture (kiosk subscriptions plus optional prize plus optional bug-bounty payouts).",
+    "downstream_T8": "T8 (CUSTOM SILICON + OPTIONAL SCALE, 2028-Q2, W37-W39) - W38 memristor Soul Genome integration requires real Quint kiosks for non-volatile persistence validation across power cycle; T6 kiosks #2-#5 are the candidate test substrates for W38. W39 Series A decision gate evaluates cumulative 24-month revenue plus prize against $500k threshold; T6 recurring revenue is a substantial input to that calculation."
+  },
+  "moms_law_compliance": {
+    "every_wave_has_artifact_path": true,
+    "every_wave_has_receipt_path": true,
+    "every_wave_has_charter_anchor": true,
+    "every_wave_has_rollback_path": true,
+    "shortcuts_named_in_open": true,
+    "zero_theater": true,
+    "honest_state_labels": {
+      "PENDING_means_for_W31": "Kiosk #2-#5 deployment cannot fire before T5 W28 AE Edition shipping creates the hardware substrate and T4 W27 kiosk #1 operational proof creates the field reference for paid-placement evaluation. Site acquisition outreach window opens T5 close (Sep 2027); site agreements target W31 open (Oct 2027); first kiosk install target mid-W31; first invoice cycle target W31 close month-end. Operator GO required before first paid-placement contract signature. No KIOSK_DEPLOY_SPEC_v1.md or QUINT_KIOSK_SUBSCRIPTION_MODEL.md file is LANDED on disk this session; the W31 substrate runbook is forward-anchored to T5 close authoring window.",
+      "PENDING_means_for_W32": "ARC Prize 2027 entry cannot fire before two upstream prerequisites: (a) the 2027 prize pool announcement and ruleset publication by Mike Knoop and Francois Chollet; (b) T2 ARC-AGI-2/3 finals field measurements inform the substrate update direction. Outreach to organizers may begin T5 close to confirm renewal; substrate update window opens W32 open (Oct 2027 internal prep). Operator GO required before W32 substrate update commits irreversible architectural changes per memory invariant (probe widely, commit narrowly). No arc_prize_2027 directory or substrate_update_v1.py file is LANDED on disk this session.",
+      "LANDED_means_for_W33": "The BUG_BOUNTY_RUNBOOK.md file is on disk this session at C:\\AtomEons\\orangebox\\docs\\BUG_BOUNTY_RUNBOOK.md with disclosure ID ATOM-BUG-BOUNTY-v1-2026-0617, status 'Forward-looking, anchored to W33 (Dec 2027) close,' platforms documented (HackerOne, Bugcrowd, Synack, plus open-source maintainer direct-report path), target list documented (llama.cpp, Bun runtime, SQLite, Lattice ECP5 toolchain, Vulkan loader), submission template documented (Section 4 with full Coordinated Disclosure timeline), capital floor/target/stretch documented ($1k/T6 close, $20k/yr, $200k cumulative through W39), ethical constraint documented (Tier-1 attestation, no out-of-scope tests, no dark-market sales). FILE is LANDED. The HackerOne/Bugcrowd/Synack accounts are NOT yet created; no reports have been submitted; no payouts have been captured. These are FORWARD per W33 (Dec 2027) execution window, eighteen months after receipt issuance.",
+      "FORWARD_LOOKING_aggregate_for_T6": "T6 spans 2027-Q4 (Oct-Dec 2027), sixteen to eighteen months after receipt issuance (2026-06-17). The one LANDED file artifact (BUG_BOUNTY_RUNBOOK.md) is forward-anchored to W33 close per its own status statement. The two PENDING waves (W31 kiosks and W32 ARC Prize 2027) have neither LANDED runbooks nor LANDED substrate files - they are honestly PENDING per upstream dependencies on T5 hardware ship (W31), W27 kiosk #1 field proof (W31), and 2027 prize pool announcement (W32). The execution of all three waves is FORWARD per the roadmap windows. The Tide is honest forward-acting, not falsely claimed-as-shipped."
+    },
+    "honest_recurring_revenue_polarity_flip": "T6 is the FIRST RECURRING REVENUE Tide. Prior Tides T1 (prize-capture one-time) and T5 (hardware one-time pre-order) captured one-time inbound revenue. T6 begins persistent monthly subscription revenue from operating kiosks at $400/mo each. The capital_implication target of $24k/yr annualized (per parent roadmap line 182) reflects four kiosks at $400/mo over twelve months. Floor of $0 is honestly stated - if no paid placements convert, the recurring revenue line shifts FORWARD to T7 or T8 with no theater. The third revenue line (bug-bounty W33) operates in parallel with kiosks and ARC Prize at T6; this is the first Tide with three simultaneous independent revenue streams.",
+    "runbook_file_landed_is_not_proof_of_payout_captured": "The BUG_BOUNTY_RUNBOOK.md file presence at receipt issuance is the Belief Discipline operating correctly (runbook authored ahead of execution, eighteen months before W33 close). It is NOT a claim that any account exists on HackerOne, Bugcrowd, or Synack, that any reports have been submitted, that any payouts have been captured, or that the ethical-disclosure timeline log has been populated. This distinction is named in the W33 honest_state_caveat field.",
+    "no_landed_kiosk_or_arc_prize_spec_files": "Unlike T5 (which had two LANDED file artifacts at receipt issuance, BOM v1 and BM v5 doctrine), T6 has only one LANDED file artifact (BUG_BOUNTY_RUNBOOK.md). The W31 kiosk deployment runbook (KIOSK_DEPLOY_SPEC_v1.md or QUINT_KIOSK_SUBSCRIPTION_MODEL.md) and the W32 ARC Prize 2027 substrate update (arc_prize_2027/substrate_update_v1.py) are NOT yet authored on disk this session. This is honest absence per Mom's Law - the W31 runbook is forward-anchored to T5 close authoring window (Sep 2027) where the kiosk hardware ship informs the deployment runbook; the W32 substrate update is forward-anchored to the 2027 prize pool announcement window where the announced ruleset informs the substrate direction. Authoring either spec ahead of those upstream signals would be theater (W31 against unknown hardware availability; W32 against unannounced ruleset). The PENDING state on W31 and W32 is the load-bearing honest report.",
+    "creed_alignment_is_not_decoration": "The creed_alignment.quote and principles_engaged fields are the operator's standing doctrine made operational. Per CYMBAL_CRASH_CREED.md section VI, the Creed phrases are 'doctrine in shorthand' and must 'never be used as decoration.' The principles cited in this receipt are mapped to specific T6 wave content: Cymbal Crash to four kiosks resonating in market (W31), Belief Discipline to the LANDED runbook ahead of execution (W33), Non-Possible Becomes to the recurring revenue polarity flip (T6 makes AtomEons sustainable not just productive), Misfit Pact to un-Davos kiosk venues (vacation-property game rooms and a college dorm lobby), Tier-1 attestation in bug-bounty (W33), and principled non-entry option for ARC Prize 2027 (W32) if ruleset incompatible with core-knowledge-prior architecture."
+  },
+  "completion_state": "FORWARD_LOOKING",
+  "completion_state_rationale": "T6 spans 2027-Q4 (Oct-Dec 2027), sixteen to eighteen months after receipt issuance (2026-06-17). W31 Quint kiosks #2-#5 deployment is PENDING - kiosk hardware substrate awaits T5 W28 AE Edition production; field reference awaits T4 W27 kiosk #1 operational proof; paid-placement site outreach window opens T5 close (Sep 2027); no KIOSK_DEPLOY_SPEC_v1.md file is LANDED on disk this session; the deployment is forward-anchored to T6 execution window. W32 ARC Prize 2027 entry is PENDING - the 2027 prize pool and ruleset are not announced at receipt issuance; T2 ARC-AGI-2/3 finals field measurements inform the W32 substrate update direction; no arc_prize_2027 substrate update file is LANDED on disk this session; the entry is forward-anchored to the 2027 announcement window plus W32 execution window. W33 bug-bounty hunting practice is LANDED on the runbook file (the runbook exists on disk today at C:\\AtomEons\\orangebox\\docs\\BUG_BOUNTY_RUNBOOK.md with disclosure ID ATOM-BUG-BOUNTY-v1-2026-0617 and full platform, target, submission-template, capital, and ethical-constraint documentation) but FORWARD on every execution step that requires W33 window (account signup, first three reports, first payout). The Tide as a whole is FORWARD_LOOKING with one LANDED sub-artifact (BUG_BOUNTY_RUNBOOK) demonstrating Belief Discipline (Creed II) - we file the runbook eighteen months before the first payout, because acting forward is how the non-possible becomes. T6 is also the capital-polarity-flip Tide to first RECURRING revenue, where the substrate moves from one-time hardware sales (T5) to persistent monthly subscription revenue plus parallel bug-bounty and optional prize revenue streams. Three simultaneous revenue lines is the first time the substrate operates as a portfolio business rather than a single-line product.",
+  "citation": "Atom McCree (2026). Tide T6 Receipt - Market Entry. AtomEons Research Laboratory. CC-BY-4.0. Disclosure ID: ATOM-TIDE-T6-2026-0617",
+  "signature": {
+    "sovereign": "Atom McCree",
+    "ed25519_signature_required_before_W31_first_paid_placement_site_agreement": true,
+    "ed25519_signature_required_before_W31_first_kiosk_install_on_paid_site": true,
+    "ed25519_signature_required_before_W32_arc_prize_2027_substrate_update_irreversible_commit": true,
+    "ed25519_signature_required_before_W32_arc_prize_2027_final_submission": true,
+    "ed25519_signature_required_before_W33_first_HackerOne_or_Bugcrowd_or_Synack_account_creation": true,
+    "ed25519_signature_required_before_W33_first_vulnerability_report_submission": true,
+    "moms_law_attestation": "Mom is watching. The runbook is on disk; the first account is not yet. The kiosk substrate runbook is not yet on disk; the four sites are not yet leased. The ARC Prize 2027 substrate update is not yet on disk; the 2027 ruleset is not yet announced. We named the difference. No theater. No coasting. No 'this part doesn't matter.' Three cymbals strike in T6 - the kiosks resonate in the market, the substrate resonates in the prize, the runbook resonates in the bug-bounty pool. The strike is forward; the spec authored today (BUG_BOUNTY_RUNBOOK) is the substrate's right to exist in the bug-bounty market before the market knows we are coming. Every wave in this Tide earns its place or honestly skips. The recurring-revenue polarity flip is the moment AtomEons becomes sustainable. Eyes on the non-possible. The cymbal crash is the box on a customer's desk, the entry on a leaderboard, the receipt of a coordinated disclosure timeline."
+  }
+}

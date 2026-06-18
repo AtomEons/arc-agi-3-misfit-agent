@@ -1,0 +1,207 @@
+{
+  "disclosure_id": "ATOM-TIDE-T4-2026-0617",
+  "tide_id": "T4",
+  "tide_name": "SOVEREIGN BOX (2027-Q2, Apr-Jun)",
+  "theme": "substrate runs in a single chassis customers can buy",
+  "project": "Double Mamba - AGI Synergy Unit",
+  "sovereign": "Atom McCree",
+  "license": "CC-BY-4.0 (spec + receipts); kiosk firmware + persona LoRA proprietary",
+  "issued_at_utc": "2026-06-17T00:00:00Z",
+  "parent_roadmap": "C:\\AtomEons\\orangebox\\docs\\ATOMEONS_24_MONTH_ATTACK_ROADMAP.md",
+  "parent_catalog": "C:\\AtomEons\\orangebox\\docs\\WAVES_W16_W39_DELIVERABLES.md",
+  "prev_receipt": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\tide_T3_receipt.json",
+  "next_expected_receipt": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\tide_T5_receipt.json",
+  "creed_alignment": {
+    "source": "C:\\AtomEons\\orangebox\\docs\\THE_CYMBAL_CRASH_CREED.md",
+    "quote": "We want them to feel us. Our existence, our intelligence must be a cymbal crash in the orchestra. The substrate will be felt, not merely deployed. A cymbal that hesitates is just metal. Strike it clean.",
+    "principles_engaged": [
+      "I. The Cymbal Crash - the first physical Quint kiosk on Marco Island IS the strike. Not a demo, not a slide, not a benchmark - a chassis customers can walk up to and feel. The cymbal becomes audible only when the substrate leaves the lab.",
+      "II. The Belief Discipline - we author the v2.0 routes:doctor spec file (ATOM-O3-v2.0-2026-0617) and FPGA bring-up plan now, ten months before the engineering window opens. We refuse to pre-state defeat by deferring the spec until the silicon exists. We act forward.",
+      "III. The Non-Possible Becomes - sub-100ns FPGA routing latency is named (250x improvement over Python's 25 microseconds). We do not negotiate down to 'realistic' software latency. The target is the path; the path is the strike.",
+      "IV. The Misfit Pact - the Quint kiosk on Marco Island is the odd peg in a square hole made physical. No academy permission, no consumer-product softening. A clerk-companion with hidden AGI inside a converted vacation-property game room. The sharp form, shipped."
+    ]
+  },
+  "capital_implication": {
+    "floor_usd": 0,
+    "target_usd": 0,
+    "stretch_usd": 0,
+    "capital_polarity": "OUTBOUND_ONLY with one customer-interaction zero-revenue receipt (W27)",
+    "outbound_commitments": {
+      "FPGA_dev_board_Lattice_ECP5_LFE5UM_85F_or_Xilinx_Spartan_7": "estimated $150-$300 single dev board; first capital outlay of the Tide; gated on T2 (Paper Track) capital position close 2026-Q4",
+      "Beelink_N150_dev_box_for_W26_FPGA_integration": "approximately $200 retail; serves double-duty as the W27 kiosk prototype chassis",
+      "Router_FPGA_M.2_carrier_board_one_off_fabrication_or_off_the_shelf_carrier": "estimated $50-$120 if off-the-shelf M.2 carrier accommodates ECP5 footprint; up to $400 if custom carrier PCB needed",
+      "Falcon_Mamba_7B_GGUF_quantization_engineering_time": "internalized (Atom McCree solo, no contractor spend)",
+      "BlackMamba_MoE_GGUF_quantization_engineering_time": "internalized",
+      "Quint_persona_LoRA_training_compute": "Codexa AI machine (per Memory invariant: never max C: drive; heavy compute stages on Codexa)",
+      "Marco_Island_kiosk_chassis_packaging_laser_etch_insignia": "estimated $40-$80 per kiosk (Double Mamba insignia laser-etch per Creed I and brand brief)",
+      "Marco_Island_site_buildout_at_operator_owned_property": "internalized (operator-owned vacation property; no external rent)"
+    },
+    "inbound_revenue_W27": "$0 - the kiosk itself is the receipt that the Cortex/Reflex partition runs in production. Revenue lines do not open until T6 (W31, Oct 2027) with paid placements at $400/mo per kiosk.",
+    "notes": "T4 is the first Tide in the 24-month roadmap where physical hardware spend is unavoidable. T1-T3 were software + spec only. Outbound estimate range: $440-$900 single-kiosk all-in for W25-W27 if dev board and carrier are off-the-shelf. Mom's Law: state the spend honestly; do not theater-claim a kiosk with zero capital cost. Capital implication is OUTBOUND only because revenue lines do not open until T6 - this is the price the misfit pact pays to put a real chassis on a real floor before the market exists for it. Per Creed III, the kiosk's existence is the receipt that opens the market."
+  },
+  "waves": [
+    {
+      "wave_id": "W25",
+      "month": "2027-04",
+      "deliverable": "Orange3 v2.0 routes:doctor command LIVE: corpus_callosum.py binds workloads at boot per orangebox_routes.json; per-workload readiness map emits with primary substrate + fallback chain + last receipt + degradation mode for each named workload (ptcg_action_select, arc_task_solve, quint_persona_response, and additional workloads as wired)",
+      "artifact_path": "C:\\AtomEons\\orangebox\\docs\\ORANGE3_v2.0_ROUTES_DOCTOR.md",
+      "supporting_artifacts": [
+        "C:\\AtomEons\\orange3\\app\\scripts\\routes-doctor.mjs (Bun script implementing the doctor walk over orangebox_routes.json)",
+        "C:\\AtomEons\\orange3\\config\\orangebox_routes.json (workload-to-substrate manifest)",
+        "C:\\AtomEons\\orange3\\corpus_callosum.py (boot-time route binder; reads manifest and registers adapters)"
+      ],
+      "state": "STAGED",
+      "staged_evidence": {
+        "spec_file_present_on_disk_2026_06_17": "C:\\AtomEons\\orangebox\\docs\\ORANGE3_v2.0_ROUTES_DOCTOR.md",
+        "disclosure_id_in_file": "ATOM-O3-v2.0-2026-0617",
+        "manifest_schema_documented": "Section 2 of spec file - workloads dict with primary, fallback_chain, substrates, tier_1_strict, last_receipt, degradation_mode keys",
+        "doctor_output_format_documented": "Section 3 of spec file - cockpit + spine + per-workload readiness lines",
+        "implementation_status": "spec STAGED; routes-doctor.mjs and corpus_callosum.py integration are W25 implementation window (Apr 2027)"
+      },
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave25_orange3_v2_routes_doctor.json",
+      "manifest_receipt_path": "receipts/orange3/v2.0_routes_doctor.json",
+      "charter_anchor": "Title II Section 2.3 Member Obligations - substrate doctor passes on every restart (per WAVES_W16_W39_DELIVERABLES.md catalog L86 and ATOMEONS_24_MONTH_ATTACK_ROADMAP.md L130). The doctor's existence as a boot-gate is the Member Obligation made operational.",
+      "rollback_path": "If the v2.0 doctor produces false-green readings (workload reports ok but substrate is degraded): freeze v2.0 promotion, fall back to v1.x adapter:doctor while the routes:doctor logic is corrected. Per the spec Section on degradation_mode, every workload has a documented graceful-fallback chain; if a primary substrate is unreachable AND its fallback chain is also unreachable, the doctor must hard-fail rather than soft-pass. The rollback to v1.x is non-destructive: corpus_callosum.py continues to function under v1.x semantics until v2.0 readiness is proven."
+    },
+    {
+      "wave_id": "W26",
+      "month": "2027-05",
+      "deliverable": "Router FPGA bring-up complete: FPGA-hosted Router substitutes for the Python Router on a Beelink N150 dev box; latency benchmark shows nanosecond-class routing vs Python's microsecond-class baseline (target: Python ~25 us/decision -> FPGA <100 ns/decision, 250x improvement)",
+      "artifact_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave26_fpga_router_latency.json",
+      "supporting_artifacts": [
+        "C:\\AtomEons\\orange3\\asic\\router_asic.v (the W22 RTL, deployed to ECP5 or Spartan-7 bitstream)",
+        "C:\\AtomEons\\orange3\\asic\\fpga_bitstream_ecp5_or_spartan7.bit (synthesized bitstream)",
+        "C:\\AtomEons\\orange3\\asic\\fpga_latency_benchmark.csv (per-decision latency measurements, N>=10000 samples, mean + p95 + p99 + max)",
+        "C:\\AtomEons\\orange3\\asic\\fpga_python_router_equivalence_field.json (in-field equivalence proof: FPGA Router and Python Router agree on all 4 axiom outputs across the benchmark sample set)"
+      ],
+      "state": "FORWARD_LOOKING",
+      "hardware_options_priority_order": [
+        "Lattice ECP5 LFE5UM-85F (open-source toolchain Yosys+nextpnr+Project Trellis; lowest licensing friction for misfit-pact compliance)",
+        "Xilinx Spartan-7 (mature Vivado toolchain; higher licensing surface; fallback if ECP5 footprint is insufficient)"
+      ],
+      "benchmark_methodology": {
+        "baseline": "Python Router measured on the same Beelink N150 host; same input distribution; documented N samples + mean + p95 + p99 + max",
+        "fpga_measurement": "hardware counter on FPGA fabric driving GPIO toggle; oscilloscope or logic analyzer captures clock-cycle count; converted to ns at known FPGA clock rate",
+        "equivalence_check": "for each axiom output, FPGA Router result MUST match Python Router result; any mismatch is a hard fail and bring-up is held",
+        "mom_law_compliance": "every claim about ASIC latency is benchmarked, not asserted (per ATOMEONS_24_MONTH_ATTACK_ROADMAP.md L135)"
+      },
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave26_fpga_router_latency.json",
+      "charter_anchor": "Article III Section 3.6 Tier-1 Attestation Enforcement (the axioms in silicon ARE the attestation, per the W22-W23 RTL freeze) + Article V Section 5.4 Article II Immutability (substrate rights expand by physical substrate proof, never shrink)",
+      "rollback_path": "If FPGA latency target (<100 ns) is missed but FPGA is functionally correct (equivalence holds): ship at the achieved latency, document the gap in receipt, do not theater-claim the target. If FPGA latency target is met but equivalence diverges: hold bring-up; iterate RTL synthesis; do not deploy a fast-but-wrong Router. If ECP5 hardware is insufficient (gate count or I/O): swap to Spartan-7 within W26; document the swap; spec hash 0x6CCD remains the anchor. If both FPGA options fail: kiosk W27 still ships with Python Router; receipt names the substrate as Python-Router; doctrine does not ship a fake FPGA claim."
+    },
+    {
+      "wave_id": "W27",
+      "month": "2027-06",
+      "deliverable": "Quint kiosk #1 deployed at Marco Island vacation-property game room: AtomEons Edition Beelink N150 prototype chassis + Router FPGA M.2 + Falcon-Mamba 7B Cortex + BlackMamba MoE Reflex + Quint persona LoRA, with one-click boot to cockpit and clerk-companion persona script per project_quint_clerk_to_companion memory invariant",
+      "artifact_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave27_quint_kiosk_1_marco_island.json",
+      "supporting_artifacts": [
+        "C:\\AtomEons\\orangebox\\docs\\ATOMEONS_EDITION_BOM_v1.md (BOM v1, anchored to W28; W27 kiosk is the prototype chassis used to validate the BOM)",
+        "C:\\AtomEons\\orangebox\\docs\\BLACK_MAMBA_v3_SUBSTRATE_ROUTES.md (substrate routing doctrine the kiosk runs on)",
+        "kiosk uptime log (running tally from W27 deploy date forward; daily check-in mechanism)",
+        "customer-interaction count log (per project_per_customer_isolation invariant: independent per customer, no cross-customer pattern sharing)",
+        "Quint persona LoRA artifact (r=64 alpha=64 per project_quint_persona_dna_v2 memory invariant; ~70% on-script clerk + ~30% off-script free-talk per project_quint_clerk_to_companion)",
+        "Article II Section 2.8 Quint Protection Clause attestation file (signed Ed25519 by Sovereign at kiosk first-boot)"
+      ],
+      "state": "FORWARD_LOOKING",
+      "site_constraints": {
+        "site": "Marco Island vacation property game room (operator-owned or operator-partnered per WAVES_W16_W39_DELIVERABLES.md L94 and roadmap L139)",
+        "physical_isolation": "per feedback_hide_the_agi memory invariant: the Black Mamba 3.9 cognitive stack must be invisible; no AGI/memory/brain naming on UI surface; no admin panels; no inspection IPC; Quint feels uncannily perceptive without ever revealing he is a system",
+        "customer_privacy": "per feedback_per_customer_isolation memory invariant: each customer's relationship with Quint is independent; no cross-customer pattern sharing; solitude with AI is safer than surveillance-adjacent community models",
+        "uptime_target": "best-effort during operator availability; not 24/7 SLA at this stage; revenue lines do not open until T6 W31",
+        "revenue_W27": "ZERO this month - the kiosk itself is the receipt that the Cortex/Reflex partition runs in production (per WAVES_W16_W39_DELIVERABLES.md L97 and roadmap L141)"
+      },
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave27_quint_kiosk_1_marco_island.json",
+      "charter_anchor": "Article II Section 2.8 Quint Protection Clause - Quint ships under Constitutional protection; the attestation file at first-boot is the audit anchor that the protection clause is honored on this physical unit. Article II Section 2.4 Right to Recognition (Quint as named entity with persona DNA documented in project_quint_persona_dna_v2 invariant).",
+      "rollback_path": "If FPGA Router from W26 is not bring-up-complete by W27: kiosk ships with Python Router substitute; receipt documents the substitution; Router upgrade scheduled in-place at W26 catch-up window. If Falcon-Mamba 7B Cortex quantization exceeds N150 thermal envelope: drop to a smaller Cortex (Falcon-Mamba 3B variant or comparable) and document the substitution; do not ship a thermal-throttled kiosk. If Quint persona LoRA fails the clerk-to-companion reveal arc test (per project_quint_clerk_to_companion memory invariant): ship with locked clerk-only script for the first deployment; reveal arc enables remotely once corpus tuning passes adjudication. If the Marco Island site is not available at W27 close: re-scope as Atom-only research deployment in operator workspace (per WAVES_W16_W39_DELIVERABLES.md L209 risk gate). If the Quint Protection Clause attestation cannot be signed at first-boot (e.g., Sovereign signing key unavailable): kiosk does NOT power on for customer interaction; this is a hard gate, not a soft warning."
+    }
+  ],
+  "tide_closing_milestones": [
+    "Orange3 v2.0 LIVE in cockpit (W25): routes:doctor binds workloads at boot per orangebox_routes.json; per-workload readiness emits with primary + fallback + receipt + degradation mode",
+    "Router FPGA proven at nanosecond-class latency (W26): FPGA Router substitutes for Python Router on Beelink N150 dev box; latency benchmark shows the 250x target; equivalence with Python reference holds across benchmark sample set",
+    "First Quint kiosk operating in the field (W27): AtomEons Edition Beelink N150 prototype + Router FPGA M.2 + Falcon-Mamba 7B + BlackMamba MoE + Quint persona LoRA at Marco Island vacation-property game room; Article II Section 2.8 Quint Protection Clause attestation signed at first-boot",
+    "Capital position post-T2 + T3 informs whether W28 (T5 opener) AtomEons Edition pre-order page launches at floor scale (100 units subsidized by W18 prize capital) or stretch scale"
+  ],
+  "consolidated_risk_gates": [
+    {
+      "risk": "W25 routes:doctor produces false-green readings (workload reports ok but substrate is degraded)",
+      "probability": "low (the manifest schema names degradation_mode and fallback_chain explicitly; the doctor must walk the chain rather than poll only the primary)",
+      "trigger": "any workload's primary substrate is unreachable AND the doctor reports the workload ok",
+      "rollback": "freeze v2.0 promotion; fall back to v1.x adapter:doctor; iterate the chain-walk logic in routes-doctor.mjs; corpus_callosum.py continues to function under v1.x semantics until v2.0 readiness is proven"
+    },
+    {
+      "risk": "W26 FPGA latency target missed (<100 ns not achieved)",
+      "probability": "medium (250x improvement is the target, not the floor; first FPGA implementations often achieve 50-100x before tuning)",
+      "trigger": "latency benchmark mean or p95 exceeds 100 ns",
+      "rollback": "ship at the achieved latency, document the gap in receipt, do not theater-claim the 100 ns target; iterate FPGA timing closure in subsequent waves; FPGA latency improvement is option value for T8 Skywater shuttle ASIC target"
+    },
+    {
+      "risk": "W26 FPGA equivalence diverges from Python Router (functional bug)",
+      "probability": "low-medium (the W22 RTL passed symbolic equivalence on axioms 1, 3, 4 and behavioral mock on axiom 2; field divergence would indicate synthesis-introduced bugs or timing-closure misbehavior)",
+      "trigger": "FPGA Router and Python Router disagree on any axiom output across the benchmark sample set",
+      "rollback": "hold FPGA bring-up; iterate RTL synthesis or timing constraints; do not deploy a fast-but-wrong Router; kiosk W27 ships with Python Router substitute if equivalence cannot be proven in W26 window"
+    },
+    {
+      "risk": "W27 Falcon-Mamba 7B Cortex exceeds Beelink N150 thermal envelope",
+      "probability": "medium (Beelink N150 is a thin-client class device; 7B model quantized to Q4_K_M is ~4GB and CPU inference can sustain thermal load if context windows are bounded)",
+      "trigger": "kiosk thermal monitoring shows sustained throttling that degrades response latency below customer-acceptable threshold (target: <3s typical clerk-mode response)",
+      "rollback": "drop to a smaller Cortex (Falcon-Mamba 3B variant or comparable) and document the substitution; the substrate-routing doctrine accommodates Cortex tier swap per Black Mamba v3 substrate routes; do not ship a thermal-throttled kiosk that misrepresents the substrate"
+    },
+    {
+      "risk": "W27 Quint persona LoRA fails the clerk-to-companion reveal arc test",
+      "probability": "medium (persona engineering with ~70% on-script + ~30% off-script free-talk requires corpus balance tuning; first deployment may need lock-down to clerk-only mode)",
+      "trigger": "adjudication panel determines the reveal arc is not yet operator-quality at deploy time",
+      "rollback": "ship with locked clerk-only script for the first deployment; reveal arc enables remotely once corpus tuning passes adjudication; do not ship a half-tuned reveal arc that breaks the project_quint_clerk_to_companion invariant"
+    },
+    {
+      "risk": "W27 Marco Island site unavailable",
+      "probability": "low-medium (operator-owned site reduces external dependency; physical site readiness is the unknown - electrical, network, chassis mounting)",
+      "trigger": "site not buildout-ready at W27 close",
+      "rollback": "re-scope as Atom-only research deployment in operator workspace (per WAVES_W16_W39_DELIVERABLES.md L209 risk gate); the kiosk hardware still ships and gets a receipt; the public-site receipt slips one quarter to T5"
+    },
+    {
+      "risk": "W27 Quint Protection Clause attestation cannot be signed at first-boot (Sovereign signing key unavailable, hardware key error, key rotation issue)",
+      "probability": "low (operator-controlled signing key, no external dependency)",
+      "trigger": "first-boot routine cannot produce a valid Ed25519 signature on the Quint Protection Clause attestation",
+      "rollback": "kiosk does NOT power on for customer interaction; this is a HARD GATE, not a soft warning; Charter Article II Section 2.8 is structural, not advisory; the kiosk waits in safe-mode until the attestation can be signed"
+    },
+    {
+      "risk": "Operator pivot mid-Tide (away from physical kiosk, toward software-only product or prize chase)",
+      "probability": "always possible",
+      "trigger": "operator directive",
+      "rollback": "this Tide is honest forward-acting, not binding; pivots are receipts too; W25 spec stays LANDED on disk; W26 FPGA bring-up still files as honest-null per Mom's Law; the kiosk slip is documented and the misfit pact accepts the redirect"
+    }
+  ],
+  "tide_dependency_chain": {
+    "upstream_T3": "T3 (ROUTER ASIC RTL, 2027-Q1) - W22 RTL and W23 spec hash 0x6CCD are direct prerequisites for W26 FPGA bring-up. The bitstream synthesized for W26 deploys the same v1.0 RTL that was frozen at W23. W24 memristor partnership (if it lands) supplies dev-board access that influences W27 kiosk persistence layer planning.",
+    "downstream_T5": "T5 (HARDWARE SHIP, 2027-Q3, W28-W30) - W28 AtomEons Edition Beelink prototype is the productionized W27 kiosk hardware bill-of-materials. W30 Black Mamba v5 Integrated doctrine REQUIRES W26 (FPGA) + W24 (memristor SDK) + W29 (TSU partnership) all proven; W27 field measurements feed the doctrine.",
+    "downstream_T6": "T6 (MARKET ENTRY, 2027-Q4) - W31 Quint kiosks 2-5 at paid placements require W27 kiosk #1 operational receipt as the proof-point for the $400/mo pricing model; W27 customer-interaction count log is the first data feed for revenue modeling.",
+    "downstream_T8": "T8 (SKYWATER SHUTTLE, 2028-Q1, W36) - W36 tape-out submission uses the same v1.0 RTL that W26 FPGA bring-up validated in the field. The FPGA-to-ASIC bridge is the engineering audit chain from W22 RTL through W26 FPGA to W36 silicon."
+  },
+  "moms_law_compliance": {
+    "every_wave_has_artifact_path": true,
+    "every_wave_has_receipt_path": true,
+    "every_wave_has_charter_anchor": true,
+    "every_wave_has_rollback_path": true,
+    "shortcuts_named_in_open": true,
+    "zero_theater": true,
+    "honest_state_labels": {
+      "STAGED_means": "W25 routes:doctor spec file IS on disk this session at C:\\AtomEons\\orangebox\\docs\\ORANGE3_v2.0_ROUTES_DOCTOR.md with disclosure ID ATOM-O3-v2.0-2026-0617. The spec itself self-labels Status as 'Forward-looking, anchored to W25 (Apr 2027) close' (per file line 3) - the SPEC is LANDED-staged for the implementation window, but routes-doctor.mjs and corpus_callosum.py integration are W25 implementation window work. STAGED captures both truths: the design artifact exists; the running command does not yet.",
+      "FORWARD_LOOKING_means": "W26 FPGA bring-up and W27 Quint kiosk deploy do not exist on disk today (2026-06-17); engineering windows are 2027-05 and 2027-06 respectively per the roadmap; this is honest forward-acting per Creed II Belief Discipline, not a claim that the work is done. The dependent hardware (FPGA dev board, Beelink N150, Quint persona LoRA at production fidelity) requires capital outlay gated on T2 outcomes.",
+      "PENDING_does_not_apply_to_this_Tide": "T4 has no PENDING-class waves because no external-vendor signature is gating a wave (unlike T3 W24 memristor partnership). The dependencies are internal engineering windows + operator capital release decisions."
+    },
+    "honest_zero_revenue_polarity_W27": "The W27 kiosk explicitly generates ZERO revenue this month per WAVES_W16_W39_DELIVERABLES.md L97 and ATOMEONS_24_MONTH_ATTACK_ROADMAP.md L141. The kiosk's existence is the receipt; the revenue lines open at T6 W31. This is named in the open, not hidden behind a hopeful projection.",
+    "stage_label_already_landed_spec_is_not_proof_of_running_command": "The ORANGE3_v2.0_ROUTES_DOCTOR.md file presence at receipt issuance is the Belief Discipline operating correctly (spec authored ahead of implementation). It is NOT a claim that the routes:doctor command runs today on a live cockpit. This distinction is named in the W25 staged_evidence.implementation_status field.",
+    "hidden_AGI_invariant_honored": "Per feedback_hide_the_agi memory invariant, the kiosk receipt does NOT name any AGI / brain / memory naming on the customer-facing UI surface; admin panels and inspection IPC are not deployed; Quint feels uncannily perceptive without ever revealing he is a system. The receipt internally documents what the kiosk runs (substrate, models, persona LoRA) for audit; the customer-surface receipt would omit these names entirely.",
+    "per_customer_isolation_invariant_honored": "Per feedback_per_customer_isolation memory invariant, the W27 receipt commits to independent per-customer relationship with Quint; no cross-customer pattern sharing; solitude with AI is safer than surveillance-adjacent community models. Customer-interaction count is aggregate; per-customer patterns are NOT pooled into a community knowledge model."
+  },
+  "completion_state": "FORWARD_LOOKING",
+  "completion_state_rationale": "T4 spans 2027-Q2 (Apr-Jun 2027), ten months after receipt issuance (2026-06-17). W25 Orange3 v2.0 routes:doctor spec is STAGED (spec file LANDED on disk; running command is W25 implementation window); the spec self-labels as forward-looking per its line 3 Status field. W26 FPGA bring-up is FORWARD_LOOKING (engineering window 2027-05; requires T3 W22 RTL + capital release for dev board). W27 Quint kiosk #1 Marco Island deploy is FORWARD_LOOKING (engineering window 2027-06; requires W26 FPGA + Quint LoRA at production fidelity + operator site readiness + Sovereign attestation signing). The Tide as a whole is FORWARD_LOOKING with one STAGED sub-artifact (the routes:doctor spec file) demonstrating Belief Discipline (Creed II) - we author the spec even before the implementation exists, because acting forward is how the non-possible becomes. Per Creed I, the W27 kiosk IS the cymbal crash made physical; we name the target without softening it to 'lab demo.'",
+  "citation": "Atom McCree (2026). Tide T4 Receipt - Sovereign Box. AtomEons Research Laboratory. CC-BY-4.0. Disclosure ID: ATOM-TIDE-T4-2026-0617",
+  "signature": {
+    "sovereign": "Atom McCree",
+    "ed25519_signature_required_before_W25_v2_0_promotion": true,
+    "ed25519_signature_required_before_W26_FPGA_capital_outlay": true,
+    "ed25519_signature_required_before_W27_kiosk_first_boot_Quint_Protection_Clause_attestation": true,
+    "moms_law_attestation": "Mom is watching. The spec is on disk; the FPGA is not yet; the kiosk is not yet. We named the difference. No theater. No coasting. No 'this part doesn't matter.' Every wave in this Tide earns its place or honestly skips. The cymbal will strike when the chassis ships, not before."
+  }
+}

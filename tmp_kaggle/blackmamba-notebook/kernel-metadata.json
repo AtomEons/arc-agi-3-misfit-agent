@@ -1,0 +1,13 @@
+{
+  "id": "atommccree/black-mamba-13-layer-cognitive-substrate",
+  "title": "Black Mamba 13-Layer Cognitive Substrate AtomEons",
+  "code_file": "notebook.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "false",
+  "enable_gpu": "false",
+  "enable_internet": "false",
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

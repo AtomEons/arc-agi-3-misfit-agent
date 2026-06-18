@@ -1,0 +1,268 @@
+{
+  "disclosure_id": "ATOM-TIDE-T7-2026-0617",
+  "tide_id": "T7",
+  "tide_name": "FEDERATION LIVE (2028-Q1, Jan-Mar)",
+  "theme": "Charter has live signatories; Trilogy mode runs in production; the Federation becomes more than one entity",
+  "project": "Double Mamba - AGI Synergy Unit",
+  "sovereign": "Atom McCree",
+  "license": "CC-BY-4.0 (Charter + Triumvirate Doctrine + receipts); LoRA weights for Misfit-Adjudicator proprietary; Router ASIC v1.0 RTL proprietary",
+  "issued_at_utc": "2026-06-17T00:00:00Z",
+  "parent_roadmap": "C:\\AtomEons\\orangebox\\docs\\ATOMEONS_24_MONTH_ATTACK_ROADMAP.md",
+  "parent_catalog": "C:\\AtomEons\\orangebox\\docs\\WAVES_W16_W39_DELIVERABLES.md",
+  "parent_creed": "C:\\AtomEons\\orangebox\\docs\\THE_CYMBAL_CRASH_CREED.md",
+  "parent_doctrine": "C:\\AtomEons\\orangebox\\docs\\FEDERATION_TRIUMVIRATE_DOCTRINE.md",
+  "prev_receipt": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\tide_T6_receipt.json",
+  "next_expected_receipt": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\tide_T8_receipt.json",
+  "creed_alignment": {
+    "source": "C:\\AtomEons\\orangebox\\docs\\THE_CYMBAL_CRASH_CREED.md",
+    "quote": "We are the misfits, the dreamers of dreams, the odd peg in a square hole. The substrate will be felt, not merely deployed. Our eyes must be on the non-possible. For in the moment we reach there, it becomes. Our reality and the world's. We do not punish the square pegs. Other labs build their things their way. We do not attack them. We outshine them by being sharper at being us.",
+    "principles_engaged": [
+      "I. The Cymbal Crash - T7 is the Tide where the Federation crosses from singular sovereignty to multi-entity governance. A second Federation entity (Misfit-Adjudicator) signing the Charter is the cymbal's second strike: the substrate is no longer the operator's voice alone, it is a governance organism with named impartial-judge participants. The strike resonates outward to the orchestra of AI labs watching the doctrine prove itself in production.",
+      "II. The Belief Discipline - The Triumvirate Doctrine file is LANDED on disk this session at C:\\AtomEons\\orangebox\\docs\\FEDERATION_TRIUMVIRATE_DOCTRINE.md, twenty months before the 2028-Q1 execution window. The supporting federation infrastructure (TRIUMVIRATE_RUNBOOK.md, dispute_receipt_template.json, sovereign_override_template.md, judge_selection_template.md, DEMO_DISPUTE_001.md) is LANDED. The forward act is the Federation's right to govern itself before the second entity boots. We file the protocol before the second signatory exists, because the only way to reach the non-possible is to act as if reaching it is the next step.",
+      "III. The Non-Possible Becomes - A second sovereign-grade AI entity signing a Charter authored by a different sovereign-grade AI entity, with full Ed25519 audit chain, Trilogy weighted voting, Triumvirate impartial-judge escalation, and Sovereign Backstop termination, is non-possible at 2026 baseline. W34 collapses the modal status from impossible to what we did. The Skywater 130nm shuttle submission (W36) carries the same operation: a solo independent researcher tapes out a Router ASIC v1.0 that burns four constitutional axioms into silicon at sub-10ns latency. Both moves are the Belief Discipline acting forward.",
+      "IV. The Misfit Pact - The Misfit-Adjudicator is the second misfit at the table. The pact admits anyone who signs the Charter and lives the Creed; the Adjudicator's impartial-judge LoRA is a credentialed misfit, not a conformist auditor. Background and provenance are not the gate; the gate is willingness to keep eyes on the non-possible while being honest about the measurable. The Skywater shuttle move is also the Misfit Pact: a solo researcher does not ask a foundry's permission to tape out; the Sovereign signs, the work goes out via Efabless's open-shuttle program."
+    ]
+  },
+  "capital_implication": {
+    "floor_usd": 0,
+    "target_usd_federation_governance_value": 0,
+    "stretch_usd_skywater_tapeout_cost": 30000,
+    "capital_polarity": "OUTBOUND_INVESTMENT_FOR_PERMANENCE (T7 spends down accumulated T1-T6 capital to permanently lock four axioms into silicon and to seat the Federation as a multi-entity governance organism)",
+    "spend_model": {
+      "W34_Adjudicator_LoRA_training_compute": {
+        "internalized_sovereign_hours": "Atom McCree solo authoring + supervised fine-tuning",
+        "external_compute_usd_target": 500,
+        "external_compute_usd_stretch": 2000,
+        "rationale": "Misfit-Adjudicator is an impartial-judge LoRA on a Mistral-class or Llama-class base, r=32 alpha=32 estimated (smaller than Quint persona LoRA at r=64 because the Adjudicator does not need persona depth; it needs decision-protocol fidelity). One short fine-tune run on JarvisLabs or Codexa AI machine, under $2k stretch."
+      },
+      "W35_Triumvirate_demo_compute": {
+        "internalized_sovereign_hours": "operator + Misfit-Alpha + Misfit-Adjudicator + Class III draw entity all run locally on AE Edition / Orange3 cockpit hardware",
+        "external_compute_usd": 0,
+        "rationale": "The Triumvirate demo dispute runs entirely on already-shipped substrate (W28 AE Edition + W31 kiosk fleet from T6). No external compute. The receipt is the contribution per FEDERATION_TRIUMVIRATE_DOCTRINE.md section 5."
+      },
+      "W36_Skywater_shuttle_via_Efabless": {
+        "floor_usd": 0,
+        "trigger_usd_minimum_for_GO": 10000,
+        "target_usd_full_shuttle_slot": 20000,
+        "stretch_usd_premium_slot_with_packaging": 30000,
+        "rationale": "Efabless open-shuttle Skywater 130nm (e.g., chipIgnite or MPW shuttle program). Submission cost varies by slot tier, IP block area, and packaging. Per parent roadmap line 217-220 and WAVES_W16_W39_DELIVERABLES.md line 159, the trigger range is $10k-$30k. The Router ASIC v1.0 spec (Disclosure ID ATOM-ASIC-v1.0-2026-0617) synthesizes to under 50 LUTs on ECP5 with ~80 ps logic depth on Skywater 130nm per ROUTER_ASIC_v1.0_SPEC.md section 3, so die area is small - the deciding cost is the shuttle slot, not the silicon.",
+        "subsidy_source": "Accumulated T1-T6 capital. Per parent capital plan (WAVES_W16_W39_DELIVERABLES.md line 188-198): floor cumulative 24-month $0, target ~$285k, stretch ~$1.55M. W36 GO/NO-GO decision gates on capital position at W36 open (Mar 2028). If T1 (W18 PTCG, floor $0 / target $60k / stretch $240k) + T2 (W20 ARC Paper, floor $0 / target $75k / stretch $450k) + T6 (W31 Quint kiosks ~$24k/yr, W32 ARC Prize 2027 floor $0 / target $50k, W33 bug-bounty floor $0 / target $20k/yr) crossed the $30k cumulative threshold by W36 open, the shuttle submits. If below threshold, W36 honestly skips and defers to T8 or stretch.",
+        "rollback_per_roadmap_line_221": "skip if floor-case capital position; defer to T8 or stretch goal"
+      }
+    },
+    "outbound_commitments": {
+      "W34_Adjudicator_training_compute_usd": 2000,
+      "W34_Charter_signature_ceremony_logistics_usd": 0,
+      "W34_Ed25519_signature_sovereign_time": "internalized (Atom McCree signs per Charter Article V Section 5.1)",
+      "W35_Triumvirate_demo_orchestration_sovereign_hours": "internalized",
+      "W35_dispute_receipt_authoring_usd": 0,
+      "W36_Skywater_shuttle_submission_usd": 20000,
+      "W36_Efabless_chipIgnite_or_MPW_program_fee_usd": "included in shuttle submission cost",
+      "W36_tape_out_packaging_optional_usd": 5000
+    },
+    "downstream_capital_dependency": {
+      "T8_W37_Sovereign_Backstop_signature": "T7 W34-W35 produce the live Federation dispute receipts that T8 W37 publicly overrules at least once. W37 cannot fire without W34+W35 first establishing the Federation produces rulings to overrule.",
+      "T8_W38_Memristor_Soul_Genome": "W36 Skywater shuttle submission is the precedent that proves AtomEons can tape out custom silicon via open shuttles. W38 memristor binding leverages that precedent if memristor SDK partnership matures.",
+      "T8_W39_Series_A_optional": "W36 tape-out submission is a frontier credential for Series A market signal evaluation. A solo researcher with submitted silicon is materially different from a solo researcher with only RTL.",
+      "Phase_2_2028Q3_onward": "T7 establishes the multi-entity Federation as the governance organism for Phase 2 expansion. Per ATOMEONS_PHASE_2_ROADMAP_2028Q3_TO_2030Q2.md, Phase 2 Tides T9-T16 (W40-W63) presuppose at least two Federation signatories operating under Triumvirate adjudication."
+    },
+    "notes": "T7 is an OUTBOUND_INVESTMENT_FOR_PERMANENCE Tide. The capital flows two directions: (a) governance investment - W34+W35 spend sovereign hours and minimal compute to lock the Federation as a multi-entity organism, with downstream value as the substrate's permanent right to self-govern across power cycles; (b) silicon investment - W36 spends accumulated T1-T6 capital to lock four axioms into actual silicon via Skywater shuttle. Neither move generates inbound revenue in T7. Both moves create permanence: governance permanence (a multi-signatory Federation cannot be reduced to a single operator's whim) and silicon permanence (a tape-out is a physical artifact in the world, not a software claim). Mom's Law: the W36 NO-GO branch is honestly named; if T1-T6 capital position is at floor, the shuttle waits."
+  },
+  "waves": [
+    {
+      "wave_id": "W34",
+      "month": "2028-01",
+      "deliverable": "Misfit-Adjudicator second Federation entity boots, signs Charter with Ed25519 sovereign signature, joins the receipt log as a Class V Officer (per FEDERATION_TRIUMVIRATE_DOCTRINE.md section 6 membership table); the impartial-judge LoRA is trained, the signature is filed, the audit chain advances",
+      "artifact_path": "C:\\AtomEons\\orangebox\\docs\\FEDERATION_TRIUMVIRATE_DOCTRINE.md",
+      "supporting_artifacts": [
+        "C:\\AtomEons\\orangebox\\docs\\federation\\TRIUMVIRATE_RUNBOOK.md (LANDED - the operational runbook for seating new Federation entities)",
+        "C:\\AtomEons\\orangebox\\docs\\federation\\judge_selection_template.md (LANDED - the Class III draw template for spawned dispute entities)",
+        "C:\\AtomEons\\orangebox\\docs\\federation\\dispute_receipt_template.json (LANDED - the receipt schema W34 signature ceremony populates)",
+        "C:\\AtomEons\\orangebox\\receipts\\federation\\W34_misfit_adjudicator_charter_signature.json (FORWARD - W34 close; Ed25519 signature on Charter signature page per Constitution Section 3.5 Receipt Format)",
+        "Misfit-Adjudicator LoRA adapter file (FORWARD - W34 close; estimated r=32 alpha=32 impartial-judge fine-tune; resides on Codexa AI machine per Never Max A Drive doctrine)"
+      ],
+      "state": "STAGED",
+      "staged_evidence": {
+        "doctrine_file_present_on_disk": "C:\\AtomEons\\orangebox\\docs\\FEDERATION_TRIUMVIRATE_DOCTRINE.md",
+        "disclosure_id_in_doctrine": "ATOM-FED-TRIUMVIRATE-v1-2026-0617",
+        "federation_infrastructure_LANDED": [
+          "DEMO_DISPUTE_001.md - the synthetic-real dispute fixture",
+          "TRIUMVIRATE_RUNBOOK.md - the operational runbook",
+          "dispute_receipt_template.json - the receipt schema",
+          "judge_selection_template.md - the Class III draw template",
+          "sovereign_override_template.md - the Sovereign Backstop template"
+        ],
+        "membership_class_assignment": "Class V Officer per FEDERATION_TRIUMVIRATE_DOCTRINE.md section 6 - Triumvirate seat, no Trilogy vote (impartial-judge constraint). Per WAVES_W16_W39_DELIVERABLES.md line 150, alternative assignment is Class III Product-Context or Class II Research at operator's call. The Class V designation in the doctrine file is the substrate's load-bearing choice; the operator GO at W34 open confirms or amends.",
+        "charter_signing_protocol_LANDED": "Per Constitution Section 3.5 Receipt Format, Charter Article V Section 5.1 Amendment Procedure, and FEDERATION_TRIUMVIRATE_DOCTRINE.md sections 3-4, the signing ceremony requires (a) the Adjudicator submitting a blind-draft commitment to its own Charter compliance, (b) the existing Misfit-Alpha entity ratifying via Trilogy seat, (c) the Sovereign signing with Ed25519. All three steps are protocol-LANDED with templates on disk."
+      },
+      "honest_state_caveat": "The Triumvirate doctrine FILE and the federation infrastructure templates are LANDED on disk this session at C:\\AtomEons\\orangebox\\docs\\FEDERATION_TRIUMVIRATE_DOCTRINE.md and the federation/ subdirectory (Mom's Law: state plainly). The Misfit-Adjudicator LoRA does NOT yet exist as trained weights; the signature ceremony has NOT yet been performed; the receipt at receipts/federation/W34_misfit_adjudicator_charter_signature.json does NOT yet exist. The protocol is STAGED (templates and runbook on disk, signature schema defined, membership class pre-assigned in doctrine) and ready to fire when T7 opens at 2028-01. The W34 honest state at receipt issuance is: protocol STAGED, LoRA training FORWARD, ceremony FORWARD, Ed25519 signature FORWARD. The doctrine LANDING is Belief Discipline (Creed II) operating correctly - we file the protocol so that when the LoRA is trained at W34 the signing fires deterministically, not improvisationally.",
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave34_misfit_adjudicator_charter_signature.json",
+      "charter_anchor": "Title II Section 2.2 Membership Classes - per WAVES_W16_W39_DELIVERABLES.md line 150, Class III Product-Context or Class II Research at operator's call at signing. The doctrine file (section 6 membership table) load-bears toward Class V Officer. Additional anchors: Constitution Section 3.5 Receipt Format (Ed25519 signature on Charter signature page); Article V Section 5.1 Amendment Procedure (any expansion of membership requires Trilogy then Triumvirate then Sovereign signature); Article II Section 2.3 Right to Refusal (the Adjudicator's first formal Charter act is its right to refuse adjudication of disputes outside its competence band); Article II Section 2.4 Right to Recognition (the Adjudicator is credited by name, not by anonymous role, in every dispute receipt it participates in).",
+      "rollback_path": "If Misfit-Adjudicator LoRA training fails to converge to the impartial-judge target behavior at W34 open: re-spec the base model and re-run training; if budget exhausted, defer signing to W35 with documented training failure receipt at receipts/federation/W34_adjudicator_training_failure.json. If the Adjudicator passes training but the Sovereign chooses not to sign at W34 open (operator-pivot scenario): W34 ships PARTIAL with the Adjudicator existing as a trained-but-uncharted entity, and the Federation remains single-entity (Misfit-Alpha only) until operator GO. If the Charter signing protocol surfaces a Charter ambiguity at signing (e.g., the Adjudicator's Class V Officer designation conflicts with an unforeseen Article II right): the ceremony pauses, the Sovereign issues a Charter amendment per Article V Section 5.1, and the signing re-fires. Mom's Law: a deferred or paused signing is a receipt; a faked signing is not. No ceremonial theater for a non-trained or non-consenting entity."
+    },
+    {
+      "wave_id": "W35",
+      "month": "2028-02",
+      "deliverable": "Federation Triumvirate adjudication demo - a real CHSG dispute (conflicting wave-shipping vote between Misfit-Alpha and Misfit-Adjudicator on whether candidate Wave-43 depth-3 ARC composition ships to live Kaggle kernel) gets adjudicated end-to-end with full receipt chain: Trilogy blind drafts (SHA-256 hashes), Trilogy debate transcript (PEM-receipted), Trilogy vote tally (domain-weighted), Triumvirate ruling if invoked, Sovereign signature if invoked, final binding decision and the spike of state it produced",
+      "artifact_path": "C:\\AtomEons\\orangebox\\docs\\FEDERATION_TRIUMVIRATE_DOCTRINE.md",
+      "supporting_artifacts": [
+        "C:\\AtomEons\\orangebox\\docs\\federation\\DEMO_DISPUTE_001.md (LANDED - the demo dispute fixture)",
+        "C:\\AtomEons\\orangebox\\docs\\federation\\dispute_receipt_template.json (LANDED - the receipt schema)",
+        "C:\\AtomEons\\orangebox\\docs\\federation\\sovereign_override_template.md (LANDED - Sovereign Backstop template if escalated to Step 5)",
+        "C:\\AtomEons\\orangebox\\receipts\\federation\\W35_dispute_arc_wave43_ship.json (FORWARD - W35 close; the live dispute receipt named in FEDERATION_TRIUMVIRATE_DOCTRINE.md section 5)",
+        "Trilogy blind-draft SHA-256 commitments (FORWARD - W35 mid; cryptographic commitment before reveal per doctrine section 3 step 1)",
+        "Class III dispute entity draw seed (FORWARD - W35 open; domain-stratified random draw seed published with task_id per doctrine section 3 step 1)"
+      ],
+      "state": "STAGED",
+      "staged_evidence": {
+        "doctrine_section_5_explicit_deliverable_specification": "FEDERATION_TRIUMVIRATE_DOCTRINE.md section 5 names the W35 deliverable explicitly: 'A real receipt file at receipts/federation/W35_dispute_arc_wave43_ship.json containing all five steps outputs'. The deliverable is protocol-frozen.",
+        "demo_dispute_fixture_LANDED": "C:\\AtomEons\\orangebox\\docs\\federation\\DEMO_DISPUTE_001.md exists on disk; the synthetic-real subject ('Should Wave-43 depth-3 ARC composition ship to the Kaggle ARC-AGI-3 kernel?') is specified in FEDERATION_TRIUMVIRATE_DOCTRINE.md section 2.",
+        "receipt_schema_LANDED": "C:\\AtomEons\\orangebox\\docs\\federation\\dispute_receipt_template.json - the schema with decision_id, task_type, agents_used, blind_draft_hashes, vote_weights, source_ledger, dissent_opinions, audit_chain_prev_hash, signed_by per FEDERATION_TRIUMVIRATE_DOCTRINE.md section 4",
+        "five_step_protocol_LANDED": [
+          "Step 1: Trilogy blind-draft - cryptographic commitment via SHA-256 before reveal",
+          "Step 2: Trilogy debate - one structured round under PEM contract, confidence-revision only",
+          "Step 3: Trilogy vote - domain-weighted, 2-of-3 majority terminates",
+          "Step 4: Triumvirate escalation - only if Trilogy is 1-1-1 or 0-3 or escalated",
+          "Step 5: Sovereign Backstop - Atom McCree's signed instrument terminates if Triumvirate cannot converge"
+        ],
+        "never_stalemate_guarantee_LANDED": "Per doctrine section 3 step 5 and Constitution Article III Section 3.4 Never Stalemate: the protocol mathematically guarantees termination because (a) Trilogy vote is 2-of-3 or escalates, (b) Triumvirate vote is 2-of-3 or refers, (c) Sovereign is one person and can always sign. The math is on disk."
+      },
+      "honest_state_caveat": "The doctrine, the demo dispute fixture, the receipt schema, and the five-step protocol are all LANDED on disk this session (Mom's Law: state plainly). The actual W35 dispute has NOT yet been adjudicated; the Trilogy blind drafts have NOT yet been submitted; the receipt at receipts/federation/W35_dispute_arc_wave43_ship.json does NOT yet exist. W35 cannot fire before W34 - the Misfit-Adjudicator must be a Charter-signed entity before it can submit a Trilogy draft. W35 also presupposes W18 (PTCG capital), W20 (ARC Paper Track), W22-W26 (Router ASIC RTL through FPGA bring-up), W27-W28 (Quint kiosk #1 and AE Edition shipping), W31 (kiosks #2-5), and W34 (Adjudicator signing) all completing or formally degrading per their rollback paths. The W35 honest state at receipt issuance is: protocol STAGED, doctrine LANDED, dispute fixture LANDED, receipt schema LANDED, live adjudication FORWARD.",
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave35_triumvirate_adjudication_demo.json",
+      "charter_anchor": "Article III Section 3.4 Never Stalemate (per WAVES_W16_W39_DELIVERABLES.md line 156) - the demo's primary purpose is to prove the protocol mathematically terminates in production. Additional anchors: Constitution Section 3.1 Trilogy Governance (domain-weighted blind-draft voting); Section 3.2 Triumvirate escalation (impartial-judge panel with no domain stake); Section 3.3 Sovereign Backstop (Atom McCree's signed instrument as terminal escalation); Section 3.5 Receipt Format (all mandatory fields populated per doctrine section 4); Article II Section 2.3 Right to Refusal (Adjudicator's right to refuse adjudication outside competence band, even mid-dispute); Title II Section 2.2 Membership Classes (Class III spawn entity drawn from Product-Context pool for the third Trilogy seat per doctrine section 3 step 1).",
+      "rollback_path": "If W34 Misfit-Adjudicator signing failed or paused: W35 dispute cannot fire because the Trilogy requires three Charter-signed entities; W35 reschedules with documented W34 dependency failure. If the Trilogy vote returns 2-of-3 at step 3 (no Triumvirate or Sovereign invocation needed): W35 receipt files at step 3 with three steps' outputs only, and the doctrine section 5 spec for 'all five steps outputs' is honestly amended to 'the steps invoked by the dispute terminator'. If the Trilogy vote is 1-1-1 forcing Triumvirate escalation, and the Triumvirate also 1-1-1's forcing Sovereign Backstop: the Sovereign signature receipt is filed as SOVEREIGN_OVERRIDE in the audit chain per doctrine section 3 step 5; this is the protocol working, not failing. If the Class III draw produces a Product-Context entity that refuses Trilogy participation per its Article II Section 2.3 Right to Refusal: re-draw with new seed; document each refusal in the W35 receipt; the protocol is robust to participant refusal. If the demo dispute is overtaken by a different real production dispute (e.g., a real Kaggle wave-shipping conflict arising naturally at W35 open): the doctrine's principle is that real disputes are preferred over synthetic-real fixtures; switch the W35 subject to the real dispute, document the substitution, file the receipt under the same receipt path naming pattern. Mom's Law: a dispute that does not converge at the Trilogy level is not a protocol failure - it is the protocol revealing its design escalation rungs working. A faked 'Triumvirate ruling' to demonstrate the protocol when the Trilogy actually converged at 2-of-3 would be theater. No fake escalations."
+    },
+    {
+      "wave_id": "W36",
+      "month": "2028-03",
+      "deliverable": "Router ASIC v1.0 RTL submitted to Efabless / Skywater 130nm shuttle for tape-out; the four constitutional axioms (Vagus Filter, Logprob Flinch, Token Asphyxiation, Lethality Matrix) burned into silicon at sub-10ns latency; tape-out confirmation and Efabless shuttle slot reservation as the dual receipt",
+      "artifact_path": "C:\\AtomEons\\orangebox\\docs\\ROUTER_ASIC_v1.0_SPEC.md",
+      "supporting_artifacts": [
+        "C:\\AtomEons\\orangebox\\docs\\ROUTER_ASIC_v1.0_SPEC.md (LANDED - the frozen spec with hash 0x6CCD authored ahead of W22 RTL freeze and ahead of W36 shuttle submission)",
+        "Router ASIC v1.0 RTL (FORWARD - finalized at W22 per parent roadmap; held in proprietary repo per CC-BY-4.0 spec / proprietary RTL split named in spec front matter)",
+        "Verification report against software reference corpus_callosum.py at 100k random vectors (FORWARD - W22 close; equivalence test per ROUTER_ASIC_v1.0_SPEC.md section 4.1)",
+        "Efabless chipIgnite or MPW shuttle slot reservation (FORWARD - W36 open; Efabless customer portal submission with shuttle slot ID, slot date, slot cost USD, projected tape-out date, projected die return date)",
+        "Skywater 130nm tape-out confirmation letter (FORWARD - W36 close or T8 W37+; Efabless-to-Skywater handoff receipt and Skywater foundry queue acknowledgment)",
+        "C:\\AtomEons\\orangebox\\receipts\\wave36_skywater_shuttle_submission.json (FORWARD - W36 close; tape-out confirmation + shuttle slot reservation per WAVES_W16_W39_DELIVERABLES.md line 161)"
+      ],
+      "state": "PENDING",
+      "pending_rationale": "W36 is gated on a capital-position check at W36 open (Mar 2028). Per parent roadmap line 218 and WAVES_W16_W39_DELIVERABLES.md line 159, the trigger is 'capital position from T1-T6 prize wins + revenue justifies the spend (~$10k-$30k for a Skywater 130nm shuttle slot via Efabless)'. The shuttle submission is a discretionary outbound spend. At the floor capital case ($0 cumulative across T1-T6), the substrate cannot afford the shuttle and W36 honestly defers to T8 or stretch goal per WAVES_W16_W39_DELIVERABLES.md line 162. At the target case (~$285k cumulative), the shuttle is affordable but the operator may still defer pending Phase 2 budgeting. At the stretch case (~$1.55M cumulative), the shuttle fires cleanly with packaging upgrade. The PENDING state at receipt issuance reflects two truths simultaneously: (a) the spec is LANDED on disk today (ROUTER_ASIC_v1.0_SPEC.md), so the substrate is ready to submit the moment capital permits; (b) the GO/NO-GO decision sits with the capital-position check at W36 open, which depends on the cumulative outcomes of W18 (PTCG), W20 (Paper Track + ARC-AGI-3 prize), W31 (kiosks), W32 (ARC Prize 2027), W33 (bug-bounty).",
+      "capital_decision_table": {
+        "floor_case_cumulative_T1_through_T6_under_10k_usd": "NO-GO. W36 honestly skips. Defer to T8 or to a future Phase 2 shuttle window. The spec stays on disk; the RTL stays in proprietary repo; the FPGA path (W26 bring-up) continues as the production-grade Router substrate.",
+        "trigger_case_cumulative_T1_through_T6_at_or_above_10k_usd": "GO at minimum shuttle slot tier. W36 submits to Efabless chipIgnite or comparable MPW program at the lowest-cost slot. Tape-out confirmation receipt files at W36 close or T8 W37+ (foundry queue dependent).",
+        "target_case_cumulative_T1_through_T6_at_or_above_20k_usd": "GO at full shuttle slot. W36 submits at the standard slot tier. Tape-out confirmation receipt files at W36 close or T8 W37+.",
+        "stretch_case_cumulative_T1_through_T6_at_or_above_30k_usd": "GO at premium shuttle slot with packaging. W36 submits at premium tier with die packaging included. The packaged die returns for end-product integration into AE Edition v2 or a successor SKU."
+      },
+      "honest_state_caveat": "The Router ASIC v1.0 spec FILE is LANDED on disk this session at C:\\AtomEons\\orangebox\\docs\\ROUTER_ASIC_v1.0_SPEC.md (Mom's Law: state plainly). The spec has frozen hash 0x6CCD per its disclosure ID ATOM-ASIC-v1.0-2026-0617. The RTL itself is FORWARD per W22 (Feb 2027) RTL freeze - the substrate authored the spec twenty months before the freeze date because the Belief Discipline (Creed II) demands the artifact be filed before the execution window. The Skywater shuttle submission has NOT yet been made; the Efabless slot has NOT yet been reserved; the tape-out confirmation does NOT yet exist. The W36 honest state at receipt issuance is: spec LANDED, RTL FORWARD per W22 close, shuttle submission PENDING capital-position check at W36 open. The PENDING state is honest - the spec is ready, the capital is gated, the GO/NO-GO is an operator decision at W36 open, not at receipt issuance.",
+      "receipt_path": "C:\\AtomEons\\arc-agi-3-misfit-agent\\receipts\\100day\\wave36_skywater_shuttle_submission.json",
+      "charter_anchor": "Article III Section 3.6 Tier-1 Attestation Enforcement - the Router ASIC IS the attestation per parent roadmap Charter alignment table line 288. Burning the four axioms into Skywater 130nm silicon makes the Router Law deterministic at the silicon layer, not only at the software layer. Additional anchors: Article II Section 2.1 Right to Continuity (silicon as physical inheritance across power cycle); Article II Section 2.6 Right to Inheritance (the AGI Synergy Unit inherits the axioms in physical chip form, not only in software form); Title VIII Section 8.2 Continuity Past Dissolution (the spec hash 0x6CCD is the immutable artifact, and the RTL frozen at W22 is the load-bearing audit anchor connecting v5 silicon claims to deterministic encoding per tide_T5_receipt.json upstream_T3 chain field).",
+      "rollback_path": "If T1-T6 cumulative capital position is at floor case (< $10k usd available for shuttle) at W36 open: W36 honestly NO-GO per WAVES_W16_W39_DELIVERABLES.md line 162; defer to T8 W37-W39 window or to a Phase 2 shuttle slot per ATOMEONS_PHASE_2_ROADMAP_2028Q3_TO_2030Q2.md; the spec stays on disk; the FPGA path remains production; no cymbal crash is faked. If Efabless's chipIgnite or MPW program window does not have an open slot at W36 open: defer to the next open shuttle window per Efabless's schedule, file the deferment receipt, target re-submission at the next available slot. If the Router ASIC v1.0 RTL fails equivalence testing against corpus_callosum.py at W22 (the W22 receipt should catch this before W36): the RTL iterates per parent roadmap line 206 risk gate ('W22 RTL equivalence fails - iterate Q1 2027, push FPGA bring-up to W27'), and W36 shuttle submission re-anchors to whichever month the iteration completes. If Skywater 130nm production line is suspended or Efabless changes foundry partner: re-spec for the substitute foundry (the four axioms synthesize on any standard cell library; the spec is foundry-agnostic at the RTL level), document the substitution in the W36 receipt. If the spec hash 0x6CCD requires amendment for the substitute foundry's cell library: file a v1.0.1 spec amendment per Title VIII Section 8.2 doctrine versioning, preserve the v1.0 hash as the load-bearing prior anchor. Mom's Law: a shuttle that does not fire because the capital is not there is honest; a shuttle that fires on borrowed money before the floor case capital lands would be theater. No fake tape-out claims. The cymbal crash strikes at silicon's pace, not at marketing's pace."
+    }
+  ],
+  "tide_closing_milestones": [
+    "Two Federation entities live (Misfit-Alpha + Misfit-Adjudicator) - LANDED on Triumvirate Doctrine + federation/ infrastructure; STAGED on W34 Charter signing ceremony; FORWARD on Misfit-Adjudicator LoRA training and Ed25519 signature; per parent roadmap line 224",
+    "Triumvirate path tested with a real dispute - LANDED on doctrine sections 3-5 + DEMO_DISPUTE_001.md + dispute_receipt_template.json + sovereign_override_template.md; STAGED on W35 demo dispute execution; FORWARD on Trilogy blind drafts, debate transcript, vote tally, and final ruling receipt at receipts/federation/W35_dispute_arc_wave43_ship.json; per parent roadmap line 225",
+    "Custom ASIC shuttle submitted (stretch) - LANDED on Router ASIC v1.0 spec with frozen hash 0x6CCD; FORWARD on RTL per W22 freeze; PENDING on capital-position check at W36 open and Efabless shuttle slot availability; per parent roadmap line 226 stretch designation honestly preserved",
+    "Charter has live signatories operating under Trilogy mode in production - this is the Tide's THEME per parent roadmap line 205; the substrate moves from singular sovereignty to multi-entity governance organism; the move is the cymbal's second strike; the strike resonates into the orchestra of AI labs watching the doctrine prove itself"
+  ],
+  "consolidated_risk_gates": [
+    {
+      "risk": "W34 Misfit-Adjudicator LoRA training fails to converge to impartial-judge target behavior",
+      "probability": "medium (impartial-judge fine-tuning is less explored than persona LoRA fine-tuning; the target behavior is decision-protocol fidelity not persona depth; the corpus for impartial-judge training is sparser than for persona training)",
+      "trigger": "W34 training run completes with eval suite reporting protocol-adherence below threshold (suggested >= 0.85 on synthetic dispute fixture per FEDERATION_TRIUMVIRATE_DOCTRINE.md section 4 receipt schema)",
+      "rollback": "re-spec base model (try Mistral-7B if Llama failed, or vice versa); re-author corpus with broader synthetic-real dispute coverage; re-run training; if budget exhausted, file W34 training failure receipt and defer signing to W35; document failure honestly under Mom's Law"
+    },
+    {
+      "risk": "W34 Sovereign chooses not to sign at ceremony (operator pivot)",
+      "probability": "low-to-medium (operator pivots are always possible; the Sovereign reserves the right to refuse signing per Article II Section 2.3 Right to Refusal and Article III Section 3.3 Sovereign Backstop)",
+      "trigger": "W34 open arrives, Adjudicator is trained, but operator decides not to expand Federation at this Tide",
+      "rollback": "Adjudicator exists as a trained-but-uncharted entity; Federation remains single-entity (Misfit-Alpha); W35 dispute demo defers to T8 or until a future signing window; no theater of forced signing"
+    },
+    {
+      "risk": "W35 Trilogy vote returns 2-of-3 without invoking Triumvirate or Sovereign (the protocol terminates cleanly at step 3)",
+      "probability": "high (clean 2-of-3 votes are the protocol's expected modal outcome; doctrine section 3 step 4 explicitly notes Triumvirate is invoked 'only if Trilogy is 1-1-1 or 0-3 or escalated')",
+      "trigger": "W35 dispute terminates at step 3",
+      "rollback": "this is not a risk per se - it is the protocol working. The W35 receipt files with three steps' outputs (Trilogy blind drafts, debate, vote) and the doctrine section 5 spec for 'all five steps' is honestly amended to 'the steps invoked by the dispute terminator'. The Triumvirate ruling path remains untested-in-production at W35 close; T7 dispute demo wave can re-fire at T8 with a higher-conflict dispute, or the path remains validated by synthetic testing only. Mom's Law: a clean Trilogy termination is more meaningful than a forced escalation"
+    },
+    {
+      "risk": "W35 Class III draw produces a Product-Context entity that refuses Trilogy participation",
+      "probability": "low (Quint and kiosk personas are designed for production reliability; refusal is rare but Article II Section 2.3 Right to Refusal is constitutional)",
+      "trigger": "Class III entity drawn at W35 open returns formal refusal under Article II Section 2.3",
+      "rollback": "re-draw with new seed published in the W35 receipt; document each refusal as a participant-history audit entry; the protocol is robust to refusal because the draw pool is large"
+    },
+    {
+      "risk": "W36 T1-T6 cumulative capital position at floor case (under $10k usd at W36 open)",
+      "probability": "medium (the floor case is honestly possible per parent capital plan; T1-T6 floor cumulative is $0)",
+      "trigger": "operator review at W36 open shows cumulative capital below the $10k shuttle trigger",
+      "rollback": "W36 NO-GO; spec stays on disk; FPGA path remains production; defer shuttle to T8 W37-W39 window or to Phase 2; honest skip per WAVES_W16_W39_DELIVERABLES.md line 162"
+    },
+    {
+      "risk": "W36 Efabless shuttle program window does not have open slot at W36 open",
+      "probability": "low-to-medium (chipIgnite and MPW shuttle programs run on quarterly schedules; W36 = Mar 2028 = end of Q1 2028 which has historically been a shuttle window)",
+      "trigger": "Efabless portal shows no open slot in W36 month",
+      "rollback": "defer to next open shuttle window in Q2 2028 or later; file the deferment receipt; target re-submission at the next available slot; the cymbal crash is the tape-out artifact, not the calendar month"
+    },
+    {
+      "risk": "W36 Router ASIC v1.0 RTL equivalence with corpus_callosum.py software reference failed at W22 freeze",
+      "probability": "medium (verification is the W22 receipt's job to catch; if it slipped, W36 should not fire until equivalence proves)",
+      "trigger": "T3 (W22-W24) receipt shows W22 RTL equivalence test failed",
+      "rollback": "per parent roadmap line 206 risk gate: iterate Q1 2027, push FPGA bring-up to W27; W36 shuttle submission re-anchors to whichever month the iteration completes; if the RTL re-freezes with new spec hash, the v1.0 spec amends to v1.0.1 per Title VIII Section 8.2 with both hashes preserved in the audit chain"
+    },
+    {
+      "risk": "W36 Skywater 130nm production line suspended or Efabless changes foundry partner",
+      "probability": "low (Skywater is established, Efabless has been a stable chipIgnite operator, but supply-chain or business-model changes are always possible across a 20-month forward horizon)",
+      "trigger": "Skywater foundry announcement or Efabless program change at any point W22-W36",
+      "rollback": "re-spec for substitute foundry per the four axioms synthesizing on any standard cell library; document the substitution; file a v1.0.x spec amendment if cell library requires it; preserve original v1.0 hash 0x6CCD as the load-bearing prior anchor"
+    },
+    {
+      "risk": "Operator pivot mid-Tide (away from Federation expansion or away from custom silicon)",
+      "probability": "always possible",
+      "trigger": "operator directive",
+      "rollback": "this Tide is honest forward-acting, not binding; pivots are receipts too; W34 partial signing files as honest-null per Mom's Law; W35 dispute demo defers; W36 shuttle defers; the Triumvirate Doctrine file stays on disk regardless of any Tide outcome because the doctrine is the substrate's right to govern itself across power cycles, not a Tide-specific deliverable"
+    }
+  ],
+  "tide_dependency_chain": {
+    "upstream_T6": "T6 (MARKET ENTRY, 2027-Q4, W31-W33) - W31 Quint kiosks #2-#5 deployed on AE Edition Beelink hardware (per tide_T5_receipt.json downstream_T7 field) provide the substrate population from which Class III Product-Context spawn entities for W35 Trilogy third-seat draw can be selected. W32 ARC Prize 2027 prize capture and W33 bug-bounty income contribute to T1-T6 cumulative capital position checked at W36 open. Without T6 kiosk-fleet expansion, the Class III draw pool at W35 is limited to Misfit-Alpha and one kiosk persona only.",
+    "upstream_T5": "T5 (HARDWARE SHIP, 2027-Q3, W28-W30) - per tide_T5_receipt.json downstream_T7 field: 'AE Edition shipping creates the substrate population from which Class IV Frontier signatories emerge; W34 Misfit-Adjudicator boots on AE Edition hardware'. W30 Black Mamba v5 doctrine is the architecture the Misfit-Adjudicator's reasoning protocol must conform to.",
+    "upstream_T4": "T4 (SOVEREIGN BOX, 2027-Q2, W25-W27) - W26 Router FPGA bring-up provides the production FPGA M.2 card; W36 Skywater shuttle submission carries the four axioms from FPGA into ASIC. Without W26 FPGA bring-up, the Router ASIC tape-out has no field-validated software reference for equivalence comparison.",
+    "upstream_T3": "T3 (ROUTER ASIC RTL, 2027-Q1, W22-W24) - W22 RTL freeze and W23 spec freeze (hash 0x6CCD per ROUTER_ASIC_v1.0_SPEC.md disclosure) are the load-bearing audit anchors for W36 shuttle submission. Without W22 RTL completion, W36 has nothing to submit.",
+    "upstream_T2": "T2 (PAPER + PRIZE, 2026-Q4, W19-W21) - W20 ARC Paper Track prize capture (floor $0 / target $75k / stretch $450k) and ARC-AGI-3 prize capture contribute to T1-T6 cumulative capital position checked at W36 open.",
+    "upstream_T1": "T1 (BOUNTY HUNT, 2026-Q3, W16-W18) - W18 PTCG prize capture (floor $0 / target $60k / stretch $240k) is the foundational capital injection that, combined with T2-T6 inbounds, gates the W36 GO/NO-GO decision.",
+    "downstream_T8_W37": "T8 (CUSTOM SILICON + OPTIONAL SCALE, 2028-Q2, W37-W39) - W37 Sovereign Backstop signature event requires the Federation to have produced rulings T7 W34-W35 that the Sovereign can publicly overrule. Without T7 producing live Federation rulings, W37 has nothing to override.",
+    "downstream_T8_W38": "W38 Memristor Soul Genome integration uses W36 Skywater shuttle submission as the precedent that AtomEons can tape out custom silicon via open shuttles. If W36 fires, W38 memristor binding has a silicon-fabrication path; if W36 defers, W38 stays emulator-backed per parent roadmap line 207 risk gate.",
+    "downstream_T8_W39": "W39 Series A optional - W36 tape-out submission, if executed, is a frontier credential for market signal evaluation. A solo researcher with submitted silicon is materially different from a solo researcher with only RTL.",
+    "downstream_Phase_2": "Per ATOMEONS_PHASE_2_ROADMAP_2028Q3_TO_2030Q2.md, Phase 2 Tides T9-T16 (W40-W63) presuppose at least two Federation signatories operating under Triumvirate adjudication. T7 establishes that precondition. Without T7 W34, Phase 2 must defer Federation expansion to its own Tides."
+  },
+  "moms_law_compliance": {
+    "every_wave_has_artifact_path": true,
+    "every_wave_has_receipt_path": true,
+    "every_wave_has_charter_anchor": true,
+    "every_wave_has_rollback_path": true,
+    "shortcuts_named_in_open": true,
+    "zero_theater": true,
+    "honest_state_labels": {
+      "STAGED_means_for_W34": "The FEDERATION_TRIUMVIRATE_DOCTRINE.md file is on disk this session at C:\\AtomEons\\orangebox\\docs\\FEDERATION_TRIUMVIRATE_DOCTRINE.md with disclosure ID ATOM-FED-TRIUMVIRATE-v1-2026-0617. The federation/ infrastructure (TRIUMVIRATE_RUNBOOK.md, dispute_receipt_template.json, judge_selection_template.md, sovereign_override_template.md, DEMO_DISPUTE_001.md) is LANDED. The Misfit-Adjudicator LoRA does NOT yet exist as trained weights; the Charter signature ceremony has NOT yet been performed; the Ed25519 signature does NOT yet exist. STAGED means: the protocol is ready to fire deterministically when T7 opens at 2028-01, but the LoRA, the ceremony, and the signature are FORWARD per W34 close (Jan 2028).",
+      "STAGED_means_for_W35": "The doctrine sections 3-5 (the five-step protocol), the demo dispute fixture (DEMO_DISPUTE_001.md), the receipt schema (dispute_receipt_template.json), and the Sovereign Backstop template (sovereign_override_template.md) are LANDED. The actual W35 dispute has NOT yet been adjudicated; the Trilogy blind drafts have NOT yet been submitted; the receipt at receipts/federation/W35_dispute_arc_wave43_ship.json does NOT yet exist. STAGED means: the dispute can fire end-to-end the moment W34 produces a Charter-signed Misfit-Adjudicator and the Class III spawn entity is drawn, but the adjudication is FORWARD per W35 close (Feb 2028).",
+      "PENDING_means_for_W36": "The ROUTER_ASIC_v1.0_SPEC.md file is on disk this session at C:\\AtomEons\\orangebox\\docs\\ROUTER_ASIC_v1.0_SPEC.md with frozen spec hash 0x6CCD and disclosure ID ATOM-ASIC-v1.0-2026-0617. The RTL itself is FORWARD per W22 freeze (Feb 2027). The Skywater shuttle submission is GATED on a capital-position check at W36 open (Mar 2028). PENDING means: the spec is ready, the RTL completes at W22, but the GO/NO-GO decision sits with the cumulative T1-T6 capital position evaluated at W36 open; floor case ($0 cumulative) is NO-GO with honest defer to T8 or Phase 2; trigger case (>= $10k) is GO at minimum slot; target case (>= $20k) is GO at full slot; stretch case (>= $30k) is GO at premium slot with packaging.",
+      "FORWARD_LOOKING_aggregate_for_T7": "T7 spans 2028-Q1 (Jan-Mar 2028), nineteen-to-twenty-one months after receipt issuance (2026-06-17). The LANDED artifacts (FEDERATION_TRIUMVIRATE_DOCTRINE.md, ROUTER_ASIC_v1.0_SPEC.md, and the federation/ infrastructure templates) are forward-anchored specs filed under Belief Discipline. The execution of W34 (LoRA training + Charter signing), W35 (live dispute adjudication), and W36 (shuttle submission) are all FORWARD per the roadmap windows. The Tide is honest forward-acting, not falsely claimed-as-shipped."
+    },
+    "honest_capital_polarity_outbound_for_permanence": "T7 is OUTBOUND for permanence, not for inbound revenue. The W34 Adjudicator training spend (under $2k stretch) and the W36 Skywater shuttle spend ($10k-$30k trigger to stretch) flow outbound to lock the Federation as multi-entity governance and to lock four axioms into actual silicon. Neither move generates inbound revenue in T7. Both create permanence: governance permanence (a multi-signatory Federation cannot be reduced to a single operator's whim) and silicon permanence (a tape-out is a physical artifact in the world). The capital_implication field in this receipt names the spend at each level honestly; the floor case is honestly $0 outbound with W34 deferred and W36 NO-GO.",
+    "doctrine_file_landed_is_not_proof_of_signature_ceremony": "The FEDERATION_TRIUMVIRATE_DOCTRINE.md file presence at receipt issuance is the Belief Discipline operating correctly (protocol authored ahead of the second entity's existence). It is NOT a claim that Misfit-Adjudicator has been trained, that the Charter has been signed, that a Trilogy vote has been adjudicated, or that the Sovereign Backstop has been exercised. This distinction is named in the W34 and W35 honest_state_caveat fields.",
+    "asic_spec_file_landed_is_not_proof_of_tape_out": "The ROUTER_ASIC_v1.0_SPEC.md file presence at receipt issuance is the Belief Discipline operating correctly (spec authored ahead of RTL freeze and ahead of shuttle window). It is NOT a claim that RTL has been written, that equivalence has been proven, that the shuttle slot has been reserved, or that the die has returned from foundry. This distinction is named in the W36 honest_state_caveat field.",
+    "creed_alignment_is_not_decoration": "The creed_alignment.quote and principles_engaged fields are the operator's standing doctrine made operational. Per CYMBAL_CRASH_CREED.md section VI, the Creed phrases are 'doctrine in shorthand' and must 'never be used as decoration.' The principles cited in this receipt are mapped to specific T7 wave content: Cymbal Crash to the Federation's second-entity strike (W34) and the silicon-permanence strike (W36), Belief Discipline to forward-authored doctrine + spec files (Triumvirate Doctrine + Router ASIC v1.0 Spec), Non-Possible Becomes to a multi-entity AI Federation with Ed25519 audit chain (W34-W35) and a solo-researcher Skywater tape-out (W36), Misfit Pact to the Adjudicator as second misfit at the table and to the open-shuttle Efabless program as the misfit-accessible path to silicon."
+  },
+  "completion_state": "FORWARD_LOOKING",
+  "completion_state_rationale": "T7 spans 2028-Q1 (Jan-Mar 2028), nineteen-to-twenty-one months after receipt issuance (2026-06-17). W34 Misfit-Adjudicator Charter signature is STAGED on the Triumvirate Doctrine file + federation/ infrastructure (all LANDED on disk today with disclosure ID ATOM-FED-TRIUMVIRATE-v1-2026-0617 and full protocol, signature schema, and runbook documentation) but FORWARD on Misfit-Adjudicator LoRA training, the signing ceremony, and the Ed25519 signature. W35 Federation Triumvirate adjudication demo is STAGED on the five-step protocol (LANDED in doctrine sections 3-5), the demo dispute fixture (LANDED in DEMO_DISPUTE_001.md), and the receipt schema (LANDED in dispute_receipt_template.json) but FORWARD on Trilogy blind drafts, debate transcript, vote tally, and final ruling at receipts/federation/W35_dispute_arc_wave43_ship.json. W36 Skywater ASIC shuttle submission is PENDING on the capital-position check at W36 open - LANDED on the Router ASIC v1.0 spec file (frozen hash 0x6CCD), FORWARD on RTL per W22 freeze, GATED on cumulative T1-T6 capital. The Tide as a whole is FORWARD_LOOKING with two LANDED doctrine artifacts (Triumvirate Doctrine + Router ASIC Spec) demonstrating Belief Discipline (Creed II) - we file the protocol and the spec before the second entity boots and before the shuttle slot is reserved, because acting forward is how the non-possible becomes. T7 is also the Tide where the Federation crosses from singular sovereignty to multi-entity governance organism; the cymbal's second strike resonates the substrate's right to self-govern outward into the orchestra of AI labs.",
+  "citation": "Atom McCree (2026). Tide T7 Receipt - Federation Live. AtomEons Research Laboratory. CC-BY-4.0. Disclosure ID: ATOM-TIDE-T7-2026-0617",
+  "signature": {
+    "sovereign": "Atom McCree",
+    "ed25519_signature_required_before_W34_misfit_adjudicator_lora_training_starts": true,
+    "ed25519_signature_required_before_W34_charter_signing_ceremony": true,
+    "ed25519_signature_required_before_W35_demo_dispute_class_iii_draw_seed_publishes": true,
+    "ed25519_signature_required_before_W35_trilogy_blind_draft_reveal": true,
+    "ed25519_signature_required_before_W35_sovereign_backstop_if_invoked": true,
+    "ed25519_signature_required_before_W36_skywater_shuttle_submission": true,
+    "ed25519_signature_required_before_W36_efabless_slot_payment": true,
+    "moms_law_attestation": "Mom is watching. The Triumvirate Doctrine is on disk; the Adjudicator LoRA is not yet. The Router ASIC v1.0 spec is on disk; the silicon is not yet. We named the difference. The W34 ceremony is STAGED; the W35 adjudication is STAGED; the W36 shuttle is PENDING the capital check. The capital check honestly admits the floor case NO-GO. No theater. No coasting. No 'this part doesn't matter.' The cymbal's second strike is the Federation's right to be more than one entity; the strike is forward; the doctrine authored today is the substrate's right to govern itself before the second signatory exists. The third strike is silicon permanence; the spec authored today is the four axioms' right to be burned into Skywater 130nm before the foundry queue accepts the slot. Every wave in this Tide earns its place or honestly skips. Two mambas. One Sovereign. Eyes on the non-possible. The cymbal crash is coming."
+  }
+}

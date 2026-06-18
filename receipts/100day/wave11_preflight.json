@@ -1,0 +1,69 @@
+{
+  "eval": {
+    "label": "eval",
+    "tasks_total": 120,
+    "wave11_fits_per_rule": {
+      "PatternCompleteByPeriodicity": 0,
+      "PatternCompleteBySymmetry": 0,
+      "PatternCompleteByTile": 0,
+      "BgHoleFillByOrbit": 0,
+      "MirrorFillByAxis": 0
+    },
+    "wave11_solves_per_rule": {
+      "PatternCompleteByPeriodicity": [],
+      "PatternCompleteBySymmetry": [],
+      "PatternCompleteByTile": [],
+      "BgHoleFillByOrbit": [],
+      "MirrorFillByAxis": []
+    },
+    "wave11_any_solver_solved_count": 0,
+    "wave11_any_solver_solved_ids": [],
+    "wave11_any_solver_solved_pct": 0.0,
+    "wall_clock_seconds": 49.0
+  },
+  "training": {
+    "label": "training",
+    "tasks_total": 1000,
+    "wave11_fits_per_rule": {
+      "PatternCompleteByPeriodicity": 4,
+      "PatternCompleteBySymmetry": 4,
+      "PatternCompleteByTile": 0,
+      "BgHoleFillByOrbit": 2,
+      "MirrorFillByAxis": 4
+    },
+    "wave11_solves_per_rule": {
+      "PatternCompleteByPeriodicity": [
+        "1d0a4b61",
+        "ea959feb"
+      ],
+      "PatternCompleteBySymmetry": [
+        "496994bd",
+        "5751f35e",
+        "9ddd00f0",
+        "f25ffba3"
+      ],
+      "PatternCompleteByTile": [],
+      "BgHoleFillByOrbit": [
+        "1d0a4b61",
+        "ea959feb"
+      ],
+      "MirrorFillByAxis": [
+        "496994bd",
+        "5751f35e",
+        "9ddd00f0",
+        "f25ffba3"
+      ]
+    },
+    "wave11_any_solver_solved_count": 6,
+    "wave11_any_solver_solved_ids": [
+      "1d0a4b61",
+      "496994bd",
+      "5751f35e",
+      "9ddd00f0",
+      "ea959feb",
+      "f25ffba3"
+    ],
+    "wave11_any_solver_solved_pct": 0.6,
+    "wall_clock_seconds": 198.3
+  }
+}
