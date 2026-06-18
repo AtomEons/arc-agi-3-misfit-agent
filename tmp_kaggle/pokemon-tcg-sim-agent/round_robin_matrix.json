@@ -1,0 +1,132 @@
+{
+  "roster": [
+    {
+      "variant": "agent_v8",
+      "agent_module": "agent_v8",
+      "deck": "deck.csv (darkness)"
+    },
+    {
+      "variant": "v14_ensemble",
+      "agent_module": "agent_v14",
+      "deck": "deck.csv (darkness)"
+    },
+    {
+      "variant": "agent_v8_water",
+      "agent_module": "agent_v8_water",
+      "deck": "deck_water.csv"
+    },
+    {
+      "variant": "deck_psychic_v8",
+      "agent_module": "agent_v8_psychic",
+      "deck": "deck_psychic.csv"
+    }
+  ],
+  "games_per_pair": 10,
+  "pair_count": 6,
+  "total_games": 60,
+  "wall_clock_seconds": 148.2,
+  "pairs": [
+    {
+      "agent_a": "agent_v8",
+      "agent_b": "agent_v14",
+      "games": 10,
+      "wins_a": 3,
+      "wins_b": 7,
+      "draws": 0,
+      "errors": 0,
+      "win_rate_a": 0.3,
+      "ci_low": 0.108,
+      "ci_high": 0.603,
+      "wall_clock_seconds": 26.9,
+      "a_id": "agent_v8",
+      "b_id": "v14_ensemble",
+      "a_deck": "deck.csv (darkness)",
+      "b_deck": "deck.csv (darkness)"
+    },
+    {
+      "agent_a": "agent_v8",
+      "agent_b": "agent_v8_water",
+      "games": 10,
+      "wins_a": 10,
+      "wins_b": 0,
+      "draws": 0,
+      "errors": 0,
+      "win_rate_a": 1.0,
+      "ci_low": 0.722,
+      "ci_high": 1,
+      "wall_clock_seconds": 14.6,
+      "a_id": "agent_v8",
+      "b_id": "agent_v8_water",
+      "a_deck": "deck.csv (darkness)",
+      "b_deck": "deck_water.csv"
+    },
+    {
+      "agent_a": "agent_v8",
+      "agent_b": "agent_v8_psychic",
+      "games": 10,
+      "wins_a": 3,
+      "wins_b": 7,
+      "draws": 0,
+      "errors": 0,
+      "win_rate_a": 0.3,
+      "ci_low": 0.108,
+      "ci_high": 0.603,
+      "wall_clock_seconds": 37.6,
+      "a_id": "agent_v8",
+      "b_id": "deck_psychic_v8",
+      "a_deck": "deck.csv (darkness)",
+      "b_deck": "deck_psychic.csv"
+    },
+    {
+      "agent_a": "agent_v14",
+      "agent_b": "agent_v8_water",
+      "games": 10,
+      "wins_a": 7,
+      "wins_b": 3,
+      "draws": 0,
+      "errors": 0,
+      "win_rate_a": 0.7,
+      "ci_low": 0.397,
+      "ci_high": 0.892,
+      "wall_clock_seconds": 16.2,
+      "a_id": "v14_ensemble",
+      "b_id": "agent_v8_water",
+      "a_deck": "deck.csv (darkness)",
+      "b_deck": "deck_water.csv"
+    },
+    {
+      "agent_a": "agent_v14",
+      "agent_b": "agent_v8_psychic",
+      "games": 10,
+      "wins_a": 4,
+      "wins_b": 6,
+      "draws": 0,
+      "errors": 0,
+      "win_rate_a": 0.4,
+      "ci_low": 0.168,
+      "ci_high": 0.687,
+      "wall_clock_seconds": 38.7,
+      "a_id": "v14_ensemble",
+      "b_id": "deck_psychic_v8",
+      "a_deck": "deck.csv (darkness)",
+      "b_deck": "deck_psychic.csv"
+    },
+    {
+      "agent_a": "agent_v8_water",
+      "agent_b": "agent_v8_psychic",
+      "games": 10,
+      "wins_a": 0,
+      "wins_b": 10,
+      "draws": 0,
+      "errors": 0,
+      "win_rate_a": 0.0,
+      "ci_low": 0,
+      "ci_high": 0.278,
+      "wall_clock_seconds": 14.2,
+      "a_id": "agent_v8_water",
+      "b_id": "deck_psychic_v8",
+      "a_deck": "deck_water.csv",
+      "b_deck": "deck_psychic.csv"
+    }
+  ]
+}

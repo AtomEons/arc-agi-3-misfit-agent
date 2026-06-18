@@ -1,4 +1,4 @@
-"""AtomEons Misfit-TCG agent — v8_psychic ROUND-AWARE 2-PLY (psychic deck).
+"""AtomEons Misfit-TCG agent — v8_lightning ROUND-AWARE 2-PLY (lightning deck).
 
 v8 changes over v7:
 
@@ -42,11 +42,11 @@ from cg.api import (
 
 
 def read_deck_csv() -> list[int]:
-    file_path = "deck.csv"
+    file_path = "deck_lightning.csv"
     if not os.path.exists(file_path):
         candidates = [
-            "/kaggle_simulations/agent/deck.csv",
-            os.path.join(os.path.dirname(os.path.abspath(__file__)), "deck.csv"),
+            "/kaggle_simulations/agent/deck_lightning.csv",
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "deck_lightning.csv"),
         ]
         for c in candidates:
             if os.path.exists(c):
@@ -454,26 +454,26 @@ def _search_anchored_decision(obs, time_budget_ms: int = 180) -> list[int] | Non
                               opponent_deck=deck, opponent_prize=opp_prize,
                               opponent_hand=opp_hand,
                               opponent_active=opp_active)
-            ply1 = search_step(ss.searchId, [choice])
+            ply1 = search_step(ss, [choice])
             # If state is now opp's turn, simulate opp using same priority schema
             try:
                 ply1_obs = to_observation_class(ply1)
                 if ply1_obs.select is not None and ply1_obs.current is not None:
                     opp_choice = _priority_schema_decision(ply1_obs)
-                    ply2 = search_step(ss.searchId, opp_choice or [0])
+                    ply2 = search_step(ss, opp_choice or [0])
                     ply2_obs = to_observation_class(ply2)
                     score = _score_state(ply2_obs)
                 else:
                     score = _score_state(ply1_obs)
             except Exception:
                 score = _score_state(to_observation_class(ply1))
-            search_end()
+            search_end(ss)
             if score > best_score:
                 best_score = score
                 best_choice = [choice]
         except Exception:
             try:
-                search_end()
+                search_end(ss)
             except Exception:
                 pass
             continue

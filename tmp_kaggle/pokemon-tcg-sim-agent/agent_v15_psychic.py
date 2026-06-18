@@ -42,11 +42,11 @@ from cg.api import (
 
 
 def read_deck_csv() -> list[int]:
-    file_path = "deck.csv"
+    file_path = "deck_psychic.csv"
     if not os.path.exists(file_path):
         candidates = [
-            "/kaggle_simulations/agent/deck.csv",
-            os.path.join(os.path.dirname(os.path.abspath(__file__)), "deck.csv"),
+            "/kaggle_simulations/agent/deck_psychic.csv",
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), "deck_psychic.csv"),
         ]
         for c in candidates:
             if os.path.exists(c):
